@@ -1,0 +1,10 @@
+{
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "dev": [
+    {
+      "epoch": 0,
+      "dev_macro_f1": 0.8743
+    }
+  ],
+  "train_seconds": 870
+}
