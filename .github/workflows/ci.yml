@@ -11,7 +11,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: pip
       - run: pip install numpy scikit-learn pytest ruff
       - run: ruff check --select E9,F .
       - run: pytest -q
