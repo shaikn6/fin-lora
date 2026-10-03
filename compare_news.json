@@ -1,0 +1,62 @@
+{
+  "always neutral": {
+    "tweets": {
+      "n": 2388,
+      "accuracy": 0.6558,
+      "macro_f1": 0.264,
+      "recall_bearish": 0.0
+    },
+    "headlines (manual labels)": {
+      "n": 267,
+      "accuracy": 0.5843,
+      "macro_f1": 0.2459,
+      "recall_bearish": 0.0
+    },
+    "news snippets (NOSIBLE)": {
+      "n": 2000,
+      "accuracy": 0.411,
+      "macro_f1": 0.1942,
+      "recall_bearish": 0.0
+    }
+  },
+  "TF-IDF + logistic regression (same training mix)": {
+    "tweets": {
+      "n": 2388,
+      "accuracy": 0.7584,
+      "macro_f1": 0.6427,
+      "recall_bearish": 0.386
+    },
+    "headlines (manual labels)": {
+      "n": 267,
+      "accuracy": 0.7341,
+      "macro_f1": 0.4873,
+      "recall_bearish": 0.0
+    },
+    "news snippets (NOSIBLE)": {
+      "n": 2000,
+      "accuracy": 0.7165,
+      "macro_f1": 0.714,
+      "recall_bearish": 0.654
+    }
+  },
+  "FinBERT (zero-shot)": {
+    "tweets": {
+      "n": 2388,
+      "accuracy": 0.7253,
+      "macro_f1": 0.6682,
+      "recall_bearish": 0.761
+    },
+    "headlines (manual labels)": {
+      "n": 267,
+      "accuracy": 0.7116,
+      "macro_f1": 0.5586,
+      "recall_bearish": 0.25
+    },
+    "news snippets (NOSIBLE)": {
+      "n": 2000,
+      "accuracy": 0.7355,
+      "macro_f1": 0.7378,
+      "recall_bearish": 0.754
+    }
+  }
+}

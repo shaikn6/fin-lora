@@ -1,0 +1,4 @@
+{
+  "template": "Classify the financial sentiment of this text as Bearish, Bullish, or Neutral.\nText: {text}\nSentiment:",
+  "max_len": 256
+}

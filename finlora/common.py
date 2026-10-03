@@ -39,15 +39,27 @@ def prompt(text):
             f"Tweet: {text}\nSentiment:")
 
 
+def text_prompt(text):
+    """Domain-neutral prompt used by the news-capable models (tweets, headlines and article snippets)."""
+    return ("Classify the financial sentiment of this text as Bearish, Bullish, or Neutral.\n"
+            f"Text: {text}\nSentiment:")
+
+
+def prompt_config(max_len):
+    """What the serving side must reproduce exactly: the prompt template and the token window."""
+    return {"template": text_prompt("{text}"), "max_len": max_len}
+
+
 def label_token_ids(tok):
     ids = [tok(" " + l, add_special_tokens=False).input_ids[0] for l in LABELS]
     assert len(set(ids)) == 3, "label first-tokens must be distinct"
     return ids
 
 
-def encode(tok, texts, max_len=96):
+def encode(tok, texts, max_len=96, prompt_fn=prompt, pad_to_max=True):
     tok.padding_side = "left"
-    return tok([prompt(t) for t in texts], return_tensors="pt", padding="max_length", truncation=True, max_length=max_len)
+    return tok([prompt_fn(t) for t in texts], return_tensors="pt", padding="max_length" if pad_to_max else True,
+               truncation=True, max_length=max_len)
 
 
 def label_logits(model, enc, ids):
@@ -57,12 +69,12 @@ def label_logits(model, enc, ids):
 
 
 @torch.no_grad()
-def predict(model, tok, texts, bs=32):
+def predict(model, tok, texts, bs=32, max_len=96, prompt_fn=prompt, pad_to_max=True):
     ids = label_token_ids(tok)
     model.eval()
     preds = []
     for i in range(0, len(texts), bs):
-        preds.append(label_logits(model, encode(tok, texts[i:i + bs]), ids).argmax(-1).cpu())
+        preds.append(label_logits(model, encode(tok, texts[i:i + bs], max_len, prompt_fn, pad_to_max), ids).argmax(-1).cpu())
     return torch.cat(preds).numpy()
 
 

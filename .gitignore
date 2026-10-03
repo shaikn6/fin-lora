@@ -5,3 +5,5 @@ adapters/
 *.log
 *.npz
 profile_step.py
+exports/*.joblib
+train_news_*.log

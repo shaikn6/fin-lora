@@ -17,13 +17,21 @@ class TfidfLR:
     def proba(self, texts):
         return self.clf.predict_proba(self.vec.transform(texts))
 
+    @property
+    def pipeline(self):
+        """The fitted vectoriser + classifier as one sklearn Pipeline (what the API loads)."""
+        from sklearn.pipeline import make_pipeline
+
+        return make_pipeline(self.vec, self.clf)
+
 
 class CausalLabelLM:
     """Causal LM (optionally with a LoRA adapter) scored via its three label-token logits."""
 
-    def __init__(self, name, base, tok, adapter=None):
+    def __init__(self, name, base, tok, adapter=None, **encode_kw):
+        """``encode_kw`` is passed to ``encode`` (max_len, prompt_fn, pad_to_max)."""
         from peft import PeftModel
-        self.name, self.tok = name, tok
+        self.name, self.tok, self.encode_kw = name, tok, encode_kw
         self.model = PeftModel.from_pretrained(base, adapter) if adapter else base
         self.model.eval().to(DEVICE)
         self.ids = label_token_ids(tok)
@@ -33,7 +41,7 @@ class CausalLabelLM:
     def proba(self, texts, bs=32):
         out = []
         for i in range(0, len(texts), bs):
-            lg = label_logits(self.model, encode(self.tok, texts[i:i + bs]), self.ids)
+            lg = label_logits(self.model, encode(self.tok, texts[i:i + bs], **self.encode_kw), self.ids)
             out.append(torch.softmax(lg.float(), -1).cpu().numpy())
         return np.concatenate(out)
 
@@ -42,8 +50,9 @@ class FinBERT:
     """ProsusAI/finbert (finance-domain encoder, zero-shot). Its label order is mapped to ours."""
     name, params_m = "finbert (zero-shot)", 110.0
 
-    def __init__(self):
+    def __init__(self, max_len=96):
         from transformers import AutoModelForSequenceClassification, AutoTokenizer
+        self.max_len = max_len
         self.tok = AutoTokenizer.from_pretrained("ProsusAI/finbert")
         self.model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert").eval().to(DEVICE)
         l2i = {v.lower(): k for k, v in self.model.config.id2label.items()}
@@ -53,7 +62,7 @@ class FinBERT:
     def proba(self, texts, bs=64):
         out = []
         for i in range(0, len(texts), bs):
-            enc = self.tok(texts[i:i + bs], return_tensors="pt", padding=True, truncation=True, max_length=96).to(DEVICE)
+            enc = self.tok(texts[i:i + bs], return_tensors="pt", padding=True, truncation=True, max_length=self.max_len).to(DEVICE)
             out.append(torch.softmax(self.model(**enc).logits, -1)[:, self.order].cpu().numpy())
         return np.concatenate(out)
 

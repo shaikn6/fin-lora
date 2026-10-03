@@ -1,0 +1,20 @@
+{
+  "tweets": {
+    "n": 2388,
+    "accuracy": 0.9062,
+    "macro_f1": 0.8786,
+    "recall_bearish": 0.836
+  },
+  "headlines (manual labels)": {
+    "n": 267,
+    "accuracy": 0.618,
+    "macro_f1": 0.3289,
+    "recall_bearish": 0.0
+  },
+  "news snippets (NOSIBLE)": {
+    "n": 2000,
+    "accuracy": 0.456,
+    "macro_f1": 0.4537,
+    "recall_bearish": 0.483
+  }
+}

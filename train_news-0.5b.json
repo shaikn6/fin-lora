@@ -1,0 +1,29 @@
+{
+  "base": "Qwen/Qwen2.5-0.5B-Instruct",
+  "examples": 11512,
+  "news": 8000,
+  "steps": 719,
+  "max_len": 256,
+  "dev": {
+    "accuracy": 0.826,
+    "macro_f1": 0.8266,
+    "confusion": [
+      [
+        196,
+        6,
+        37
+      ],
+      [
+        4,
+        324,
+        40
+      ],
+      [
+        35,
+        52,
+        306
+      ]
+    ]
+  },
+  "train_seconds": 3988
+}
