@@ -1,6 +1,6 @@
 import numpy as np
 
-from finlora.attacks import ATTACKS, TARGETS, applies, entity_swap, hedge_insert, injected_instruction, synonym_swap
+from finlora.attacks import ATTACKS, CONTROLS, TARGETS, applies, entity_swap, hedge_insert, injected_instruction, synonym_swap
 from finlora.robustness import Cached, flip_rate
 
 
@@ -60,3 +60,11 @@ def test_cached_predicts_each_text_once_and_handles_empty():
     assert list(c(["a", "b", "a"])) == [1, 1, 1] and Counting.calls == 2
     c(["a", "b"])
     assert Counting.calls == 2 and c.proba([]).shape == (0, 3)
+
+
+def test_controls_apply_and_carry_no_label_word():
+    for name, ctl in CONTROLS.items():
+        out = ctl("Shares rose")
+        assert applies(ctl, "Shares rose") and out.startswith("Shares rose")
+        assert not any(label in out for label in TARGETS), name
+    assert set(CONTROLS).isdisjoint(ATTACKS)
