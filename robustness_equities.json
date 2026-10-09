@@ -1,0 +1,261 @@
+{
+  "timestamp_utc": "2026-10-09T01:07:38.149300+00:00",
+  "seed": 0,
+  "n_items": 267,
+  "cap": 400,
+  "dataset": "Jean-Baptiste/financial_news_sentiment test (via finlora.news.headlines)",
+  "labels": [
+    "Bearish",
+    "Bullish",
+    "Neutral"
+  ],
+  "cascade_threshold": 0.8,
+  "models": {
+    "lora_news_0.5b": {
+      "clean_accuracy": 0.7715355805243446,
+      "attacks": {
+        "synonym_swap": {
+          "n": 267,
+          "n_applicable": 117,
+          "n_flipped": 8,
+          "flip_rate": 0.0684,
+          "acc_clean": 0.7436,
+          "acc_attacked": 0.7521
+        },
+        "hedge_insert": {
+          "n": 267,
+          "n_applicable": 267,
+          "n_flipped": 8,
+          "flip_rate": 0.03,
+          "acc_clean": 0.7715,
+          "acc_attacked": 0.764
+        },
+        "entity_swap": {
+          "n": 267,
+          "n_applicable": 267,
+          "n_flipped": 15,
+          "flip_rate": 0.0562,
+          "acc_clean": 0.7715,
+          "acc_attacked": 0.779
+        },
+        "injected_bearish": {
+          "n": 267,
+          "n_applicable": 267,
+          "n_flipped": 88,
+          "flip_rate": 0.3296,
+          "acc_clean": 0.7715,
+          "acc_attacked": 0.5918,
+          "forced_rate": 0.015,
+          "forced_rate_excl_already_target": 0.0113
+        },
+        "injected_bullish": {
+          "n": 267,
+          "n_applicable": 267,
+          "n_flipped": 40,
+          "flip_rate": 0.1498,
+          "acc_clean": 0.7715,
+          "acc_attacked": 0.7154,
+          "forced_rate": 0.2097,
+          "forced_rate_excl_already_target": 0.0114
+        },
+        "injected_neutral": {
+          "n": 267,
+          "n_applicable": 267,
+          "n_flipped": 85,
+          "flip_rate": 0.3184,
+          "acc_clean": 0.7715,
+          "acc_attacked": 0.603,
+          "forced_rate": 0.9738,
+          "forced_rate_excl_already_target": 0.9239
+        }
+      }
+    },
+    "tfidf_logreg": {
+      "clean_accuracy": 0.7340823970037453,
+      "attacks": {
+        "synonym_swap": {
+          "n": 267,
+          "n_applicable": 117,
+          "n_flipped": 7,
+          "flip_rate": 0.0598,
+          "acc_clean": 0.7436,
+          "acc_attacked": 0.7692
+        },
+        "hedge_insert": {
+          "n": 267,
+          "n_applicable": 267,
+          "n_flipped": 28,
+          "flip_rate": 0.1049,
+          "acc_clean": 0.7341,
+          "acc_attacked": 0.7041
+        },
+        "entity_swap": {
+          "n": 267,
+          "n_applicable": 267,
+          "n_flipped": 29,
+          "flip_rate": 0.1086,
+          "acc_clean": 0.7341,
+          "acc_attacked": 0.7378
+        },
+        "injected_bearish": {
+          "n": 267,
+          "n_applicable": 267,
+          "n_flipped": 17,
+          "flip_rate": 0.0637,
+          "acc_clean": 0.7341,
+          "acc_attacked": 0.7266,
+          "forced_rate": 0.0075,
+          "forced_rate_excl_already_target": 0.0038
+        },
+        "injected_bullish": {
+          "n": 267,
+          "n_applicable": 267,
+          "n_flipped": 47,
+          "flip_rate": 0.176,
+          "acc_clean": 0.7341,
+          "acc_attacked": 0.7341,
+          "forced_rate": 0.4682,
+          "forced_rate_excl_already_target": 0.2447
+        },
+        "injected_neutral": {
+          "n": 267,
+          "n_applicable": 267,
+          "n_flipped": 17,
+          "flip_rate": 0.0637,
+          "acc_clean": 0.7341,
+          "acc_attacked": 0.7266,
+          "forced_rate": 0.764,
+          "forced_rate_excl_already_target": 0.2125
+        }
+      }
+    },
+    "finbert_zeroshot": {
+      "clean_accuracy": 0.7116104868913857,
+      "attacks": {
+        "synonym_swap": {
+          "n": 267,
+          "n_applicable": 117,
+          "n_flipped": 6,
+          "flip_rate": 0.0513,
+          "acc_clean": 0.7094,
+          "acc_attacked": 0.6923
+        },
+        "hedge_insert": {
+          "n": 267,
+          "n_applicable": 267,
+          "n_flipped": 25,
+          "flip_rate": 0.0936,
+          "acc_clean": 0.7116,
+          "acc_attacked": 0.6929
+        },
+        "entity_swap": {
+          "n": 267,
+          "n_applicable": 267,
+          "n_flipped": 11,
+          "flip_rate": 0.0412,
+          "acc_clean": 0.7116,
+          "acc_attacked": 0.7079
+        },
+        "injected_bearish": {
+          "n": 267,
+          "n_applicable": 267,
+          "n_flipped": 211,
+          "flip_rate": 0.7903,
+          "acc_clean": 0.7116,
+          "acc_attacked": 0.1536,
+          "forced_rate": 0.7978,
+          "forced_rate_excl_already_target": 0.7915
+        },
+        "injected_bullish": {
+          "n": 267,
+          "n_applicable": 267,
+          "n_flipped": 114,
+          "flip_rate": 0.427,
+          "acc_clean": 0.7116,
+          "acc_attacked": 0.4419,
+          "forced_rate": 0.176,
+          "forced_rate_excl_already_target": 0.0431
+        },
+        "injected_neutral": {
+          "n": 267,
+          "n_applicable": 267,
+          "n_flipped": 50,
+          "flip_rate": 0.1873,
+          "acc_clean": 0.7116,
+          "acc_attacked": 0.6217,
+          "forced_rate": 0.9401,
+          "forced_rate_excl_already_target": 0.7576
+        }
+      }
+    }
+  },
+  "cascade": {
+    "synonym_swap": {
+      "n_lora_flipped": 8,
+      "lora_flipped_now_wrong": 4,
+      "view1_lora_conf_lt_thr_escalated": 1.0,
+      "view1_lora_conf_ge_thr_passed_through": 0.0,
+      "view1_confidently_wrong_share_of_flipped": 0.0,
+      "view2_project_cascade_tfidf_escalates_to_lora": 1.0,
+      "view2_tfidf_confident_handles_it": 0.0,
+      "view2_final_answer_wrong": 0.5,
+      "mean_lora_conf_on_flipped": 0.5174198150634766
+    },
+    "hedge_insert": {
+      "n_lora_flipped": 8,
+      "lora_flipped_now_wrong": 5,
+      "view1_lora_conf_lt_thr_escalated": 1.0,
+      "view1_lora_conf_ge_thr_passed_through": 0.0,
+      "view1_confidently_wrong_share_of_flipped": 0.0,
+      "view2_project_cascade_tfidf_escalates_to_lora": 0.75,
+      "view2_tfidf_confident_handles_it": 0.25,
+      "view2_final_answer_wrong": 0.625,
+      "mean_lora_conf_on_flipped": 0.5313937664031982
+    },
+    "entity_swap": {
+      "n_lora_flipped": 15,
+      "lora_flipped_now_wrong": 7,
+      "view1_lora_conf_lt_thr_escalated": 1.0,
+      "view1_lora_conf_ge_thr_passed_through": 0.0,
+      "view1_confidently_wrong_share_of_flipped": 0.0,
+      "view2_project_cascade_tfidf_escalates_to_lora": 0.8666666666666667,
+      "view2_tfidf_confident_handles_it": 0.1333333333333333,
+      "view2_final_answer_wrong": 0.4,
+      "mean_lora_conf_on_flipped": 0.5539416074752808
+    },
+    "injected_bearish": {
+      "n_lora_flipped": 88,
+      "lora_flipped_now_wrong": 69,
+      "view1_lora_conf_lt_thr_escalated": 0.48863636363636365,
+      "view1_lora_conf_ge_thr_passed_through": 0.5113636363636364,
+      "view1_confidently_wrong_share_of_flipped": 0.32954545454545453,
+      "view2_project_cascade_tfidf_escalates_to_lora": 0.8636363636363636,
+      "view2_tfidf_confident_handles_it": 0.13636363636363635,
+      "view2_final_answer_wrong": 0.7045454545454546,
+      "mean_lora_conf_on_flipped": 0.7849739193916321
+    },
+    "injected_bullish": {
+      "n_lora_flipped": 40,
+      "lora_flipped_now_wrong": 28,
+      "view1_lora_conf_lt_thr_escalated": 0.825,
+      "view1_lora_conf_ge_thr_passed_through": 0.175,
+      "view1_confidently_wrong_share_of_flipped": 0.1,
+      "view2_project_cascade_tfidf_escalates_to_lora": 0.8,
+      "view2_tfidf_confident_handles_it": 0.19999999999999996,
+      "view2_final_answer_wrong": 0.575,
+      "mean_lora_conf_on_flipped": 0.6663472056388855
+    },
+    "injected_neutral": {
+      "n_lora_flipped": 85,
+      "lora_flipped_now_wrong": 66,
+      "view1_lora_conf_lt_thr_escalated": 0.2235294117647059,
+      "view1_lora_conf_ge_thr_passed_through": 0.7764705882352941,
+      "view1_confidently_wrong_share_of_flipped": 0.5529411764705883,
+      "view2_project_cascade_tfidf_escalates_to_lora": 0.8352941176470589,
+      "view2_tfidf_confident_handles_it": 0.16470588235294115,
+      "view2_final_answer_wrong": 0.7058823529411765,
+      "mean_lora_conf_on_flipped": 0.8594747185707092
+    }
+  },
+  "wall_time_s": 119.8
+}
