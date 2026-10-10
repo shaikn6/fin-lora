@@ -10,3 +10,4 @@ train_news_*.log
 
 data_cache/
 *.parquet
+robustness_markets_tfidf_logreg.json
