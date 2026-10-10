@@ -168,9 +168,23 @@ Versions are pinned; the install, the tests and the smoke run were checked in a 
 
 **Needs trained adapters:** `run_arena.py`, `eval_news.py`, `cascade_news.py`, `export_for_finarena.py`,
 `run_guard_compare.py`, and `run_robustness.py` / `run_robustness_markets.py` with their default model set or any
-`lora_*` model. They read the `adapters/` directory, which is gitignored. **The trained adapters are not published
-yet**, so these results can only be reproduced by training first (times are from the `train_*.json` files, on a laptop
-GPU):
+`lora_*` model. They read the `adapters/` directory, which is gitignored. The three news adapters are published on
+Hugging Face with model cards; download them into place instead of training:
+
+```bash
+python -c "
+from huggingface_hub import snapshot_download
+for name in ('0.5b', '0.5b-adv', '1.5b'):
+    snapshot_download(f'9mark9/fin-lora-news-qwen2.5-{name}', local_dir=f'adapters/news-{name}')
+"
+```
+
+- [9mark9/fin-lora-news-qwen2.5-0.5b](https://huggingface.co/9mark9/fin-lora-news-qwen2.5-0.5b) (v2)
+- [9mark9/fin-lora-news-qwen2.5-0.5b-adv](https://huggingface.co/9mark9/fin-lora-news-qwen2.5-0.5b-adv) (v3, planted-text augmentation)
+- [9mark9/fin-lora-news-qwen2.5-1.5b](https://huggingface.co/9mark9/fin-lora-news-qwen2.5-1.5b)
+
+The v1 tweets-only adapter (`adapters/qwen2.5-0.5b-instruct`) is not published. To train any of them yourself (times are
+from the `train_*.json` files, on a laptop GPU):
 
 | Adapter | Command | Time |
 |---|---|---|
