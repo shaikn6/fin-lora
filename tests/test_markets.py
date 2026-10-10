@@ -1,5 +1,4 @@
 """Offline tests for finlora.markets: schema and label mapping only (no network)."""
-import io
 import zipfile
 
 import pytest
