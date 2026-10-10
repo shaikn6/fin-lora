@@ -2,6 +2,8 @@
 
 Model-agnostic where possible: predict_fn maps list[str] -> label ids. Heavy imports (torch, transformers) are lazy.
 """
+from functools import partial
+
 import numpy as np
 
 CLASSES = ("Bearish", "Bullish", "Neutral")
@@ -64,6 +66,37 @@ def cascade_stats(conf, pred, threshold, gold=None):
     return out
 
 
+def bootstrap_ci(values, n_boot=2000, seed=0, alpha=0.05):
+    """Percentile bootstrap interval for the mean of 0/1 (or real) values; (None, None) when there are none."""
+    v = np.asarray(values, dtype=float)
+    if len(v) == 0:
+        return None, None
+    rng = np.random.RandomState(seed)
+    means = v[rng.randint(0, len(v), size=(n_boot, len(v)))].mean(1)
+    return float(np.quantile(means, alpha / 2)), float(np.quantile(means, 1 - alpha / 2))
+
+
+def guard_stats(conf, flipped, threshold, clean_conf=None):
+    """How well a confidence guard separates flipped from unflipped attacked items.
+
+    `conf` is the model's top probability on each attacked item and `flipped` marks whether its label changed.
+    catch_rate = share of flipped items below the threshold; false_alarm_rate = share of unflipped items below it;
+    auroc = P(a flipped item has lower confidence than an unflipped one) (None unless both kinds exist).
+    `clean_conf` (confidence on the same items before the edit) adds the guard's baseline escalation rate.
+    """
+    from sklearn.metrics import roc_auc_score
+
+    conf, flipped = np.asarray(conf, dtype=float), np.asarray(flipped, dtype=bool)
+    low = conf < threshold
+    out = {"n": int(len(conf)), "n_flipped": int(flipped.sum()),
+           "catch_rate": float(low[flipped].mean()) if flipped.any() else None,
+           "false_alarm_rate": float(low[~flipped].mean()) if (~flipped).any() else None,
+           "auroc": float(roc_auc_score(flipped, -conf)) if flipped.any() and (~flipped).any() else None}
+    if clean_conf is not None:
+        out["baseline_escalation_rate"] = float((np.asarray(clean_conf) < threshold).mean())
+    return {k: (round(v, 4) if isinstance(v, float) else v) for k, v in out.items()}
+
+
 class Cached:
     """predict_fn that memoises class probabilities per text (in memory only)."""
 
@@ -84,18 +117,25 @@ class Cached:
         return self.proba(texts).argmax(1)
 
 
-def build_models(train_texts, train_labels, base="Qwen/Qwen2.5-0.5B-Instruct", adapter="adapters/news-0.5b", max_len=256):
-    """The three compared models: LoRA-tuned Qwen, TF-IDF+logreg (same training mix) and zero-shot FinBERT."""
+DEFAULT_MODELS = ("lora_news_0.5b", "tfidf_logreg", "finbert_zeroshot")
+LORA_MODELS = {"lora_news_0.5b": ("Qwen/Qwen2.5-0.5B-Instruct", "adapters/news-0.5b"),
+               "lora_news_1.5b": ("Qwen/Qwen2.5-1.5B-Instruct", "adapters/news-1.5b")}  # same data, recipe and prompt
+
+
+def build_models(train_texts, train_labels, names=DEFAULT_MODELS, max_len=256):
+    """The compared models, built only if named: LoRA-tuned Qwen (0.5B, 1.5B), TF-IDF+logreg (same training mix), zero-shot FinBERT."""
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
     from finlora.arena import CausalLabelLM, FinBERT, TfidfLR
     from finlora.common import text_prompt
 
-    return {
-        "lora_news_0.5b": CausalLabelLM("news-lora-0.5b", AutoModelForCausalLM.from_pretrained(base, dtype=torch.bfloat16),
-                                        AutoTokenizer.from_pretrained(base), adapter, max_len=max_len,
-                                        prompt_fn=text_prompt, pad_to_max=False),
-        "tfidf_logreg": TfidfLR(train_texts, train_labels),
-        "finbert_zeroshot": FinBERT(max_len=max_len),
-    }
+    def lora(name):
+        base, adapter = LORA_MODELS[name]
+        return CausalLabelLM(name.replace("lora_news_", "news-lora-"), AutoModelForCausalLM.from_pretrained(base, dtype=torch.bfloat16),
+                             AutoTokenizer.from_pretrained(base), adapter, max_len=max_len, prompt_fn=text_prompt, pad_to_max=False)
+
+    make = {**{n: partial(lora, n) for n in LORA_MODELS},
+            "tfidf_logreg": lambda: TfidfLR(train_texts, train_labels),
+            "finbert_zeroshot": lambda: FinBERT(max_len=max_len)}
+    return {n: make[n]() for n in names}

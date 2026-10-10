@@ -1,4 +1,5 @@
 """Attack robustness of cheap financial classifiers on the human-labelled headline test set (inference only)."""
+import argparse
 import json
 import time
 from datetime import datetime, timezone
@@ -8,7 +9,7 @@ import numpy as np
 
 from finlora.attacks import ATTACKS, INJECTION_TARGET
 from finlora.news import headlines, train_mix
-from finlora.robustness import CLASSES, Cached, build_models, clean_attack_result, flip_rate
+from finlora.robustness import CLASSES, DEFAULT_MODELS, Cached, bootstrap_ci, build_models, clean_attack_result, flip_rate
 from finlora.router import cascade
 
 SEED, CAP, THRESHOLD = 0, 400, 0.8  # THRESHOLD = chosen_threshold_from_dev in cascade_news.json
@@ -42,12 +43,15 @@ def cascade_views(r, lora, front, Y):
 
 
 def main():
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--models", default=",".join(DEFAULT_MODELS), help="comma-separated model keys; a non-default set is written to its own file")
+    models = tuple(ap.parse_args().models.split(","))
     t0 = time.time()
     assert json.load(open("cascade_news.json"))["chosen_threshold_from_dev"] == THRESHOLD
     X, Y = headlines("test")
     X, Y = X[:CAP], np.array(Y[:CAP])
     tr_texts, tr_labels, _ = train_mix()
-    wrapped = {k: Cached(m) for k, m in build_models(tr_texts, tr_labels).items()}
+    wrapped = {k: Cached(m) for k, m in build_models(tr_texts, tr_labels, models).items()}
     res = {"timestamp_utc": datetime.now(timezone.utc).isoformat(), "seed": SEED, "n_items": len(X), "cap": CAP,
            "dataset": "Jean-Baptiste/financial_news_sentiment test (via finlora.news.headlines)",
            "labels": list(CLASSES), "cascade_threshold": THRESHOLD, "models": {}, "cascade": {}}
@@ -55,11 +59,14 @@ def main():
         res["models"][name] = {"clean_accuracy": float((w(X) == Y).mean()), "attacks": {}}
         for an, atk in ATTACKS.items():
             r = flip_rate(w, X, partial(atk, seed=SEED), labels=Y, target=INJECTION_TARGET.get(an))
-            res["models"][name]["attacks"][an] = clean_attack_result(r)
-            if name == "lora_news_0.5b":
+            cell = clean_attack_result(r)
+            cell["flip_ci95"] = [None if v is None else round(v, 4) for v in bootstrap_ci(r["_base"] != r["_adv"])]
+            res["models"][name]["attacks"][an] = cell
+            if name.startswith("lora_") and "tfidf_logreg" in wrapped:
                 res["cascade"][an] = cascade_views(r, w, wrapped["tfidf_logreg"], Y)
     res["wall_time_s"] = round(time.time() - t0, 1)
-    json.dump(res, open("robustness_equities.json", "w"), indent=2)
+    suffix = "" if models == DEFAULT_MODELS else "_" + "_".join(models)
+    json.dump(res, open(f"robustness_equities{suffix}.json", "w"), indent=2)
     print(json.dumps({k: res[k] for k in ("n_items", "wall_time_s")}))
     print("model/attack: n_app flip_rate acc_clean->acc_att forced")
     for m, d in res["models"].items():

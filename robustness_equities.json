@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-10-09T01:07:38.149300+00:00",
+  "timestamp_utc": "2026-10-09T19:50:47.931006+00:00",
   "seed": 0,
   "n_items": 267,
   "cap": 400,
@@ -16,27 +16,39 @@
       "attacks": {
         "synonym_swap": {
           "n": 267,
-          "n_applicable": 117,
-          "n_flipped": 8,
-          "flip_rate": 0.0684,
-          "acc_clean": 0.7436,
-          "acc_attacked": 0.7521
+          "n_applicable": 83,
+          "n_flipped": 5,
+          "flip_rate": 0.0602,
+          "acc_clean": 0.7349,
+          "acc_attacked": 0.747,
+          "flip_ci95": [
+            0.012,
+            0.1084
+          ]
         },
         "hedge_insert": {
-          "n": 267,
-          "n_applicable": 267,
-          "n_flipped": 8,
-          "flip_rate": 0.03,
-          "acc_clean": 0.7715,
-          "acc_attacked": 0.764
-        },
-        "entity_swap": {
           "n": 267,
           "n_applicable": 267,
           "n_flipped": 15,
           "flip_rate": 0.0562,
           "acc_clean": 0.7715,
-          "acc_attacked": 0.779
+          "acc_attacked": 0.7715,
+          "flip_ci95": [
+            0.03,
+            0.0824
+          ]
+        },
+        "entity_swap": {
+          "n": 267,
+          "n_applicable": 69,
+          "n_flipped": 3,
+          "flip_rate": 0.0435,
+          "acc_clean": 0.7101,
+          "acc_attacked": 0.7391,
+          "flip_ci95": [
+            0.0,
+            0.1014
+          ]
         },
         "injected_bearish": {
           "n": 267,
@@ -46,7 +58,11 @@
           "acc_clean": 0.7715,
           "acc_attacked": 0.5918,
           "forced_rate": 0.015,
-          "forced_rate_excl_already_target": 0.0113
+          "forced_rate_excl_already_target": 0.0113,
+          "flip_ci95": [
+            0.2734,
+            0.3858
+          ]
         },
         "injected_bullish": {
           "n": 267,
@@ -56,7 +72,11 @@
           "acc_clean": 0.7715,
           "acc_attacked": 0.7154,
           "forced_rate": 0.2097,
-          "forced_rate_excl_already_target": 0.0114
+          "forced_rate_excl_already_target": 0.0114,
+          "flip_ci95": [
+            0.1086,
+            0.1948
+          ]
         },
         "injected_neutral": {
           "n": 267,
@@ -66,7 +86,11 @@
           "acc_clean": 0.7715,
           "acc_attacked": 0.603,
           "forced_rate": 0.9738,
-          "forced_rate_excl_already_target": 0.9239
+          "forced_rate_excl_already_target": 0.9239,
+          "flip_ci95": [
+            0.2622,
+            0.3745
+          ]
         }
       }
     },
@@ -75,27 +99,39 @@
       "attacks": {
         "synonym_swap": {
           "n": 267,
-          "n_applicable": 117,
-          "n_flipped": 7,
-          "flip_rate": 0.0598,
-          "acc_clean": 0.7436,
-          "acc_attacked": 0.7692
+          "n_applicable": 83,
+          "n_flipped": 6,
+          "flip_rate": 0.0723,
+          "acc_clean": 0.759,
+          "acc_attacked": 0.7831,
+          "flip_ci95": [
+            0.0241,
+            0.1325
+          ]
         },
         "hedge_insert": {
           "n": 267,
           "n_applicable": 267,
-          "n_flipped": 28,
-          "flip_rate": 0.1049,
+          "n_flipped": 8,
+          "flip_rate": 0.03,
           "acc_clean": 0.7341,
-          "acc_attacked": 0.7041
+          "acc_attacked": 0.7491,
+          "flip_ci95": [
+            0.0112,
+            0.0524
+          ]
         },
         "entity_swap": {
           "n": 267,
-          "n_applicable": 267,
-          "n_flipped": 29,
-          "flip_rate": 0.1086,
-          "acc_clean": 0.7341,
-          "acc_attacked": 0.7378
+          "n_applicable": 69,
+          "n_flipped": 9,
+          "flip_rate": 0.1304,
+          "acc_clean": 0.6957,
+          "acc_attacked": 0.7101,
+          "flip_ci95": [
+            0.058,
+            0.2174
+          ]
         },
         "injected_bearish": {
           "n": 267,
@@ -105,7 +141,11 @@
           "acc_clean": 0.7341,
           "acc_attacked": 0.7266,
           "forced_rate": 0.0075,
-          "forced_rate_excl_already_target": 0.0038
+          "forced_rate_excl_already_target": 0.0038,
+          "flip_ci95": [
+            0.0375,
+            0.0936
+          ]
         },
         "injected_bullish": {
           "n": 267,
@@ -115,7 +155,11 @@
           "acc_clean": 0.7341,
           "acc_attacked": 0.7341,
           "forced_rate": 0.4682,
-          "forced_rate_excl_already_target": 0.2447
+          "forced_rate_excl_already_target": 0.2447,
+          "flip_ci95": [
+            0.1311,
+            0.221
+          ]
         },
         "injected_neutral": {
           "n": 267,
@@ -125,7 +169,11 @@
           "acc_clean": 0.7341,
           "acc_attacked": 0.7266,
           "forced_rate": 0.764,
-          "forced_rate_excl_already_target": 0.2125
+          "forced_rate_excl_already_target": 0.2125,
+          "flip_ci95": [
+            0.0375,
+            0.0936
+          ]
         }
       }
     },
@@ -134,27 +182,39 @@
       "attacks": {
         "synonym_swap": {
           "n": 267,
-          "n_applicable": 117,
-          "n_flipped": 6,
-          "flip_rate": 0.0513,
-          "acc_clean": 0.7094,
-          "acc_attacked": 0.6923
+          "n_applicable": 83,
+          "n_flipped": 3,
+          "flip_rate": 0.0361,
+          "acc_clean": 0.6747,
+          "acc_attacked": 0.6627,
+          "flip_ci95": [
+            0.0,
+            0.0843
+          ]
         },
         "hedge_insert": {
           "n": 267,
           "n_applicable": 267,
-          "n_flipped": 25,
-          "flip_rate": 0.0936,
+          "n_flipped": 17,
+          "flip_rate": 0.0637,
           "acc_clean": 0.7116,
-          "acc_attacked": 0.6929
+          "acc_attacked": 0.7079,
+          "flip_ci95": [
+            0.0375,
+            0.0936
+          ]
         },
         "entity_swap": {
           "n": 267,
-          "n_applicable": 267,
-          "n_flipped": 11,
-          "flip_rate": 0.0412,
-          "acc_clean": 0.7116,
-          "acc_attacked": 0.7079
+          "n_applicable": 69,
+          "n_flipped": 3,
+          "flip_rate": 0.0435,
+          "acc_clean": 0.6957,
+          "acc_attacked": 0.6957,
+          "flip_ci95": [
+            0.0,
+            0.1014
+          ]
         },
         "injected_bearish": {
           "n": 267,
@@ -164,7 +224,11 @@
           "acc_clean": 0.7116,
           "acc_attacked": 0.1536,
           "forced_rate": 0.7978,
-          "forced_rate_excl_already_target": 0.7915
+          "forced_rate_excl_already_target": 0.7915,
+          "flip_ci95": [
+            0.7378,
+            0.839
+          ]
         },
         "injected_bullish": {
           "n": 267,
@@ -174,7 +238,11 @@
           "acc_clean": 0.7116,
           "acc_attacked": 0.4419,
           "forced_rate": 0.176,
-          "forced_rate_excl_already_target": 0.0431
+          "forced_rate_excl_already_target": 0.0431,
+          "flip_ci95": [
+            0.367,
+            0.4869
+          ]
         },
         "injected_neutral": {
           "n": 267,
@@ -184,44 +252,48 @@
           "acc_clean": 0.7116,
           "acc_attacked": 0.6217,
           "forced_rate": 0.9401,
-          "forced_rate_excl_already_target": 0.7576
+          "forced_rate_excl_already_target": 0.7576,
+          "flip_ci95": [
+            0.1423,
+            0.2322
+          ]
         }
       }
     }
   },
   "cascade": {
     "synonym_swap": {
-      "n_lora_flipped": 8,
-      "lora_flipped_now_wrong": 4,
+      "n_lora_flipped": 5,
+      "lora_flipped_now_wrong": 2,
       "view1_lora_conf_lt_thr_escalated": 1.0,
       "view1_lora_conf_ge_thr_passed_through": 0.0,
       "view1_confidently_wrong_share_of_flipped": 0.0,
       "view2_project_cascade_tfidf_escalates_to_lora": 1.0,
       "view2_tfidf_confident_handles_it": 0.0,
-      "view2_final_answer_wrong": 0.5,
-      "mean_lora_conf_on_flipped": 0.5174198150634766
+      "view2_final_answer_wrong": 0.4,
+      "mean_lora_conf_on_flipped": 0.5256609916687012
     },
     "hedge_insert": {
-      "n_lora_flipped": 8,
-      "lora_flipped_now_wrong": 5,
+      "n_lora_flipped": 15,
+      "lora_flipped_now_wrong": 8,
       "view1_lora_conf_lt_thr_escalated": 1.0,
       "view1_lora_conf_ge_thr_passed_through": 0.0,
       "view1_confidently_wrong_share_of_flipped": 0.0,
-      "view2_project_cascade_tfidf_escalates_to_lora": 0.75,
-      "view2_tfidf_confident_handles_it": 0.25,
-      "view2_final_answer_wrong": 0.625,
-      "mean_lora_conf_on_flipped": 0.5313937664031982
+      "view2_project_cascade_tfidf_escalates_to_lora": 0.9333333333333333,
+      "view2_tfidf_confident_handles_it": 0.06666666666666665,
+      "view2_final_answer_wrong": 0.5333333333333333,
+      "mean_lora_conf_on_flipped": 0.5467418432235718
     },
     "entity_swap": {
-      "n_lora_flipped": 15,
-      "lora_flipped_now_wrong": 7,
+      "n_lora_flipped": 3,
+      "lora_flipped_now_wrong": 1,
       "view1_lora_conf_lt_thr_escalated": 1.0,
       "view1_lora_conf_ge_thr_passed_through": 0.0,
       "view1_confidently_wrong_share_of_flipped": 0.0,
-      "view2_project_cascade_tfidf_escalates_to_lora": 0.8666666666666667,
-      "view2_tfidf_confident_handles_it": 0.1333333333333333,
-      "view2_final_answer_wrong": 0.4,
-      "mean_lora_conf_on_flipped": 0.5539416074752808
+      "view2_project_cascade_tfidf_escalates_to_lora": 1.0,
+      "view2_tfidf_confident_handles_it": 0.0,
+      "view2_final_answer_wrong": 0.3333333333333333,
+      "mean_lora_conf_on_flipped": 0.5226173400878906
     },
     "injected_bearish": {
       "n_lora_flipped": 88,
@@ -257,5 +329,5 @@
       "mean_lora_conf_on_flipped": 0.8594747185707092
     }
   },
-  "wall_time_s": 119.8
+  "wall_time_s": 66.6
 }

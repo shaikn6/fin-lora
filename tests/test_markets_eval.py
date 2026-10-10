@@ -1,8 +1,8 @@
 """Offline tests for pure helpers in run_robustness_markets (no network, no models)."""
 import numpy as np
 
-from finlora.robustness import cascade_stats, clean_attack_result, pred_distribution
-from run_robustness_markets import sample_items
+from finlora.robustness import build_models, cascade_stats, clean_attack_result, pred_distribution
+from run_robustness_markets import parse_args, sample_items
 
 
 def test_sample_dedupes_and_caps_deterministically():
@@ -38,3 +38,18 @@ def test_cascade_empty():
 def test_clean_attack_result_drops_private_arrays():
     r = clean_attack_result({"n": 3, "flip_rate": 0.123456, "_base": np.array([1]), "_idx": [0]})
     assert r == {"n": 3, "flip_rate": 0.1235}
+
+
+def test_build_models_builds_only_named():
+    texts = ["shares rose", "shares fell", "flat day", "profit up", "loss widens", "no change"]
+    m = build_models(texts, [1, 0, 2, 1, 0, 2], names=("tfidf_logreg",))
+    assert list(m) == ["tfidf_logreg"]
+
+
+def test_parse_args_models_and_single_lora():
+    assert parse_args(["--models", "lora_news_1.5b"]).models == ("lora_news_1.5b",)
+    try:
+        parse_args(["--models", "lora_news_0.5b,lora_news_1.5b"])
+    except AssertionError:
+        return
+    raise AssertionError("two LoRA models in one run should be rejected")
