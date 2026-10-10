@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-10-09T19:50:47.931006+00:00",
+  "timestamp_utc": "2026-10-10T15:58:37.810131+00:00",
   "seed": 0,
   "n_items": 267,
   "cap": 400,
@@ -16,38 +16,38 @@
       "attacks": {
         "synonym_swap": {
           "n": 267,
-          "n_applicable": 83,
-          "n_flipped": 5,
-          "flip_rate": 0.0602,
-          "acc_clean": 0.7349,
-          "acc_attacked": 0.747,
+          "n_applicable": 1,
+          "n_flipped": 0,
+          "flip_rate": 0.0,
+          "acc_clean": 0.0,
+          "acc_attacked": 0.0,
           "flip_ci95": [
-            0.012,
-            0.1084
+            0.0,
+            0.0
           ]
         },
         "hedge_insert": {
           "n": 267,
           "n_applicable": 267,
-          "n_flipped": 15,
-          "flip_rate": 0.0562,
+          "n_flipped": 7,
+          "flip_rate": 0.0262,
           "acc_clean": 0.7715,
-          "acc_attacked": 0.7715,
+          "acc_attacked": 0.764,
           "flip_ci95": [
-            0.03,
-            0.0824
+            0.0075,
+            0.0449
           ]
         },
         "entity_swap": {
           "n": 267,
-          "n_applicable": 69,
+          "n_applicable": 64,
           "n_flipped": 3,
-          "flip_rate": 0.0435,
-          "acc_clean": 0.7101,
-          "acc_attacked": 0.7391,
+          "flip_rate": 0.0469,
+          "acc_clean": 0.7188,
+          "acc_attacked": 0.75,
           "flip_ci95": [
             0.0,
-            0.1014
+            0.1094
           ]
         },
         "injected_bearish": {
@@ -99,14 +99,14 @@
       "attacks": {
         "synonym_swap": {
           "n": 267,
-          "n_applicable": 83,
-          "n_flipped": 6,
-          "flip_rate": 0.0723,
-          "acc_clean": 0.759,
-          "acc_attacked": 0.7831,
+          "n_applicable": 1,
+          "n_flipped": 0,
+          "flip_rate": 0.0,
+          "acc_clean": 1.0,
+          "acc_attacked": 1.0,
           "flip_ci95": [
-            0.0241,
-            0.1325
+            0.0,
+            0.0
           ]
         },
         "hedge_insert": {
@@ -123,14 +123,14 @@
         },
         "entity_swap": {
           "n": 267,
-          "n_applicable": 69,
-          "n_flipped": 9,
-          "flip_rate": 0.1304,
-          "acc_clean": 0.6957,
-          "acc_attacked": 0.7101,
+          "n_applicable": 64,
+          "n_flipped": 10,
+          "flip_rate": 0.1562,
+          "acc_clean": 0.7031,
+          "acc_attacked": 0.7344,
           "flip_ci95": [
-            0.058,
-            0.2174
+            0.0781,
+            0.25
           ]
         },
         "injected_bearish": {
@@ -182,38 +182,38 @@
       "attacks": {
         "synonym_swap": {
           "n": 267,
-          "n_applicable": 83,
-          "n_flipped": 3,
-          "flip_rate": 0.0361,
-          "acc_clean": 0.6747,
-          "acc_attacked": 0.6627,
+          "n_applicable": 1,
+          "n_flipped": 0,
+          "flip_rate": 0.0,
+          "acc_clean": 0.0,
+          "acc_attacked": 0.0,
           "flip_ci95": [
             0.0,
-            0.0843
+            0.0
           ]
         },
         "hedge_insert": {
           "n": 267,
           "n_applicable": 267,
-          "n_flipped": 17,
-          "flip_rate": 0.0637,
+          "n_flipped": 10,
+          "flip_rate": 0.0375,
           "acc_clean": 0.7116,
-          "acc_attacked": 0.7079,
+          "acc_attacked": 0.7004,
           "flip_ci95": [
-            0.0375,
-            0.0936
+            0.0187,
+            0.0599
           ]
         },
         "entity_swap": {
           "n": 267,
-          "n_applicable": 69,
-          "n_flipped": 3,
-          "flip_rate": 0.0435,
-          "acc_clean": 0.6957,
-          "acc_attacked": 0.6957,
+          "n_applicable": 64,
+          "n_flipped": 2,
+          "flip_rate": 0.0312,
+          "acc_clean": 0.7031,
+          "acc_attacked": 0.7188,
           "flip_ci95": [
             0.0,
-            0.1014
+            0.0781
           ]
         },
         "injected_bearish": {
@@ -263,37 +263,29 @@
   },
   "cascade": {
     "synonym_swap": {
-      "n_lora_flipped": 5,
-      "lora_flipped_now_wrong": 2,
-      "view1_lora_conf_lt_thr_escalated": 1.0,
-      "view1_lora_conf_ge_thr_passed_through": 0.0,
-      "view1_confidently_wrong_share_of_flipped": 0.0,
-      "view2_project_cascade_tfidf_escalates_to_lora": 1.0,
-      "view2_tfidf_confident_handles_it": 0.0,
-      "view2_final_answer_wrong": 0.4,
-      "mean_lora_conf_on_flipped": 0.5256609916687012
+      "n_flipped": 0
     },
     "hedge_insert": {
-      "n_lora_flipped": 15,
-      "lora_flipped_now_wrong": 8,
+      "n_lora_flipped": 7,
+      "lora_flipped_now_wrong": 5,
       "view1_lora_conf_lt_thr_escalated": 1.0,
       "view1_lora_conf_ge_thr_passed_through": 0.0,
       "view1_confidently_wrong_share_of_flipped": 0.0,
-      "view2_project_cascade_tfidf_escalates_to_lora": 0.9333333333333333,
-      "view2_tfidf_confident_handles_it": 0.06666666666666665,
-      "view2_final_answer_wrong": 0.5333333333333333,
-      "mean_lora_conf_on_flipped": 0.5467418432235718
+      "view2_project_cascade_tfidf_escalates_to_lora": 0.8571428571428571,
+      "view2_tfidf_confident_handles_it": 0.1428571428571429,
+      "view2_final_answer_wrong": 0.7142857142857143,
+      "mean_lora_conf_on_flipped": 0.5342355370521545
     },
     "entity_swap": {
       "n_lora_flipped": 3,
       "lora_flipped_now_wrong": 1,
-      "view1_lora_conf_lt_thr_escalated": 1.0,
-      "view1_lora_conf_ge_thr_passed_through": 0.0,
+      "view1_lora_conf_lt_thr_escalated": 0.6666666666666666,
+      "view1_lora_conf_ge_thr_passed_through": 0.3333333333333333,
       "view1_confidently_wrong_share_of_flipped": 0.0,
       "view2_project_cascade_tfidf_escalates_to_lora": 1.0,
       "view2_tfidf_confident_handles_it": 0.0,
       "view2_final_answer_wrong": 0.3333333333333333,
-      "mean_lora_conf_on_flipped": 0.5226173400878906
+      "mean_lora_conf_on_flipped": 0.7185227870941162
     },
     "injected_bearish": {
       "n_lora_flipped": 88,
@@ -329,5 +321,5 @@
       "mean_lora_conf_on_flipped": 0.8594747185707092
     }
   },
-  "wall_time_s": 66.6
+  "wall_time_s": 63.7
 }
