@@ -1,5 +1,5 @@
 """LoRA fine-tune a small causal LM as a 3-way sentiment classifier by training the label-token logits."""
-import json, sys, time
+import argparse, json, time
 import numpy as np
 import torch
 import torch.nn.functional as F
@@ -8,7 +8,9 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from finlora.common import (DEVICE, adapter_dir, empty_cache, encode, label_logits, label_token_ids, lora_config, predict,
                             report, splits)
 
-name = sys.argv[1] if len(sys.argv) > 1 else "Qwen/Qwen2.5-0.5B-Instruct"
+ap = argparse.ArgumentParser(description=__doc__)
+ap.add_argument("name", nargs="?", default="Qwen/Qwen2.5-0.5B-Instruct", help="base model (default %(default)s); the adapter is written to adapters/<model name>")
+name = ap.parse_args().name
 out_dir = adapter_dir(name)
 EPOCHS, BS, LR = 1, 16, 2e-4
 torch.manual_seed(0)
