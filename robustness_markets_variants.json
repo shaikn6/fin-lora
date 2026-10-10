@@ -1,9 +1,14 @@
 {
-  "timestamp_utc": "2026-10-09T19:26:29.579330+00:00",
+  "timestamp_utc": "2026-10-10T17:44:27.849256+00:00",
   "seed": 0,
   "cap": 300,
   "mode": "variants",
   "cascade_threshold": 0.8,
+  "models": [
+    "lora_news_0.5b",
+    "tfidf_logreg",
+    "finbert_zeroshot"
+  ],
   "labels": [
     "Bearish",
     "Bullish",
@@ -578,7 +583,7 @@
           "baseline_escalation_rate": 0.12
         }
       },
-      "wall_time_s": 178.0
+      "wall_time_s": 186.1
     },
     "oil": {
       "n": 300,
@@ -1070,7 +1075,7 @@
           "baseline_escalation_rate": 0.3133
         }
       },
-      "wall_time_s": 161.1
+      "wall_time_s": 113.1
     },
     "gold": {
       "n": 300,
@@ -1562,7 +1567,7 @@
           "baseline_escalation_rate": 0.3
         }
       },
-      "wall_time_s": 109.4
+      "wall_time_s": 83.4
     },
     "central_bank": {
       "n": 300,
@@ -2054,7 +2059,7 @@
           "baseline_escalation_rate": 0.38
         }
       },
-      "wall_time_s": 162.2
+      "wall_time_s": 264.6
     },
     "crypto": {
       "n": 300,
@@ -2546,7 +2551,7 @@
           "baseline_escalation_rate": 0.48
         }
       },
-      "wall_time_s": 215.0
+      "wall_time_s": 312.4
     }
   },
   "notes": [
@@ -2555,5 +2560,5 @@
     "Sentiment preservation of the benign attacks is not human-verified.",
     "No real-world trading harm is claimed."
   ],
-  "wall_time_s": 848.1
+  "wall_time_s": 982.1
 }
