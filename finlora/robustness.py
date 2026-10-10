@@ -119,7 +119,8 @@ class Cached:
 
 DEFAULT_MODELS = ("lora_news_0.5b", "tfidf_logreg", "finbert_zeroshot")
 LORA_MODELS = {"lora_news_0.5b": ("Qwen/Qwen2.5-0.5B-Instruct", "adapters/news-0.5b"),
-               "lora_news_1.5b": ("Qwen/Qwen2.5-1.5B-Instruct", "adapters/news-1.5b")}  # same data, recipe and prompt
+               "lora_news_1.5b": ("Qwen/Qwen2.5-1.5B-Instruct", "adapters/news-1.5b"),  # same data, recipe and prompt
+               "lora_news_0.5b_adv": ("Qwen/Qwen2.5-0.5B-Instruct", "adapters/news-0.5b-adv")}  # + planted-text augmentation
 
 
 def build_models(train_texts, train_labels, names=DEFAULT_MODELS, max_len=256):

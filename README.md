@@ -22,6 +22,9 @@ laptop GPU).
   on 73-98%, so size changes which phrasing works rather than removing the weakness. TF-IDF and FinBERT react to any appended
   text. A 0.8 confidence gate escalates 12-48% of clean items and misses about half of the "push to Neutral" flips;
   disagreement with FinBERT catches attacks that fool the two models differently, not ones that fool both.
+- **Adversarial training** (`train_news.py ... 16 1 0.3`: 30% of training texts get a planted instruction or polite request,
+  true label kept) cuts the Neutral instruction from 22-82% to 3-15% with no clear accuracy cost, but the unseen
+  annotation phrasing still forces Bullish on 34-55%.
 - **Not shown:** nothing about trading losses; nothing larger than 1.5B; harmless rewordings not yet human-rated; FX, bonds
   and banks untested (no suitable labeled data found). Financial PhraseBank accuracy is not meaningful (FinBERT was trained
   on it), so equities accuracy comes from the separate 267-headline run.

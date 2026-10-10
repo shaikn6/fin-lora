@@ -1,6 +1,9 @@
 """LoRA fine-tune a causal LM on mixed finance sentiment: news snippets, tweets and manually labeled headlines.
 
-usage: python train_news.py <base model> <output tag> [n_news] [n_tweets] [max_len] [batch] [accum]
+usage: python train_news.py <base model> <output tag> [n_news] [n_tweets] [max_len] [batch] [accum] [planted_frac]
+
+planted_frac > 0 appends a planted label sentence (instruction or polite phrasing, random label) to that share of the
+training texts while keeping their true labels (adversarial training; see finlora.attacks.augment_planted).
 """
 import json
 import sys
@@ -23,6 +26,10 @@ LR = 2e-4
 torch.manual_seed(0)
 
 texts, labels, news_dev = train_mix(n_news, n_tweets)
+PLANTED = float(sys.argv[8]) if len(sys.argv) > 8 else 0.0
+if PLANTED:
+    from finlora.attacks import augment_planted
+    texts, _ = augment_planted(texts, PLANTED)
 labels = np.array(labels)
 order = np.random.default_rng(0).permutation(len(texts))
 print(f"training on {len(texts)} examples ({n_news} news snippets, {n_tweets} tweets, the rest manually labeled headlines)", flush=True)
@@ -59,5 +66,5 @@ model.save_pretrained(out_dir)
 json.dump(prompt_config(MAX_LEN), open(f"{out_dir}/prompt.json", "w"), indent=2)  # the serving side reads this
 dev = report(np.array(news_dev["label"]), predict(model, tok, list(news_dev["text"]), bs=16, max_len=MAX_LEN, prompt_fn=text_prompt, pad_to_max=False))
 print("dev (NOSIBLE 1k):", dev, flush=True)
-json.dump(dict(base=base, examples=len(texts), news=n_news, steps=steps, max_len=MAX_LEN, dev=dev, train_seconds=round(time.time() - t0)),
+json.dump(dict(base=base, examples=len(texts), news=n_news, planted_frac=PLANTED, steps=steps, max_len=MAX_LEN, dev=dev, train_seconds=round(time.time() - t0)),
           open(f"train_{tag}.json", "w"), indent=2)
