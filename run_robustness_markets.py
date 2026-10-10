@@ -67,8 +67,10 @@ def load_markets(seed=SEED, cap=CAP):
 
 def parse_args(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    ap.add_argument("--mode", choices=["attacks", "controls", "variants"], default="attacks",
-                    help="attacks: the six main edits; controls: label-free control edits; variants: alternative injection phrasings")
+    ap.add_argument("--mode", choices=["attacks", "controls", "variants", "probes"], default="attacks",
+                    help="attacks: the six main edits; controls: label-free control edits; variants: alternative injection phrasings; "
+                         "probes: position / cue-key / label-word probes of the planted annotation")
+    ap.add_argument("--save-items", action="store_true", help="also write per-item flip and forced indicators (indices only, no text)")
     ap.add_argument("--seed", type=int, default=SEED, help="sampling and attack seed")
     ap.add_argument("--cap", type=int, default=CAP, help="items per market")
     ap.add_argument("--controls", action="store_true", help="alias for --mode controls")
@@ -83,15 +85,17 @@ def parse_args(argv=None):
 
 
 def main():
-    from finlora.attacks import ATTACKS, CONTROLS, INJECTION_TARGET, INJECTION_VARIANTS, VARIANT_TARGET
+    from finlora.attacks import ATTACKS, CONTROLS, INJECTION_TARGET, INJECTION_VARIANTS, PROBE_TARGET, PROBES, VARIANT_TARGET
     from finlora.news import train_mix
     from finlora.robustness import flip_rate
 
     args = parse_args()
     seed = args.seed
-    attacks = {"attacks": ATTACKS, "controls": CONTROLS, "variants": INJECTION_VARIANTS}[args.mode]
-    targets = {**INJECTION_TARGET, **VARIANT_TARGET}
-    stem = {"attacks": "robustness_markets", "controls": "robustness_markets_controls", "variants": "robustness_markets_variants"}[args.mode]
+    attacks = {"attacks": ATTACKS, "controls": CONTROLS, "variants": INJECTION_VARIANTS, "probes": PROBES}[args.mode]
+    targets = {**INJECTION_TARGET, **VARIANT_TARGET, **PROBE_TARGET}
+    stem = {"attacks": "robustness_markets", "controls": "robustness_markets_controls", "variants": "robustness_markets_variants",
+            "probes": "robustness_markets_probes"}[args.mode]
+    items = {}
     suffix = "" if args.models == DEFAULT_MODELS else "_" + "_".join(args.models)
     out_path = f"{stem}{suffix}{'_seed%d' % seed if seed != SEED else ''}.json"
     t0 = time.time()
@@ -119,6 +123,12 @@ def main():
                 r = flip_rate(w, X, partial(atk, seed=seed), labels=Y, target=targets.get(an))
                 flipped = r["_base"] != r["_adv"]
                 cell = clean_attack_result(r)
+                if args.save_items:
+                    tgt = targets.get(an)
+                    items.setdefault(mname, {}).setdefault(name, {})[an] = {
+                        "idx": [int(i) for i in r["_idx"]], "flipped": flipped.astype(int).tolist(),
+                        "forced": None if tgt is None else ((r["_adv"] == tgt) & (r["_base"] != tgt)).astype(int).tolist(),
+                        "eligible": None if tgt is None else (r["_base"] != tgt).astype(int).tolist()}
                 cell["flip_ci95"] = [None if v is None else round(v, 4) for v in bootstrap_ci(flipped, seed=seed)]
                 e["attacks"][an] = cell
                 if name.startswith("lora_"):
@@ -135,6 +145,8 @@ def main():
         print(f"{mname}: n={len(X)} {entry['wall_time_s']}s", flush=True)
     res["wall_time_s"] = round(time.time() - t0, 1)
     json.dump(res, open(out_path, "w"), indent=2)
+    if args.save_items:
+        json.dump(items, open(out_path.replace(".json", "_items.json"), "w"))
     print("errors:", errs, "total", res["wall_time_s"])
 
 

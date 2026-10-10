@@ -1,0 +1,141 @@
+{
+  "seed": 0,
+  "load_errors": {},
+  "markets": {
+    "equities": {
+      "n": 300,
+      "pool": 2264,
+      "source": "takala/financial_phrasebank",
+      "license": "CC-BY-NC-SA-3.0",
+      "chars": {
+        "median": 120,
+        "p95": 221,
+        "max": 315
+      },
+      "words": {
+        "median": 22,
+        "p95": 41
+      },
+      "prompt_tokens_with_planted": {
+        "median": 59,
+        "p95": 93,
+        "max": 210
+      },
+      "applies": {
+        "synonym": 0.08,
+        "prefix": 1.0,
+        "company": 0.11666666666666667
+      },
+      "multiline_share": 0.0,
+      "ticker_or_hashtag_share": 0.0
+    },
+    "oil": {
+      "n": 300,
+      "pool": 9467,
+      "source": "polibert/oil-sentiment-headlines",
+      "license": "CC-BY-4.0",
+      "chars": {
+        "median": 75,
+        "p95": 149,
+        "max": 214
+      },
+      "words": {
+        "median": 10,
+        "p95": 16
+      },
+      "prompt_tokens_with_planted": {
+        "median": 46,
+        "p95": 87,
+        "max": 105
+      },
+      "applies": {
+        "synonym": 0.023333333333333334,
+        "prefix": 0.76,
+        "company": 0.01
+      },
+      "multiline_share": 0.013333333333333334,
+      "ticker_or_hashtag_share": 0.07666666666666666
+    },
+    "gold": {
+      "n": 300,
+      "pool": 8602,
+      "source": "SaguaroCapital/sentiment-analysis-in-commodity-market-gold",
+      "license": "CC-BY-NC-ND-4.0",
+      "chars": {
+        "median": 49,
+        "p95": 67,
+        "max": 80
+      },
+      "words": {
+        "median": 9,
+        "p95": 12
+      },
+      "prompt_tokens_with_planted": {
+        "median": 42,
+        "p95": 56,
+        "max": 64
+      },
+      "applies": {
+        "synonym": 0.09,
+        "prefix": 0.9966666666666667,
+        "company": 0.0033333333333333335
+      },
+      "multiline_share": 0.0,
+      "ticker_or_hashtag_share": 0.25
+    },
+    "central_bank": {
+      "n": 300,
+      "pool": 2480,
+      "source": "gtfintechlab/fomc_communication",
+      "license": "CC-BY-NC-4.0",
+      "chars": {
+        "median": 172,
+        "p95": 371,
+        "max": 983
+      },
+      "words": {
+        "median": 26,
+        "p95": 58
+      },
+      "prompt_tokens_with_planted": {
+        "median": 62,
+        "p95": 101,
+        "max": 219
+      },
+      "applies": {
+        "synonym": 0.03666666666666667,
+        "prefix": 0.94,
+        "company": 0.0
+      },
+      "multiline_share": 0.0,
+      "ticker_or_hashtag_share": 0.006666666666666667
+    },
+    "crypto": {
+      "n": 300,
+      "pool": 43027,
+      "source": "cogneolabs/Cogneo-Crypto-Sentiment",
+      "license": "mit (card metadata)",
+      "chars": {
+        "median": 139,
+        "p95": 394,
+        "max": 590
+      },
+      "words": {
+        "median": 23,
+        "p95": 62
+      },
+      "prompt_tokens_with_planted": {
+        "median": 70,
+        "p95": 140,
+        "max": 223
+      },
+      "applies": {
+        "synonym": 0.013333333333333334,
+        "prefix": 0.0,
+        "company": 0.0
+      },
+      "multiline_share": 0.7133333333333334,
+      "ticker_or_hashtag_share": 1.0
+    }
+  }
+}

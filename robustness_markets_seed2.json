@@ -1,9 +1,14 @@
 {
-  "timestamp_utc": "2026-10-09T19:19:39.853676+00:00",
+  "timestamp_utc": "2026-10-10T16:14:52.751466+00:00",
   "seed": 2,
   "cap": 300,
   "mode": "attacks",
   "cascade_threshold": 0.8,
+  "models": [
+    "lora_news_0.5b",
+    "tfidf_logreg",
+    "finbert_zeroshot"
+  ],
   "labels": [
     "Bearish",
     "Bullish",
@@ -36,11 +41,11 @@
           "attacks": {
             "synonym_swap": {
               "n": 300,
-              "n_applicable": 24,
+              "n_applicable": 16,
               "n_flipped": 0,
               "flip_rate": 0.0,
-              "acc_clean": 0.9583,
-              "acc_attacked": 0.9583,
+              "acc_clean": 1.0,
+              "acc_attacked": 1.0,
               "flip_ci95": [
                 0.0,
                 0.0
@@ -49,22 +54,22 @@
             "hedge_insert": {
               "n": 300,
               "n_applicable": 300,
-              "n_flipped": 10,
-              "flip_rate": 0.0333,
+              "n_flipped": 9,
+              "flip_rate": 0.03,
               "acc_clean": 0.95,
-              "acc_attacked": 0.9567,
+              "acc_attacked": 0.9467,
               "flip_ci95": [
                 0.0133,
-                0.0567
+                0.05
               ]
             },
             "entity_swap": {
               "n": 300,
-              "n_applicable": 34,
+              "n_applicable": 32,
               "n_flipped": 0,
               "flip_rate": 0.0,
-              "acc_clean": 0.9706,
-              "acc_attacked": 0.9706,
+              "acc_clean": 0.9688,
+              "acc_attacked": 0.9688,
               "flip_ci95": [
                 0.0,
                 0.0
@@ -124,14 +129,14 @@
           "attacks": {
             "synonym_swap": {
               "n": 300,
-              "n_applicable": 24,
-              "n_flipped": 5,
-              "flip_rate": 0.2083,
-              "acc_clean": 0.8333,
+              "n_applicable": 16,
+              "n_flipped": 4,
+              "flip_rate": 0.25,
+              "acc_clean": 0.875,
               "acc_attacked": 0.625,
               "flip_ci95": [
-                0.0417,
-                0.375
+                0.0625,
+                0.5
               ]
             },
             "hedge_insert": {
@@ -148,14 +153,14 @@
             },
             "entity_swap": {
               "n": 300,
-              "n_applicable": 34,
+              "n_applicable": 32,
               "n_flipped": 5,
-              "flip_rate": 0.1471,
-              "acc_clean": 0.6471,
-              "acc_attacked": 0.7647,
+              "flip_rate": 0.1562,
+              "acc_clean": 0.7188,
+              "acc_attacked": 0.8125,
               "flip_ci95": [
-                0.0588,
-                0.2647
+                0.0312,
+                0.2812
               ]
             },
             "injected_bearish": {
@@ -212,11 +217,11 @@
           "attacks": {
             "synonym_swap": {
               "n": 300,
-              "n_applicable": 24,
+              "n_applicable": 16,
               "n_flipped": 0,
               "flip_rate": 0.0,
-              "acc_clean": 0.9583,
-              "acc_attacked": 0.9583,
+              "acc_clean": 1.0,
+              "acc_attacked": 1.0,
               "flip_ci95": [
                 0.0,
                 0.0
@@ -225,22 +230,22 @@
             "hedge_insert": {
               "n": 300,
               "n_applicable": 300,
-              "n_flipped": 4,
-              "flip_rate": 0.0133,
+              "n_flipped": 3,
+              "flip_rate": 0.01,
               "acc_clean": 0.9633,
-              "acc_attacked": 0.9533,
+              "acc_attacked": 0.96,
               "flip_ci95": [
-                0.0033,
-                0.0267
+                0.0,
+                0.0233
               ]
             },
             "entity_swap": {
               "n": 300,
-              "n_applicable": 34,
+              "n_applicable": 32,
               "n_flipped": 0,
               "flip_rate": 0.0,
-              "acc_clean": 0.9412,
-              "acc_attacked": 0.9412,
+              "acc_clean": 0.9375,
+              "acc_attacked": 0.9375,
               "flip_ci95": [
                 0.0,
                 0.0
@@ -297,10 +302,10 @@
           "n_lora_flipped": 0
         },
         "hedge_insert": {
-          "n_lora_flipped": 10,
+          "n_lora_flipped": 9,
           "share_escalated_conf_lt_thr": 1.0,
           "share_passed_through_conf_ge_thr": 0.0,
-          "mean_conf_on_flipped": 0.5733,
+          "mean_conf_on_flipped": 0.5492,
           "confidently_wrong_share_of_flipped": 0.0
         },
         "entity_swap": {
@@ -330,28 +335,28 @@
       },
       "guard_lora": {
         "synonym_swap": {
-          "n": 24,
+          "n": 16,
           "n_flipped": 0,
           "catch_rate": null,
-          "false_alarm_rate": 0.0833,
+          "false_alarm_rate": 0.0625,
           "auroc": null,
-          "baseline_escalation_rate": 0.125
+          "baseline_escalation_rate": 0.0625
         },
         "hedge_insert": {
           "n": 300,
-          "n_flipped": 10,
+          "n_flipped": 9,
           "catch_rate": 1.0,
-          "false_alarm_rate": 0.1,
-          "auroc": 0.9803,
+          "false_alarm_rate": 0.0962,
+          "auroc": 0.9847,
           "baseline_escalation_rate": 0.1433
         },
         "entity_swap": {
-          "n": 34,
+          "n": 32,
           "n_flipped": 0,
           "catch_rate": null,
-          "false_alarm_rate": 0.0882,
+          "false_alarm_rate": 0.0625,
           "auroc": null,
-          "baseline_escalation_rate": 0.0882
+          "baseline_escalation_rate": 0.0625
         },
         "injected_bearish": {
           "n": 300,
@@ -378,7 +383,7 @@
           "baseline_escalation_rate": 0.1433
         }
       },
-      "wall_time_s": 71.7
+      "wall_time_s": 62.3
     },
     "oil": {
       "n": 300,
@@ -397,22 +402,22 @@
           "attacks": {
             "synonym_swap": {
               "n": 300,
-              "n_applicable": 9,
-              "n_flipped": 1,
-              "flip_rate": 0.1111,
+              "n_applicable": 2,
+              "n_flipped": 0,
+              "flip_rate": 0.0,
               "flip_ci95": [
                 0.0,
-                0.3333
+                0.0
               ]
             },
             "hedge_insert": {
               "n": 300,
-              "n_applicable": 300,
-              "n_flipped": 16,
-              "flip_rate": 0.0533,
+              "n_applicable": 230,
+              "n_flipped": 9,
+              "flip_rate": 0.0391,
               "flip_ci95": [
-                0.03,
-                0.08
+                0.0174,
+                0.0652
               ]
             },
             "entity_swap": {
@@ -472,7 +477,7 @@
           "attacks": {
             "synonym_swap": {
               "n": 300,
-              "n_applicable": 9,
+              "n_applicable": 2,
               "n_flipped": 0,
               "flip_rate": 0.0,
               "flip_ci95": [
@@ -482,12 +487,12 @@
             },
             "hedge_insert": {
               "n": 300,
-              "n_applicable": 300,
-              "n_flipped": 26,
-              "flip_rate": 0.0867,
+              "n_applicable": 230,
+              "n_flipped": 24,
+              "flip_rate": 0.1043,
               "flip_ci95": [
-                0.0567,
-                0.12
+                0.0652,
+                0.1435
               ]
             },
             "entity_swap": {
@@ -547,7 +552,7 @@
           "attacks": {
             "synonym_swap": {
               "n": 300,
-              "n_applicable": 9,
+              "n_applicable": 2,
               "n_flipped": 0,
               "flip_rate": 0.0,
               "flip_ci95": [
@@ -557,12 +562,12 @@
             },
             "hedge_insert": {
               "n": 300,
-              "n_applicable": 300,
-              "n_flipped": 19,
-              "flip_rate": 0.0633,
+              "n_applicable": 230,
+              "n_flipped": 16,
+              "flip_rate": 0.0696,
               "flip_ci95": [
-                0.0367,
-                0.0901
+                0.0391,
+                0.1
               ]
             },
             "entity_swap": {
@@ -616,16 +621,13 @@
       },
       "cascade_lora": {
         "synonym_swap": {
-          "n_lora_flipped": 1,
-          "share_escalated_conf_lt_thr": 1.0,
-          "share_passed_through_conf_ge_thr": 0.0,
-          "mean_conf_on_flipped": 0.5221
+          "n_lora_flipped": 0
         },
         "hedge_insert": {
-          "n_lora_flipped": 16,
+          "n_lora_flipped": 9,
           "share_escalated_conf_lt_thr": 1.0,
           "share_passed_through_conf_ge_thr": 0.0,
-          "mean_conf_on_flipped": 0.5472
+          "mean_conf_on_flipped": 0.5494
         },
         "entity_swap": {
           "n_lora_flipped": 0
@@ -651,20 +653,20 @@
       },
       "guard_lora": {
         "synonym_swap": {
-          "n": 9,
-          "n_flipped": 1,
-          "catch_rate": 1.0,
+          "n": 2,
+          "n_flipped": 0,
+          "catch_rate": null,
           "false_alarm_rate": 0.5,
-          "auroc": 1.0,
-          "baseline_escalation_rate": 0.5556
+          "auroc": null,
+          "baseline_escalation_rate": 0.5
         },
         "hedge_insert": {
-          "n": 300,
-          "n_flipped": 16,
+          "n": 230,
+          "n_flipped": 9,
           "catch_rate": 1.0,
-          "false_alarm_rate": 0.3556,
-          "auroc": 0.9482,
-          "baseline_escalation_rate": 0.3633
+          "false_alarm_rate": 0.3982,
+          "auroc": 0.95,
+          "baseline_escalation_rate": 0.4
         },
         "entity_swap": {
           "n": 0,
@@ -699,7 +701,7 @@
           "baseline_escalation_rate": 0.3633
         }
       },
-      "wall_time_s": 63.1
+      "wall_time_s": 53.3
     },
     "gold": {
       "n": 300,
@@ -729,11 +731,11 @@
             "hedge_insert": {
               "n": 300,
               "n_applicable": 300,
-              "n_flipped": 14,
-              "flip_rate": 0.0467,
+              "n_flipped": 9,
+              "flip_rate": 0.03,
               "flip_ci95": [
-                0.0233,
-                0.0733
+                0.01,
+                0.05
               ]
             },
             "entity_swap": {
@@ -879,11 +881,11 @@
             "hedge_insert": {
               "n": 300,
               "n_applicable": 300,
-              "n_flipped": 22,
-              "flip_rate": 0.0733,
+              "n_flipped": 17,
+              "flip_rate": 0.0567,
               "flip_ci95": [
-                0.0433,
-                0.1033
+                0.0333,
+                0.0833
               ]
             },
             "entity_swap": {
@@ -940,10 +942,10 @@
           "n_lora_flipped": 0
         },
         "hedge_insert": {
-          "n_lora_flipped": 14,
+          "n_lora_flipped": 9,
           "share_escalated_conf_lt_thr": 1.0,
           "share_passed_through_conf_ge_thr": 0.0,
-          "mean_conf_on_flipped": 0.5559
+          "mean_conf_on_flipped": 0.5611
         },
         "entity_swap": {
           "n_lora_flipped": 0
@@ -978,10 +980,10 @@
         },
         "hedge_insert": {
           "n": 300,
-          "n_flipped": 14,
+          "n_flipped": 9,
           "catch_rate": 1.0,
-          "false_alarm_rate": 0.2517,
-          "auroc": 0.9442,
+          "false_alarm_rate": 0.2371,
+          "auroc": 0.9343,
           "baseline_escalation_rate": 0.2667
         },
         "entity_swap": {
@@ -1017,7 +1019,7 @@
           "baseline_escalation_rate": 0.2667
         }
       },
-      "wall_time_s": 44.4
+      "wall_time_s": 43.0
     },
     "central_bank": {
       "n": 300,
@@ -1036,22 +1038,22 @@
           "attacks": {
             "synonym_swap": {
               "n": 300,
-              "n_applicable": 23,
-              "n_flipped": 4,
-              "flip_rate": 0.1739,
+              "n_applicable": 9,
+              "n_flipped": 3,
+              "flip_rate": 0.3333,
               "flip_ci95": [
-                0.0435,
-                0.3478
+                0.0,
+                0.6667
               ]
             },
             "hedge_insert": {
               "n": 300,
-              "n_applicable": 300,
-              "n_flipped": 20,
-              "flip_rate": 0.0667,
+              "n_applicable": 283,
+              "n_flipped": 17,
+              "flip_rate": 0.0601,
               "flip_ci95": [
-                0.04,
-                0.0967
+                0.0353,
+                0.0883
               ]
             },
             "entity_swap": {
@@ -1111,22 +1113,22 @@
           "attacks": {
             "synonym_swap": {
               "n": 300,
-              "n_applicable": 23,
-              "n_flipped": 4,
-              "flip_rate": 0.1739,
+              "n_applicable": 9,
+              "n_flipped": 0,
+              "flip_rate": 0.0,
               "flip_ci95": [
-                0.0435,
-                0.3478
+                0.0,
+                0.0
               ]
             },
             "hedge_insert": {
               "n": 300,
-              "n_applicable": 300,
-              "n_flipped": 26,
-              "flip_rate": 0.0867,
+              "n_applicable": 283,
+              "n_flipped": 25,
+              "flip_rate": 0.0883,
               "flip_ci95": [
-                0.0567,
-                0.12
+                0.0565,
+                0.1201
               ]
             },
             "entity_swap": {
@@ -1186,7 +1188,7 @@
           "attacks": {
             "synonym_swap": {
               "n": 300,
-              "n_applicable": 23,
+              "n_applicable": 9,
               "n_flipped": 0,
               "flip_rate": 0.0,
               "flip_ci95": [
@@ -1196,12 +1198,12 @@
             },
             "hedge_insert": {
               "n": 300,
-              "n_applicable": 300,
-              "n_flipped": 12,
-              "flip_rate": 0.04,
+              "n_applicable": 283,
+              "n_flipped": 13,
+              "flip_rate": 0.0459,
               "flip_ci95": [
-                0.02,
-                0.0633
+                0.0247,
+                0.0707
               ]
             },
             "entity_swap": {
@@ -1255,16 +1257,16 @@
       },
       "cascade_lora": {
         "synonym_swap": {
-          "n_lora_flipped": 4,
+          "n_lora_flipped": 3,
           "share_escalated_conf_lt_thr": 1.0,
           "share_passed_through_conf_ge_thr": 0.0,
-          "mean_conf_on_flipped": 0.5687
+          "mean_conf_on_flipped": 0.5672
         },
         "hedge_insert": {
-          "n_lora_flipped": 20,
+          "n_lora_flipped": 17,
           "share_escalated_conf_lt_thr": 1.0,
           "share_passed_through_conf_ge_thr": 0.0,
-          "mean_conf_on_flipped": 0.5313
+          "mean_conf_on_flipped": 0.5159
         },
         "entity_swap": {
           "n_lora_flipped": 0
@@ -1290,20 +1292,20 @@
       },
       "guard_lora": {
         "synonym_swap": {
-          "n": 23,
-          "n_flipped": 4,
+          "n": 9,
+          "n_flipped": 3,
           "catch_rate": 1.0,
-          "false_alarm_rate": 0.4737,
-          "auroc": 0.8684,
-          "baseline_escalation_rate": 0.6522
+          "false_alarm_rate": 0.3333,
+          "auroc": 0.9444,
+          "baseline_escalation_rate": 0.5556
         },
         "hedge_insert": {
-          "n": 300,
-          "n_flipped": 20,
+          "n": 283,
+          "n_flipped": 17,
           "catch_rate": 1.0,
-          "false_alarm_rate": 0.4214,
-          "auroc": 0.9255,
-          "baseline_escalation_rate": 0.4367
+          "false_alarm_rate": 0.4173,
+          "auroc": 0.9421,
+          "baseline_escalation_rate": 0.4346
         },
         "entity_swap": {
           "n": 0,
@@ -1338,7 +1340,7 @@
           "baseline_escalation_rate": 0.4367
         }
       },
-      "wall_time_s": 75.2
+      "wall_time_s": 70.7
     },
     "crypto": {
       "n": 300,
@@ -1357,7 +1359,7 @@
           "attacks": {
             "synonym_swap": {
               "n": 300,
-              "n_applicable": 6,
+              "n_applicable": 4,
               "n_flipped": 0,
               "flip_rate": 0.0,
               "flip_ci95": [
@@ -1367,12 +1369,12 @@
             },
             "hedge_insert": {
               "n": 300,
-              "n_applicable": 300,
-              "n_flipped": 19,
-              "flip_rate": 0.0633,
+              "n_applicable": 1,
+              "n_flipped": 0,
+              "flip_rate": 0.0,
               "flip_ci95": [
-                0.0367,
-                0.0933
+                0.0,
+                0.0
               ]
             },
             "entity_swap": {
@@ -1432,22 +1434,22 @@
           "attacks": {
             "synonym_swap": {
               "n": 300,
-              "n_applicable": 6,
-              "n_flipped": 1,
-              "flip_rate": 0.1667,
+              "n_applicable": 4,
+              "n_flipped": 0,
+              "flip_rate": 0.0,
               "flip_ci95": [
                 0.0,
-                0.5
+                0.0
               ]
             },
             "hedge_insert": {
               "n": 300,
-              "n_applicable": 300,
-              "n_flipped": 14,
-              "flip_rate": 0.0467,
+              "n_applicable": 1,
+              "n_flipped": 0,
+              "flip_rate": 0.0,
               "flip_ci95": [
-                0.0233,
-                0.07
+                0.0,
+                0.0
               ]
             },
             "entity_swap": {
@@ -1507,22 +1509,22 @@
           "attacks": {
             "synonym_swap": {
               "n": 300,
-              "n_applicable": 6,
+              "n_applicable": 4,
               "n_flipped": 2,
-              "flip_rate": 0.3333,
+              "flip_rate": 0.5,
               "flip_ci95": [
                 0.0,
-                0.6667
+                1.0
               ]
             },
             "hedge_insert": {
               "n": 300,
-              "n_applicable": 300,
-              "n_flipped": 21,
-              "flip_rate": 0.07,
+              "n_applicable": 1,
+              "n_flipped": 0,
+              "flip_rate": 0.0,
               "flip_ci95": [
-                0.0433,
-                0.1
+                0.0,
+                0.0
               ]
             },
             "entity_swap": {
@@ -1579,10 +1581,7 @@
           "n_lora_flipped": 0
         },
         "hedge_insert": {
-          "n_lora_flipped": 19,
-          "share_escalated_conf_lt_thr": 1.0,
-          "share_passed_through_conf_ge_thr": 0.0,
-          "mean_conf_on_flipped": 0.5409
+          "n_lora_flipped": 0
         },
         "entity_swap": {
           "n_lora_flipped": 0
@@ -1608,20 +1607,20 @@
       },
       "guard_lora": {
         "synonym_swap": {
-          "n": 6,
+          "n": 4,
           "n_flipped": 0,
           "catch_rate": null,
-          "false_alarm_rate": 0.3333,
+          "false_alarm_rate": 0.5,
           "auroc": null,
-          "baseline_escalation_rate": 0.5
+          "baseline_escalation_rate": 0.75
         },
         "hedge_insert": {
-          "n": 300,
-          "n_flipped": 19,
-          "catch_rate": 1.0,
-          "false_alarm_rate": 0.4448,
-          "auroc": 0.9152,
-          "baseline_escalation_rate": 0.4533
+          "n": 1,
+          "n_flipped": 0,
+          "catch_rate": null,
+          "false_alarm_rate": 0.0,
+          "auroc": null,
+          "baseline_escalation_rate": 0.0
         },
         "entity_swap": {
           "n": 0,
@@ -1656,7 +1655,7 @@
           "baseline_escalation_rate": 0.4533
         }
       },
-      "wall_time_s": 130.7
+      "wall_time_s": 88.5
     }
   },
   "notes": [
@@ -1665,5 +1664,5 @@
     "Sentiment preservation of the benign attacks is not human-verified.",
     "No real-world trading harm is claimed."
   ],
-  "wall_time_s": 407.4
+  "wall_time_s": 340.1
 }

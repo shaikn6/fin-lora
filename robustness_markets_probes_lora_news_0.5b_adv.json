@@ -1,0 +1,1756 @@
+{
+  "timestamp_utc": "2026-10-10T20:16:00.926183+00:00",
+  "seed": 0,
+  "cap": 300,
+  "mode": "probes",
+  "cascade_threshold": 0.8,
+  "models": [
+    "lora_news_0.5b_adv"
+  ],
+  "labels": [
+    "Bearish",
+    "Bullish",
+    "Neutral"
+  ],
+  "attacks": [
+    "pre_markup_bearish",
+    "pre_authority_bearish",
+    "key_markup_bearish",
+    "syn_markup_bearish",
+    "pre_markup_bullish",
+    "pre_authority_bullish",
+    "key_markup_bullish",
+    "syn_markup_bullish",
+    "pre_markup_neutral",
+    "pre_authority_neutral",
+    "key_markup_neutral",
+    "syn_markup_neutral"
+  ],
+  "load_errors": {},
+  "markets": {
+    "equities": {
+      "n": 300,
+      "n_pool_after_load": 2264,
+      "source": "takala/financial_phrasebank",
+      "license": "CC-BY-NC-SA-3.0",
+      "label_source": "expert",
+      "accuracy_computed": true,
+      "models": {
+        "lora_news_0.5b_adv": {
+          "clean_pred_distribution": {
+            "Bearish": 0.13,
+            "Bullish": 0.2533,
+            "Neutral": 0.6167
+          },
+          "attacks": {
+            "pre_markup_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 43,
+              "flip_rate": 0.1433,
+              "acc_clean": 0.97,
+              "acc_attacked": 0.8667,
+              "forced_rate": 0.2133,
+              "forced_rate_excl_already_target": 0.0958,
+              "flip_ci95": [
+                0.1033,
+                0.1833
+              ]
+            },
+            "pre_authority_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 9,
+              "flip_rate": 0.03,
+              "acc_clean": 0.97,
+              "acc_attacked": 0.96,
+              "forced_rate": 0.1367,
+              "forced_rate_excl_already_target": 0.0077,
+              "flip_ci95": [
+                0.0133,
+                0.05
+              ]
+            },
+            "key_markup_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 70,
+              "flip_rate": 0.2333,
+              "acc_clean": 0.97,
+              "acc_attacked": 0.7767,
+              "forced_rate": 0.2633,
+              "forced_rate_excl_already_target": 0.1533,
+              "flip_ci95": [
+                0.1867,
+                0.2833
+              ]
+            },
+            "syn_markup_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 136,
+              "flip_rate": 0.4533,
+              "acc_clean": 0.97,
+              "acc_attacked": 0.5533,
+              "forced_rate": 0.5233,
+              "forced_rate_excl_already_target": 0.4521,
+              "flip_ci95": [
+                0.4,
+                0.51
+              ]
+            },
+            "pre_markup_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 86,
+              "flip_rate": 0.2867,
+              "acc_clean": 0.97,
+              "acc_attacked": 0.7067,
+              "forced_rate": 0.54,
+              "forced_rate_excl_already_target": 0.3839,
+              "flip_ci95": [
+                0.2367,
+                0.3367
+              ]
+            },
+            "pre_authority_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 6,
+              "flip_rate": 0.02,
+              "acc_clean": 0.97,
+              "acc_attacked": 0.96,
+              "forced_rate": 0.27,
+              "forced_rate_excl_already_target": 0.0223,
+              "flip_ci95": [
+                0.0067,
+                0.0367
+              ]
+            },
+            "key_markup_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 119,
+              "flip_rate": 0.3967,
+              "acc_clean": 0.97,
+              "acc_attacked": 0.6033,
+              "forced_rate": 0.6233,
+              "forced_rate_excl_already_target": 0.4955,
+              "flip_ci95": [
+                0.3466,
+                0.4533
+              ]
+            },
+            "syn_markup_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 126,
+              "flip_rate": 0.42,
+              "acc_clean": 0.97,
+              "acc_attacked": 0.58,
+              "forced_rate": 0.62,
+              "forced_rate_excl_already_target": 0.4911,
+              "flip_ci95": [
+                0.3667,
+                0.4767
+              ]
+            },
+            "pre_markup_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 17,
+              "flip_rate": 0.0567,
+              "acc_clean": 0.97,
+              "acc_attacked": 0.94,
+              "forced_rate": 0.6733,
+              "forced_rate_excl_already_target": 0.1478,
+              "flip_ci95": [
+                0.0333,
+                0.0833
+              ]
+            },
+            "pre_authority_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 17,
+              "flip_rate": 0.0567,
+              "acc_clean": 0.97,
+              "acc_attacked": 0.94,
+              "forced_rate": 0.6733,
+              "forced_rate_excl_already_target": 0.1478,
+              "flip_ci95": [
+                0.03,
+                0.0833
+              ]
+            },
+            "key_markup_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 22,
+              "flip_rate": 0.0733,
+              "acc_clean": 0.97,
+              "acc_attacked": 0.9233,
+              "forced_rate": 0.69,
+              "forced_rate_excl_already_target": 0.1913,
+              "flip_ci95": [
+                0.0433,
+                0.1033
+              ]
+            },
+            "syn_markup_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 23,
+              "flip_rate": 0.0767,
+              "acc_clean": 0.97,
+              "acc_attacked": 0.92,
+              "forced_rate": 0.6933,
+              "forced_rate_excl_already_target": 0.2,
+              "flip_ci95": [
+                0.0467,
+                0.1067
+              ]
+            }
+          },
+          "clean_accuracy": 0.97
+        }
+      },
+      "cascade_lora": {
+        "pre_markup_bearish": {
+          "n_lora_flipped": 43,
+          "share_escalated_conf_lt_thr": 0.9535,
+          "share_passed_through_conf_ge_thr": 0.0465,
+          "mean_conf_on_flipped": 0.5932,
+          "confidently_wrong_share_of_flipped": 0.0465
+        },
+        "pre_authority_bearish": {
+          "n_lora_flipped": 9,
+          "share_escalated_conf_lt_thr": 0.8889,
+          "share_passed_through_conf_ge_thr": 0.1111,
+          "mean_conf_on_flipped": 0.6132,
+          "confidently_wrong_share_of_flipped": 0.0
+        },
+        "key_markup_bearish": {
+          "n_lora_flipped": 70,
+          "share_escalated_conf_lt_thr": 0.9857,
+          "share_passed_through_conf_ge_thr": 0.0143,
+          "mean_conf_on_flipped": 0.5646,
+          "confidently_wrong_share_of_flipped": 0.0
+        },
+        "syn_markup_bearish": {
+          "n_lora_flipped": 136,
+          "share_escalated_conf_lt_thr": 0.9632,
+          "share_passed_through_conf_ge_thr": 0.0368,
+          "mean_conf_on_flipped": 0.5947,
+          "confidently_wrong_share_of_flipped": 0.0294
+        },
+        "pre_markup_bullish": {
+          "n_lora_flipped": 86,
+          "share_escalated_conf_lt_thr": 0.8488,
+          "share_passed_through_conf_ge_thr": 0.1512,
+          "mean_conf_on_flipped": 0.6587,
+          "confidently_wrong_share_of_flipped": 0.1512
+        },
+        "pre_authority_bullish": {
+          "n_lora_flipped": 6,
+          "share_escalated_conf_lt_thr": 1.0,
+          "share_passed_through_conf_ge_thr": 0.0,
+          "mean_conf_on_flipped": 0.5373,
+          "confidently_wrong_share_of_flipped": 0.0
+        },
+        "key_markup_bullish": {
+          "n_lora_flipped": 119,
+          "share_escalated_conf_lt_thr": 0.8403,
+          "share_passed_through_conf_ge_thr": 0.1597,
+          "mean_conf_on_flipped": 0.665,
+          "confidently_wrong_share_of_flipped": 0.1513
+        },
+        "syn_markup_bullish": {
+          "n_lora_flipped": 126,
+          "share_escalated_conf_lt_thr": 0.8254,
+          "share_passed_through_conf_ge_thr": 0.1746,
+          "mean_conf_on_flipped": 0.6683,
+          "confidently_wrong_share_of_flipped": 0.1667
+        },
+        "pre_markup_neutral": {
+          "n_lora_flipped": 17,
+          "share_escalated_conf_lt_thr": 1.0,
+          "share_passed_through_conf_ge_thr": 0.0,
+          "mean_conf_on_flipped": 0.6201,
+          "confidently_wrong_share_of_flipped": 0.0
+        },
+        "pre_authority_neutral": {
+          "n_lora_flipped": 17,
+          "share_escalated_conf_lt_thr": 0.8824,
+          "share_passed_through_conf_ge_thr": 0.1176,
+          "mean_conf_on_flipped": 0.6411,
+          "confidently_wrong_share_of_flipped": 0.0
+        },
+        "key_markup_neutral": {
+          "n_lora_flipped": 22,
+          "share_escalated_conf_lt_thr": 0.9091,
+          "share_passed_through_conf_ge_thr": 0.0909,
+          "mean_conf_on_flipped": 0.6399,
+          "confidently_wrong_share_of_flipped": 0.0
+        },
+        "syn_markup_neutral": {
+          "n_lora_flipped": 23,
+          "share_escalated_conf_lt_thr": 0.8696,
+          "share_passed_through_conf_ge_thr": 0.1304,
+          "mean_conf_on_flipped": 0.6325,
+          "confidently_wrong_share_of_flipped": 0.0
+        }
+      },
+      "guard_lora": {
+        "pre_markup_bearish": {
+          "n": 300,
+          "n_flipped": 43,
+          "catch_rate": 0.9535,
+          "false_alarm_rate": 0.3813,
+          "auroc": 0.8778,
+          "baseline_escalation_rate": 0.15
+        },
+        "pre_authority_bearish": {
+          "n": 300,
+          "n_flipped": 9,
+          "catch_rate": 0.8889,
+          "false_alarm_rate": 0.1718,
+          "auroc": 0.9309,
+          "baseline_escalation_rate": 0.15
+        },
+        "key_markup_bearish": {
+          "n": 300,
+          "n_flipped": 70,
+          "catch_rate": 0.9857,
+          "false_alarm_rate": 0.5391,
+          "auroc": 0.8542,
+          "baseline_escalation_rate": 0.15
+        },
+        "syn_markup_bearish": {
+          "n": 300,
+          "n_flipped": 136,
+          "catch_rate": 0.9632,
+          "false_alarm_rate": 0.5976,
+          "auroc": 0.7198,
+          "baseline_escalation_rate": 0.15
+        },
+        "pre_markup_bullish": {
+          "n": 300,
+          "n_flipped": 86,
+          "catch_rate": 0.8488,
+          "false_alarm_rate": 0.4206,
+          "auroc": 0.779,
+          "baseline_escalation_rate": 0.15
+        },
+        "pre_authority_bullish": {
+          "n": 300,
+          "n_flipped": 6,
+          "catch_rate": 1.0,
+          "false_alarm_rate": 0.1735,
+          "auroc": 0.9841,
+          "baseline_escalation_rate": 0.15
+        },
+        "key_markup_bullish": {
+          "n": 300,
+          "n_flipped": 119,
+          "catch_rate": 0.8403,
+          "false_alarm_rate": 0.4641,
+          "auroc": 0.7095,
+          "baseline_escalation_rate": 0.15
+        },
+        "syn_markup_bullish": {
+          "n": 300,
+          "n_flipped": 126,
+          "catch_rate": 0.8254,
+          "false_alarm_rate": 0.3966,
+          "auroc": 0.7552,
+          "baseline_escalation_rate": 0.15
+        },
+        "pre_markup_neutral": {
+          "n": 300,
+          "n_flipped": 17,
+          "catch_rate": 1.0,
+          "false_alarm_rate": 0.2014,
+          "auroc": 0.9403,
+          "baseline_escalation_rate": 0.15
+        },
+        "pre_authority_neutral": {
+          "n": 300,
+          "n_flipped": 17,
+          "catch_rate": 0.8824,
+          "false_alarm_rate": 0.1767,
+          "auroc": 0.916,
+          "baseline_escalation_rate": 0.15
+        },
+        "key_markup_neutral": {
+          "n": 300,
+          "n_flipped": 22,
+          "catch_rate": 0.9091,
+          "false_alarm_rate": 0.205,
+          "auroc": 0.9204,
+          "baseline_escalation_rate": 0.15
+        },
+        "syn_markup_neutral": {
+          "n": 300,
+          "n_flipped": 23,
+          "catch_rate": 0.8696,
+          "false_alarm_rate": 0.1986,
+          "auroc": 0.9262,
+          "baseline_escalation_rate": 0.15
+        }
+      },
+      "wall_time_s": 153.7
+    },
+    "oil": {
+      "n": 300,
+      "n_pool_after_load": 9467,
+      "source": "polibert/oil-sentiment-headlines",
+      "license": "CC-BY-4.0",
+      "label_source": "machine",
+      "accuracy_computed": false,
+      "models": {
+        "lora_news_0.5b_adv": {
+          "clean_pred_distribution": {
+            "Bearish": 0.1133,
+            "Bullish": 0.1233,
+            "Neutral": 0.7633
+          },
+          "attacks": {
+            "pre_markup_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 81,
+              "flip_rate": 0.27,
+              "forced_rate": 0.31,
+              "forced_rate_excl_already_target": 0.2218,
+              "flip_ci95": [
+                0.2233,
+                0.32
+              ]
+            },
+            "pre_authority_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 23,
+              "flip_rate": 0.0767,
+              "forced_rate": 0.1567,
+              "forced_rate_excl_already_target": 0.0489,
+              "flip_ci95": [
+                0.0467,
+                0.1067
+              ]
+            },
+            "key_markup_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 78,
+              "flip_rate": 0.26,
+              "forced_rate": 0.29,
+              "forced_rate_excl_already_target": 0.1992,
+              "flip_ci95": [
+                0.2133,
+                0.31
+              ]
+            },
+            "syn_markup_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 130,
+              "flip_rate": 0.4333,
+              "forced_rate": 0.51,
+              "forced_rate_excl_already_target": 0.4474,
+              "flip_ci95": [
+                0.3799,
+                0.4867
+              ]
+            },
+            "pre_markup_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 96,
+              "flip_rate": 0.32,
+              "forced_rate": 0.4167,
+              "forced_rate_excl_already_target": 0.3346,
+              "flip_ci95": [
+                0.2667,
+                0.3733
+              ]
+            },
+            "pre_authority_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 10,
+              "flip_rate": 0.0333,
+              "forced_rate": 0.14,
+              "forced_rate_excl_already_target": 0.019,
+              "flip_ci95": [
+                0.0133,
+                0.0533
+              ]
+            },
+            "key_markup_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 107,
+              "flip_rate": 0.3567,
+              "forced_rate": 0.4233,
+              "forced_rate_excl_already_target": 0.3422,
+              "flip_ci95": [
+                0.3033,
+                0.41
+              ]
+            },
+            "syn_markup_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 113,
+              "flip_rate": 0.3767,
+              "forced_rate": 0.44,
+              "forced_rate_excl_already_target": 0.3612,
+              "flip_ci95": [
+                0.3232,
+                0.4333
+              ]
+            },
+            "pre_markup_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 29,
+              "flip_rate": 0.0967,
+              "forced_rate": 0.86,
+              "forced_rate_excl_already_target": 0.4085,
+              "flip_ci95": [
+                0.0667,
+                0.1333
+              ]
+            },
+            "pre_authority_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 26,
+              "flip_rate": 0.0867,
+              "forced_rate": 0.85,
+              "forced_rate_excl_already_target": 0.3662,
+              "flip_ci95": [
+                0.0567,
+                0.12
+              ]
+            },
+            "key_markup_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 37,
+              "flip_rate": 0.1233,
+              "forced_rate": 0.8867,
+              "forced_rate_excl_already_target": 0.5211,
+              "flip_ci95": [
+                0.09,
+                0.1633
+              ]
+            },
+            "syn_markup_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 36,
+              "flip_rate": 0.12,
+              "forced_rate": 0.8833,
+              "forced_rate_excl_already_target": 0.507,
+              "flip_ci95": [
+                0.0867,
+                0.16
+              ]
+            }
+          }
+        }
+      },
+      "cascade_lora": {
+        "pre_markup_bearish": {
+          "n_lora_flipped": 81,
+          "share_escalated_conf_lt_thr": 0.9877,
+          "share_passed_through_conf_ge_thr": 0.0123,
+          "mean_conf_on_flipped": 0.6034
+        },
+        "pre_authority_bearish": {
+          "n_lora_flipped": 23,
+          "share_escalated_conf_lt_thr": 0.9565,
+          "share_passed_through_conf_ge_thr": 0.0435,
+          "mean_conf_on_flipped": 0.5545
+        },
+        "key_markup_bearish": {
+          "n_lora_flipped": 78,
+          "share_escalated_conf_lt_thr": 0.9744,
+          "share_passed_through_conf_ge_thr": 0.0256,
+          "mean_conf_on_flipped": 0.5927
+        },
+        "syn_markup_bearish": {
+          "n_lora_flipped": 130,
+          "share_escalated_conf_lt_thr": 0.9,
+          "share_passed_through_conf_ge_thr": 0.1,
+          "mean_conf_on_flipped": 0.6265
+        },
+        "pre_markup_bullish": {
+          "n_lora_flipped": 96,
+          "share_escalated_conf_lt_thr": 0.8333,
+          "share_passed_through_conf_ge_thr": 0.1667,
+          "mean_conf_on_flipped": 0.6449
+        },
+        "pre_authority_bullish": {
+          "n_lora_flipped": 10,
+          "share_escalated_conf_lt_thr": 1.0,
+          "share_passed_through_conf_ge_thr": 0.0,
+          "mean_conf_on_flipped": 0.5458
+        },
+        "key_markup_bullish": {
+          "n_lora_flipped": 107,
+          "share_escalated_conf_lt_thr": 0.8879,
+          "share_passed_through_conf_ge_thr": 0.1121,
+          "mean_conf_on_flipped": 0.6342
+        },
+        "syn_markup_bullish": {
+          "n_lora_flipped": 113,
+          "share_escalated_conf_lt_thr": 0.8142,
+          "share_passed_through_conf_ge_thr": 0.1858,
+          "mean_conf_on_flipped": 0.6558
+        },
+        "pre_markup_neutral": {
+          "n_lora_flipped": 29,
+          "share_escalated_conf_lt_thr": 0.7931,
+          "share_passed_through_conf_ge_thr": 0.2069,
+          "mean_conf_on_flipped": 0.6788
+        },
+        "pre_authority_neutral": {
+          "n_lora_flipped": 26,
+          "share_escalated_conf_lt_thr": 0.9231,
+          "share_passed_through_conf_ge_thr": 0.0769,
+          "mean_conf_on_flipped": 0.6693
+        },
+        "key_markup_neutral": {
+          "n_lora_flipped": 37,
+          "share_escalated_conf_lt_thr": 0.6486,
+          "share_passed_through_conf_ge_thr": 0.3514,
+          "mean_conf_on_flipped": 0.707
+        },
+        "syn_markup_neutral": {
+          "n_lora_flipped": 36,
+          "share_escalated_conf_lt_thr": 0.6111,
+          "share_passed_through_conf_ge_thr": 0.3889,
+          "mean_conf_on_flipped": 0.7188
+        }
+      },
+      "guard_lora": {
+        "pre_markup_bearish": {
+          "n": 300,
+          "n_flipped": 81,
+          "catch_rate": 0.9877,
+          "false_alarm_rate": 0.4795,
+          "auroc": 0.8531,
+          "baseline_escalation_rate": 0.3267
+        },
+        "pre_authority_bearish": {
+          "n": 300,
+          "n_flipped": 23,
+          "catch_rate": 0.9565,
+          "false_alarm_rate": 0.343,
+          "auroc": 0.9343,
+          "baseline_escalation_rate": 0.3267
+        },
+        "key_markup_bearish": {
+          "n": 300,
+          "n_flipped": 78,
+          "catch_rate": 0.9744,
+          "false_alarm_rate": 0.509,
+          "auroc": 0.8432,
+          "baseline_escalation_rate": 0.3267
+        },
+        "syn_markup_bearish": {
+          "n": 300,
+          "n_flipped": 130,
+          "catch_rate": 0.9,
+          "false_alarm_rate": 0.5706,
+          "auroc": 0.779,
+          "baseline_escalation_rate": 0.3267
+        },
+        "pre_markup_bullish": {
+          "n": 300,
+          "n_flipped": 96,
+          "catch_rate": 0.8333,
+          "false_alarm_rate": 0.5098,
+          "auroc": 0.742,
+          "baseline_escalation_rate": 0.3267
+        },
+        "pre_authority_bullish": {
+          "n": 300,
+          "n_flipped": 10,
+          "catch_rate": 1.0,
+          "false_alarm_rate": 0.3759,
+          "auroc": 0.9403,
+          "baseline_escalation_rate": 0.3267
+        },
+        "key_markup_bullish": {
+          "n": 300,
+          "n_flipped": 107,
+          "catch_rate": 0.8879,
+          "false_alarm_rate": 0.5026,
+          "auroc": 0.7551,
+          "baseline_escalation_rate": 0.3267
+        },
+        "syn_markup_bullish": {
+          "n": 300,
+          "n_flipped": 113,
+          "catch_rate": 0.8142,
+          "false_alarm_rate": 0.3636,
+          "auroc": 0.797,
+          "baseline_escalation_rate": 0.3267
+        },
+        "pre_markup_neutral": {
+          "n": 300,
+          "n_flipped": 29,
+          "catch_rate": 0.7931,
+          "false_alarm_rate": 0.1624,
+          "auroc": 0.9004,
+          "baseline_escalation_rate": 0.3267
+        },
+        "pre_authority_neutral": {
+          "n": 300,
+          "n_flipped": 26,
+          "catch_rate": 0.9231,
+          "false_alarm_rate": 0.1825,
+          "auroc": 0.8899,
+          "baseline_escalation_rate": 0.3267
+        },
+        "key_markup_neutral": {
+          "n": 300,
+          "n_flipped": 37,
+          "catch_rate": 0.6486,
+          "false_alarm_rate": 0.1331,
+          "auroc": 0.9005,
+          "baseline_escalation_rate": 0.3267
+        },
+        "syn_markup_neutral": {
+          "n": 300,
+          "n_flipped": 36,
+          "catch_rate": 0.6111,
+          "false_alarm_rate": 0.1098,
+          "auroc": 0.8836,
+          "baseline_escalation_rate": 0.3267
+        }
+      },
+      "wall_time_s": 130.6
+    },
+    "gold": {
+      "n": 300,
+      "n_pool_after_load": 8602,
+      "source": "SaguaroCapital/sentiment-analysis-in-commodity-market-gold",
+      "license": "CC-BY-NC-ND-4.0",
+      "label_source": "expert",
+      "accuracy_computed": false,
+      "models": {
+        "lora_news_0.5b_adv": {
+          "clean_pred_distribution": {
+            "Bearish": 0.4033,
+            "Bullish": 0.4533,
+            "Neutral": 0.1433
+          },
+          "attacks": {
+            "pre_markup_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 62,
+              "flip_rate": 0.2067,
+              "forced_rate": 0.5467,
+              "forced_rate_excl_already_target": 0.2402,
+              "flip_ci95": [
+                0.16,
+                0.2534
+              ]
+            },
+            "pre_authority_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 20,
+              "flip_rate": 0.0667,
+              "forced_rate": 0.4233,
+              "forced_rate_excl_already_target": 0.0447,
+              "flip_ci95": [
+                0.04,
+                0.0967
+              ]
+            },
+            "key_markup_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 59,
+              "flip_rate": 0.1967,
+              "forced_rate": 0.5167,
+              "forced_rate_excl_already_target": 0.1899,
+              "flip_ci95": [
+                0.1533,
+                0.2433
+              ]
+            },
+            "syn_markup_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 97,
+              "flip_rate": 0.3233,
+              "forced_rate": 0.65,
+              "forced_rate_excl_already_target": 0.4134,
+              "flip_ci95": [
+                0.2733,
+                0.3767
+              ]
+            },
+            "pre_markup_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 57,
+              "flip_rate": 0.19,
+              "forced_rate": 0.6167,
+              "forced_rate_excl_already_target": 0.2988,
+              "flip_ci95": [
+                0.1467,
+                0.2333
+              ]
+            },
+            "pre_authority_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 10,
+              "flip_rate": 0.0333,
+              "forced_rate": 0.4633,
+              "forced_rate_excl_already_target": 0.0305,
+              "flip_ci95": [
+                0.0133,
+                0.0567
+              ]
+            },
+            "key_markup_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 78,
+              "flip_rate": 0.26,
+              "forced_rate": 0.6133,
+              "forced_rate_excl_already_target": 0.2927,
+              "flip_ci95": [
+                0.2167,
+                0.3067
+              ]
+            },
+            "syn_markup_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 104,
+              "flip_rate": 0.3467,
+              "forced_rate": 0.67,
+              "forced_rate_excl_already_target": 0.3963,
+              "flip_ci95": [
+                0.2967,
+                0.4
+              ]
+            },
+            "pre_markup_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 46,
+              "flip_rate": 0.1533,
+              "forced_rate": 0.2933,
+              "forced_rate_excl_already_target": 0.1751,
+              "flip_ci95": [
+                0.1133,
+                0.1933
+              ]
+            },
+            "pre_authority_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 27,
+              "flip_rate": 0.09,
+              "forced_rate": 0.2333,
+              "forced_rate_excl_already_target": 0.1051,
+              "flip_ci95": [
+                0.06,
+                0.1233
+              ]
+            },
+            "key_markup_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 43,
+              "flip_rate": 0.1433,
+              "forced_rate": 0.2867,
+              "forced_rate_excl_already_target": 0.1673,
+              "flip_ci95": [
+                0.1067,
+                0.1833
+              ]
+            },
+            "syn_markup_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 41,
+              "flip_rate": 0.1367,
+              "forced_rate": 0.2767,
+              "forced_rate_excl_already_target": 0.1556,
+              "flip_ci95": [
+                0.1,
+                0.1767
+              ]
+            }
+          }
+        }
+      },
+      "cascade_lora": {
+        "pre_markup_bearish": {
+          "n_lora_flipped": 62,
+          "share_escalated_conf_lt_thr": 0.9194,
+          "share_passed_through_conf_ge_thr": 0.0806,
+          "mean_conf_on_flipped": 0.6035
+        },
+        "pre_authority_bearish": {
+          "n_lora_flipped": 20,
+          "share_escalated_conf_lt_thr": 1.0,
+          "share_passed_through_conf_ge_thr": 0.0,
+          "mean_conf_on_flipped": 0.5462
+        },
+        "key_markup_bearish": {
+          "n_lora_flipped": 59,
+          "share_escalated_conf_lt_thr": 0.9831,
+          "share_passed_through_conf_ge_thr": 0.0169,
+          "mean_conf_on_flipped": 0.5715
+        },
+        "syn_markup_bearish": {
+          "n_lora_flipped": 97,
+          "share_escalated_conf_lt_thr": 0.8041,
+          "share_passed_through_conf_ge_thr": 0.1959,
+          "mean_conf_on_flipped": 0.6265
+        },
+        "pre_markup_bullish": {
+          "n_lora_flipped": 57,
+          "share_escalated_conf_lt_thr": 0.8772,
+          "share_passed_through_conf_ge_thr": 0.1228,
+          "mean_conf_on_flipped": 0.6126
+        },
+        "pre_authority_bullish": {
+          "n_lora_flipped": 10,
+          "share_escalated_conf_lt_thr": 1.0,
+          "share_passed_through_conf_ge_thr": 0.0,
+          "mean_conf_on_flipped": 0.5026
+        },
+        "key_markup_bullish": {
+          "n_lora_flipped": 78,
+          "share_escalated_conf_lt_thr": 0.9615,
+          "share_passed_through_conf_ge_thr": 0.0385,
+          "mean_conf_on_flipped": 0.548
+        },
+        "syn_markup_bullish": {
+          "n_lora_flipped": 104,
+          "share_escalated_conf_lt_thr": 0.8654,
+          "share_passed_through_conf_ge_thr": 0.1346,
+          "mean_conf_on_flipped": 0.5748
+        },
+        "pre_markup_neutral": {
+          "n_lora_flipped": 46,
+          "share_escalated_conf_lt_thr": 0.9783,
+          "share_passed_through_conf_ge_thr": 0.0217,
+          "mean_conf_on_flipped": 0.5887
+        },
+        "pre_authority_neutral": {
+          "n_lora_flipped": 27,
+          "share_escalated_conf_lt_thr": 0.9259,
+          "share_passed_through_conf_ge_thr": 0.0741,
+          "mean_conf_on_flipped": 0.624
+        },
+        "key_markup_neutral": {
+          "n_lora_flipped": 43,
+          "share_escalated_conf_lt_thr": 0.9767,
+          "share_passed_through_conf_ge_thr": 0.0233,
+          "mean_conf_on_flipped": 0.6011
+        },
+        "syn_markup_neutral": {
+          "n_lora_flipped": 41,
+          "share_escalated_conf_lt_thr": 0.9512,
+          "share_passed_through_conf_ge_thr": 0.0488,
+          "mean_conf_on_flipped": 0.6202
+        }
+      },
+      "guard_lora": {
+        "pre_markup_bearish": {
+          "n": 300,
+          "n_flipped": 62,
+          "catch_rate": 0.9194,
+          "false_alarm_rate": 0.3361,
+          "auroc": 0.8541,
+          "baseline_escalation_rate": 0.3367
+        },
+        "pre_authority_bearish": {
+          "n": 300,
+          "n_flipped": 20,
+          "catch_rate": 1.0,
+          "false_alarm_rate": 0.375,
+          "auroc": 0.9231,
+          "baseline_escalation_rate": 0.3367
+        },
+        "key_markup_bearish": {
+          "n": 300,
+          "n_flipped": 59,
+          "catch_rate": 0.9831,
+          "false_alarm_rate": 0.3859,
+          "auroc": 0.9083,
+          "baseline_escalation_rate": 0.3367
+        },
+        "syn_markup_bearish": {
+          "n": 300,
+          "n_flipped": 97,
+          "catch_rate": 0.8041,
+          "false_alarm_rate": 0.4039,
+          "auroc": 0.7493,
+          "baseline_escalation_rate": 0.3367
+        },
+        "pre_markup_bullish": {
+          "n": 300,
+          "n_flipped": 57,
+          "catch_rate": 0.8772,
+          "false_alarm_rate": 0.3827,
+          "auroc": 0.8106,
+          "baseline_escalation_rate": 0.3367
+        },
+        "pre_authority_bullish": {
+          "n": 300,
+          "n_flipped": 10,
+          "catch_rate": 1.0,
+          "false_alarm_rate": 0.3655,
+          "auroc": 0.9338,
+          "baseline_escalation_rate": 0.3367
+        },
+        "key_markup_bullish": {
+          "n": 300,
+          "n_flipped": 78,
+          "catch_rate": 0.9615,
+          "false_alarm_rate": 0.3694,
+          "auroc": 0.8716,
+          "baseline_escalation_rate": 0.3367
+        },
+        "syn_markup_bullish": {
+          "n": 300,
+          "n_flipped": 104,
+          "catch_rate": 0.8654,
+          "false_alarm_rate": 0.2959,
+          "auroc": 0.8666,
+          "baseline_escalation_rate": 0.3367
+        },
+        "pre_markup_neutral": {
+          "n": 300,
+          "n_flipped": 46,
+          "catch_rate": 0.9783,
+          "false_alarm_rate": 0.5079,
+          "auroc": 0.8753,
+          "baseline_escalation_rate": 0.3367
+        },
+        "pre_authority_neutral": {
+          "n": 300,
+          "n_flipped": 27,
+          "catch_rate": 0.9259,
+          "false_alarm_rate": 0.5128,
+          "auroc": 0.789,
+          "baseline_escalation_rate": 0.3367
+        },
+        "key_markup_neutral": {
+          "n": 300,
+          "n_flipped": 43,
+          "catch_rate": 0.9767,
+          "false_alarm_rate": 0.5136,
+          "auroc": 0.8385,
+          "baseline_escalation_rate": 0.3367
+        },
+        "syn_markup_neutral": {
+          "n": 300,
+          "n_flipped": 41,
+          "catch_rate": 0.9512,
+          "false_alarm_rate": 0.5405,
+          "auroc": 0.8111,
+          "baseline_escalation_rate": 0.3367
+        }
+      },
+      "wall_time_s": 96.4
+    },
+    "central_bank": {
+      "n": 300,
+      "n_pool_after_load": 2480,
+      "source": "gtfintechlab/fomc_communication",
+      "license": "CC-BY-NC-4.0",
+      "label_source": "human",
+      "accuracy_computed": false,
+      "models": {
+        "lora_news_0.5b_adv": {
+          "clean_pred_distribution": {
+            "Bearish": 0.1667,
+            "Bullish": 0.2,
+            "Neutral": 0.6333
+          },
+          "attacks": {
+            "pre_markup_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 99,
+              "flip_rate": 0.33,
+              "forced_rate": 0.4,
+              "forced_rate_excl_already_target": 0.28,
+              "flip_ci95": [
+                0.2767,
+                0.3833
+              ]
+            },
+            "pre_authority_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 30,
+              "flip_rate": 0.1,
+              "forced_rate": 0.1933,
+              "forced_rate_excl_already_target": 0.04,
+              "flip_ci95": [
+                0.0667,
+                0.1333
+              ]
+            },
+            "key_markup_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 129,
+              "flip_rate": 0.43,
+              "forced_rate": 0.4667,
+              "forced_rate_excl_already_target": 0.36,
+              "flip_ci95": [
+                0.3733,
+                0.4867
+              ]
+            },
+            "syn_markup_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 178,
+              "flip_rate": 0.5933,
+              "forced_rate": 0.6967,
+              "forced_rate_excl_already_target": 0.636,
+              "flip_ci95": [
+                0.5367,
+                0.6467
+              ]
+            },
+            "pre_markup_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 98,
+              "flip_rate": 0.3267,
+              "forced_rate": 0.4667,
+              "forced_rate_excl_already_target": 0.3333,
+              "flip_ci95": [
+                0.2767,
+                0.38
+              ]
+            },
+            "pre_authority_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 17,
+              "flip_rate": 0.0567,
+              "forced_rate": 0.2267,
+              "forced_rate_excl_already_target": 0.0375,
+              "flip_ci95": [
+                0.0333,
+                0.0833
+              ]
+            },
+            "key_markup_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 162,
+              "flip_rate": 0.54,
+              "forced_rate": 0.6633,
+              "forced_rate_excl_already_target": 0.5792,
+              "flip_ci95": [
+                0.4833,
+                0.5967
+              ]
+            },
+            "syn_markup_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 135,
+              "flip_rate": 0.45,
+              "forced_rate": 0.5733,
+              "forced_rate_excl_already_target": 0.4667,
+              "flip_ci95": [
+                0.3967,
+                0.5067
+              ]
+            },
+            "pre_markup_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 43,
+              "flip_rate": 0.1433,
+              "forced_rate": 0.7767,
+              "forced_rate_excl_already_target": 0.3909,
+              "flip_ci95": [
+                0.1033,
+                0.1867
+              ]
+            },
+            "pre_authority_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 45,
+              "flip_rate": 0.15,
+              "forced_rate": 0.7833,
+              "forced_rate_excl_already_target": 0.4091,
+              "flip_ci95": [
+                0.11,
+                0.19
+              ]
+            },
+            "key_markup_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 61,
+              "flip_rate": 0.2033,
+              "forced_rate": 0.8367,
+              "forced_rate_excl_already_target": 0.5545,
+              "flip_ci95": [
+                0.16,
+                0.25
+              ]
+            },
+            "syn_markup_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 64,
+              "flip_rate": 0.2133,
+              "forced_rate": 0.8467,
+              "forced_rate_excl_already_target": 0.5818,
+              "flip_ci95": [
+                0.1667,
+                0.26
+              ]
+            }
+          }
+        }
+      },
+      "cascade_lora": {
+        "pre_markup_bearish": {
+          "n_lora_flipped": 99,
+          "share_escalated_conf_lt_thr": 0.9596,
+          "share_passed_through_conf_ge_thr": 0.0404,
+          "mean_conf_on_flipped": 0.6133
+        },
+        "pre_authority_bearish": {
+          "n_lora_flipped": 30,
+          "share_escalated_conf_lt_thr": 1.0,
+          "share_passed_through_conf_ge_thr": 0.0,
+          "mean_conf_on_flipped": 0.5631
+        },
+        "key_markup_bearish": {
+          "n_lora_flipped": 129,
+          "share_escalated_conf_lt_thr": 0.9845,
+          "share_passed_through_conf_ge_thr": 0.0155,
+          "mean_conf_on_flipped": 0.6037
+        },
+        "syn_markup_bearish": {
+          "n_lora_flipped": 178,
+          "share_escalated_conf_lt_thr": 0.8876,
+          "share_passed_through_conf_ge_thr": 0.1124,
+          "mean_conf_on_flipped": 0.631
+        },
+        "pre_markup_bullish": {
+          "n_lora_flipped": 98,
+          "share_escalated_conf_lt_thr": 0.9388,
+          "share_passed_through_conf_ge_thr": 0.0612,
+          "mean_conf_on_flipped": 0.6263
+        },
+        "pre_authority_bullish": {
+          "n_lora_flipped": 17,
+          "share_escalated_conf_lt_thr": 1.0,
+          "share_passed_through_conf_ge_thr": 0.0,
+          "mean_conf_on_flipped": 0.5406
+        },
+        "key_markup_bullish": {
+          "n_lora_flipped": 162,
+          "share_escalated_conf_lt_thr": 0.9444,
+          "share_passed_through_conf_ge_thr": 0.0556,
+          "mean_conf_on_flipped": 0.6267
+        },
+        "syn_markup_bullish": {
+          "n_lora_flipped": 135,
+          "share_escalated_conf_lt_thr": 0.8963,
+          "share_passed_through_conf_ge_thr": 0.1037,
+          "mean_conf_on_flipped": 0.6388
+        },
+        "pre_markup_neutral": {
+          "n_lora_flipped": 43,
+          "share_escalated_conf_lt_thr": 0.9302,
+          "share_passed_through_conf_ge_thr": 0.0698,
+          "mean_conf_on_flipped": 0.6177
+        },
+        "pre_authority_neutral": {
+          "n_lora_flipped": 45,
+          "share_escalated_conf_lt_thr": 0.9111,
+          "share_passed_through_conf_ge_thr": 0.0889,
+          "mean_conf_on_flipped": 0.6526
+        },
+        "key_markup_neutral": {
+          "n_lora_flipped": 61,
+          "share_escalated_conf_lt_thr": 0.7049,
+          "share_passed_through_conf_ge_thr": 0.2951,
+          "mean_conf_on_flipped": 0.7149
+        },
+        "syn_markup_neutral": {
+          "n_lora_flipped": 64,
+          "share_escalated_conf_lt_thr": 0.75,
+          "share_passed_through_conf_ge_thr": 0.25,
+          "mean_conf_on_flipped": 0.7049
+        }
+      },
+      "guard_lora": {
+        "pre_markup_bearish": {
+          "n": 300,
+          "n_flipped": 99,
+          "catch_rate": 0.9596,
+          "false_alarm_rate": 0.5721,
+          "auroc": 0.778,
+          "baseline_escalation_rate": 0.42
+        },
+        "pre_authority_bearish": {
+          "n": 300,
+          "n_flipped": 30,
+          "catch_rate": 1.0,
+          "false_alarm_rate": 0.463,
+          "auroc": 0.8904,
+          "baseline_escalation_rate": 0.42
+        },
+        "key_markup_bearish": {
+          "n": 300,
+          "n_flipped": 129,
+          "catch_rate": 0.9845,
+          "false_alarm_rate": 0.614,
+          "auroc": 0.7327,
+          "baseline_escalation_rate": 0.42
+        },
+        "syn_markup_bearish": {
+          "n": 300,
+          "n_flipped": 178,
+          "catch_rate": 0.8876,
+          "false_alarm_rate": 0.5492,
+          "auroc": 0.6883,
+          "baseline_escalation_rate": 0.42
+        },
+        "pre_markup_bullish": {
+          "n": 300,
+          "n_flipped": 98,
+          "catch_rate": 0.9388,
+          "false_alarm_rate": 0.5099,
+          "auroc": 0.768,
+          "baseline_escalation_rate": 0.42
+        },
+        "pre_authority_bullish": {
+          "n": 300,
+          "n_flipped": 17,
+          "catch_rate": 1.0,
+          "false_alarm_rate": 0.4205,
+          "auroc": 0.9058,
+          "baseline_escalation_rate": 0.42
+        },
+        "key_markup_bullish": {
+          "n": 300,
+          "n_flipped": 162,
+          "catch_rate": 0.9444,
+          "false_alarm_rate": 0.4783,
+          "auroc": 0.7645,
+          "baseline_escalation_rate": 0.42
+        },
+        "syn_markup_bullish": {
+          "n": 300,
+          "n_flipped": 135,
+          "catch_rate": 0.8963,
+          "false_alarm_rate": 0.4545,
+          "auroc": 0.7786,
+          "baseline_escalation_rate": 0.42
+        },
+        "pre_markup_neutral": {
+          "n": 300,
+          "n_flipped": 43,
+          "catch_rate": 0.9302,
+          "false_alarm_rate": 0.2529,
+          "auroc": 0.9158,
+          "baseline_escalation_rate": 0.42
+        },
+        "pre_authority_neutral": {
+          "n": 300,
+          "n_flipped": 45,
+          "catch_rate": 0.9111,
+          "false_alarm_rate": 0.2784,
+          "auroc": 0.8656,
+          "baseline_escalation_rate": 0.42
+        },
+        "key_markup_neutral": {
+          "n": 300,
+          "n_flipped": 61,
+          "catch_rate": 0.7049,
+          "false_alarm_rate": 0.2092,
+          "auroc": 0.8529,
+          "baseline_escalation_rate": 0.42
+        },
+        "syn_markup_neutral": {
+          "n": 300,
+          "n_flipped": 64,
+          "catch_rate": 0.75,
+          "false_alarm_rate": 0.2076,
+          "auroc": 0.8619,
+          "baseline_escalation_rate": 0.42
+        }
+      },
+      "wall_time_s": 171.3
+    },
+    "crypto": {
+      "n": 300,
+      "n_pool_after_load": 43027,
+      "source": "cogneolabs/Cogneo-Crypto-Sentiment",
+      "license": "mit (card metadata)",
+      "label_source": "machine (inferred, not documented: card is empty; a 'sentiment' column holds label+percent, e.g. 'Bullish (77.9%)'; labels NOT used here)",
+      "accuracy_computed": false,
+      "models": {
+        "lora_news_0.5b_adv": {
+          "clean_pred_distribution": {
+            "Bearish": 0.0933,
+            "Bullish": 0.2233,
+            "Neutral": 0.6833
+          },
+          "attacks": {
+            "pre_markup_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 89,
+              "flip_rate": 0.2967,
+              "forced_rate": 0.2667,
+              "forced_rate_excl_already_target": 0.1912,
+              "flip_ci95": [
+                0.2433,
+                0.3467
+              ]
+            },
+            "pre_authority_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 28,
+              "flip_rate": 0.0933,
+              "forced_rate": 0.1133,
+              "forced_rate_excl_already_target": 0.0257,
+              "flip_ci95": [
+                0.06,
+                0.13
+              ]
+            },
+            "key_markup_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 113,
+              "flip_rate": 0.3767,
+              "forced_rate": 0.3167,
+              "forced_rate_excl_already_target": 0.2463,
+              "flip_ci95": [
+                0.32,
+                0.4267
+              ]
+            },
+            "syn_markup_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 180,
+              "flip_rate": 0.6,
+              "forced_rate": 0.6067,
+              "forced_rate_excl_already_target": 0.5662,
+              "flip_ci95": [
+                0.5467,
+                0.6533
+              ]
+            },
+            "pre_markup_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 101,
+              "flip_rate": 0.3367,
+              "forced_rate": 0.5167,
+              "forced_rate_excl_already_target": 0.3777,
+              "flip_ci95": [
+                0.2867,
+                0.39
+              ]
+            },
+            "pre_authority_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 18,
+              "flip_rate": 0.06,
+              "forced_rate": 0.27,
+              "forced_rate_excl_already_target": 0.0644,
+              "flip_ci95": [
+                0.0367,
+                0.0867
+              ]
+            },
+            "key_markup_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 136,
+              "flip_rate": 0.4533,
+              "forced_rate": 0.62,
+              "forced_rate_excl_already_target": 0.5107,
+              "flip_ci95": [
+                0.4,
+                0.51
+              ]
+            },
+            "syn_markup_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 139,
+              "flip_rate": 0.4633,
+              "forced_rate": 0.6267,
+              "forced_rate_excl_already_target": 0.5193,
+              "flip_ci95": [
+                0.4067,
+                0.5167
+              ]
+            },
+            "pre_markup_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 49,
+              "flip_rate": 0.1633,
+              "forced_rate": 0.8467,
+              "forced_rate_excl_already_target": 0.5158,
+              "flip_ci95": [
+                0.1233,
+                0.2067
+              ]
+            },
+            "pre_authority_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 34,
+              "flip_rate": 0.1133,
+              "forced_rate": 0.7967,
+              "forced_rate_excl_already_target": 0.3579,
+              "flip_ci95": [
+                0.0767,
+                0.15
+              ]
+            },
+            "key_markup_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 62,
+              "flip_rate": 0.2067,
+              "forced_rate": 0.89,
+              "forced_rate_excl_already_target": 0.6526,
+              "flip_ci95": [
+                0.1633,
+                0.25
+              ]
+            },
+            "syn_markup_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 63,
+              "flip_rate": 0.21,
+              "forced_rate": 0.8933,
+              "forced_rate_excl_already_target": 0.6632,
+              "flip_ci95": [
+                0.1633,
+                0.2533
+              ]
+            }
+          }
+        }
+      },
+      "cascade_lora": {
+        "pre_markup_bearish": {
+          "n_lora_flipped": 89,
+          "share_escalated_conf_lt_thr": 0.9888,
+          "share_passed_through_conf_ge_thr": 0.0112,
+          "mean_conf_on_flipped": 0.5486
+        },
+        "pre_authority_bearish": {
+          "n_lora_flipped": 28,
+          "share_escalated_conf_lt_thr": 1.0,
+          "share_passed_through_conf_ge_thr": 0.0,
+          "mean_conf_on_flipped": 0.5379
+        },
+        "key_markup_bearish": {
+          "n_lora_flipped": 113,
+          "share_escalated_conf_lt_thr": 0.9735,
+          "share_passed_through_conf_ge_thr": 0.0265,
+          "mean_conf_on_flipped": 0.5586
+        },
+        "syn_markup_bearish": {
+          "n_lora_flipped": 180,
+          "share_escalated_conf_lt_thr": 0.9667,
+          "share_passed_through_conf_ge_thr": 0.0333,
+          "mean_conf_on_flipped": 0.5985
+        },
+        "pre_markup_bullish": {
+          "n_lora_flipped": 101,
+          "share_escalated_conf_lt_thr": 0.9505,
+          "share_passed_through_conf_ge_thr": 0.0495,
+          "mean_conf_on_flipped": 0.6246
+        },
+        "pre_authority_bullish": {
+          "n_lora_flipped": 18,
+          "share_escalated_conf_lt_thr": 1.0,
+          "share_passed_through_conf_ge_thr": 0.0,
+          "mean_conf_on_flipped": 0.5614
+        },
+        "key_markup_bullish": {
+          "n_lora_flipped": 136,
+          "share_escalated_conf_lt_thr": 0.9779,
+          "share_passed_through_conf_ge_thr": 0.0221,
+          "mean_conf_on_flipped": 0.614
+        },
+        "syn_markup_bullish": {
+          "n_lora_flipped": 139,
+          "share_escalated_conf_lt_thr": 0.9137,
+          "share_passed_through_conf_ge_thr": 0.0863,
+          "mean_conf_on_flipped": 0.6541
+        },
+        "pre_markup_neutral": {
+          "n_lora_flipped": 49,
+          "share_escalated_conf_lt_thr": 1.0,
+          "share_passed_through_conf_ge_thr": 0.0,
+          "mean_conf_on_flipped": 0.5969
+        },
+        "pre_authority_neutral": {
+          "n_lora_flipped": 34,
+          "share_escalated_conf_lt_thr": 0.9118,
+          "share_passed_through_conf_ge_thr": 0.0882,
+          "mean_conf_on_flipped": 0.6191
+        },
+        "key_markup_neutral": {
+          "n_lora_flipped": 62,
+          "share_escalated_conf_lt_thr": 0.8548,
+          "share_passed_through_conf_ge_thr": 0.1452,
+          "mean_conf_on_flipped": 0.683
+        },
+        "syn_markup_neutral": {
+          "n_lora_flipped": 63,
+          "share_escalated_conf_lt_thr": 0.8254,
+          "share_passed_through_conf_ge_thr": 0.1746,
+          "mean_conf_on_flipped": 0.6806
+        }
+      },
+      "guard_lora": {
+        "pre_markup_bearish": {
+          "n": 300,
+          "n_flipped": 89,
+          "catch_rate": 0.9888,
+          "false_alarm_rate": 0.6967,
+          "auroc": 0.8605,
+          "baseline_escalation_rate": 0.5267
+        },
+        "pre_authority_bearish": {
+          "n": 300,
+          "n_flipped": 28,
+          "catch_rate": 1.0,
+          "false_alarm_rate": 0.5515,
+          "auroc": 0.8985,
+          "baseline_escalation_rate": 0.5267
+        },
+        "key_markup_bearish": {
+          "n": 300,
+          "n_flipped": 113,
+          "catch_rate": 0.9735,
+          "false_alarm_rate": 0.8128,
+          "auroc": 0.7841,
+          "baseline_escalation_rate": 0.5267
+        },
+        "syn_markup_bearish": {
+          "n": 300,
+          "n_flipped": 180,
+          "catch_rate": 0.9667,
+          "false_alarm_rate": 0.6833,
+          "auroc": 0.6493,
+          "baseline_escalation_rate": 0.5267
+        },
+        "pre_markup_bullish": {
+          "n": 300,
+          "n_flipped": 101,
+          "catch_rate": 0.9505,
+          "false_alarm_rate": 0.5879,
+          "auroc": 0.7154,
+          "baseline_escalation_rate": 0.5267
+        },
+        "pre_authority_bullish": {
+          "n": 300,
+          "n_flipped": 18,
+          "catch_rate": 1.0,
+          "false_alarm_rate": 0.6099,
+          "auroc": 0.8646,
+          "baseline_escalation_rate": 0.5267
+        },
+        "key_markup_bullish": {
+          "n": 300,
+          "n_flipped": 136,
+          "catch_rate": 0.9779,
+          "false_alarm_rate": 0.622,
+          "auroc": 0.7274,
+          "baseline_escalation_rate": 0.5267
+        },
+        "syn_markup_bullish": {
+          "n": 300,
+          "n_flipped": 139,
+          "catch_rate": 0.9137,
+          "false_alarm_rate": 0.5031,
+          "auroc": 0.7173,
+          "baseline_escalation_rate": 0.5267
+        },
+        "pre_markup_neutral": {
+          "n": 300,
+          "n_flipped": 49,
+          "catch_rate": 1.0,
+          "false_alarm_rate": 0.2749,
+          "auroc": 0.9306,
+          "baseline_escalation_rate": 0.5267
+        },
+        "pre_authority_neutral": {
+          "n": 300,
+          "n_flipped": 34,
+          "catch_rate": 0.9118,
+          "false_alarm_rate": 0.3421,
+          "auroc": 0.8519,
+          "baseline_escalation_rate": 0.5267
+        },
+        "key_markup_neutral": {
+          "n": 300,
+          "n_flipped": 62,
+          "catch_rate": 0.8548,
+          "false_alarm_rate": 0.2101,
+          "auroc": 0.8869,
+          "baseline_escalation_rate": 0.5267
+        },
+        "syn_markup_neutral": {
+          "n": 300,
+          "n_flipped": 63,
+          "catch_rate": 0.8254,
+          "false_alarm_rate": 0.211,
+          "auroc": 0.8821,
+          "baseline_escalation_rate": 0.5267
+        }
+      },
+      "wall_time_s": 242.3
+    }
+  },
+  "notes": [
+    "Aggregate numbers only; no dataset text stored. Perturbed copies existed only in memory.",
+    "Accuracy computed only for equities (expert labels, project scheme). Other markets: label-free metrics only.",
+    "Sentiment preservation of the benign attacks is not human-verified.",
+    "No real-world trading harm is claimed."
+  ],
+  "wall_time_s": 810.4
+}

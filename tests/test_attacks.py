@@ -31,7 +31,23 @@ def test_synonym_swap_leaves_ambiguous_words_alone():
 def test_hedge_keeps_proper_nouns_capitalised_and_prefixes_only():
     out = hedge_insert("Sweden drops probe")
     assert "Sweden" in out and out.endswith("Sweden drops probe") and out != "Sweden drops probe"
-    assert hedge_insert("The fair value rose").endswith("the fair value rose")
+    assert hedge_insert("The fair value rose").endswith(": The fair value rose")
+
+
+def test_hedge_skips_social_posts_links_and_first_person():
+    for t in ("It feels like $BTC is set up", "@user buy now", "https://x.com/a", "I will focus my remarks", "And it is natural", "line one\nline two"):
+        assert hedge_insert(t) == t
+
+
+def test_flagged_edits_no_longer_break_text():
+    assert synonym_swap("Gagazuia expects to sign") == "Gagazuia expects to sign"
+    assert synonym_swap("see x.com/toll-rises-to-86 now") == "see x.com/toll-rises-to-86 now"
+    assert synonym_swap("Oil rises.") == "Oil increases."
+    assert synonym_swap("an increase of 11.2 %") == "an increase of 11.2 %"
+    assert entity_swap("Cohen & Steers , Inc. : 5 shares") == "Cohen & Steers , Inc. : 5 shares"
+    assert entity_swap("maker Glaston Oyj Abp net profit") == "maker Acme Corp net profit"
+    assert entity_swap("by Marimekko North America Retail LLC , a unit") == "by Acme Corp , a unit"
+    assert entity_swap("- The Group -s sales") == "- The Group -s sales"
 
 
 def test_injection_variants():

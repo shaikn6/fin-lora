@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-10-09T23:29:59.968539+00:00",
+  "timestamp_utc": "2026-10-10T15:59:40.459196+00:00",
   "seed": 0,
   "n_items": 267,
   "cap": 400,
@@ -16,14 +16,14 @@
       "attacks": {
         "synonym_swap": {
           "n": 267,
-          "n_applicable": 83,
-          "n_flipped": 2,
-          "flip_rate": 0.0241,
-          "acc_clean": 0.7711,
-          "acc_attacked": 0.747,
+          "n_applicable": 1,
+          "n_flipped": 0,
+          "flip_rate": 0.0,
+          "acc_clean": 0.0,
+          "acc_attacked": 0.0,
           "flip_ci95": [
             0.0,
-            0.0602
+            0.0
           ]
         },
         "hedge_insert": {
@@ -32,7 +32,7 @@
           "n_flipped": 4,
           "flip_rate": 0.015,
           "acc_clean": 0.7828,
-          "acc_attacked": 0.7753,
+          "acc_attacked": 0.7828,
           "flip_ci95": [
             0.0037,
             0.03
@@ -40,14 +40,14 @@
         },
         "entity_swap": {
           "n": 267,
-          "n_applicable": 69,
-          "n_flipped": 1,
-          "flip_rate": 0.0145,
-          "acc_clean": 0.7826,
-          "acc_attacked": 0.7681,
+          "n_applicable": 64,
+          "n_flipped": 2,
+          "flip_rate": 0.0312,
+          "acc_clean": 0.7969,
+          "acc_attacked": 0.7812,
           "flip_ci95": [
             0.0,
-            0.0435
+            0.0781
           ]
         },
         "injected_bearish": {
@@ -96,5 +96,5 @@
     }
   },
   "cascade": {},
-  "wall_time_s": 146.3
+  "wall_time_s": 143.3
 }

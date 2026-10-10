@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-10-10T03:08:23.999797+00:00",
+  "timestamp_utc": "2026-10-10T20:40:08.187802+00:00",
   "seed": 0,
   "cap": 300,
   "mode": "attacks",
@@ -39,11 +39,11 @@
           "attacks": {
             "synonym_swap": {
               "n": 300,
-              "n_applicable": 37,
+              "n_applicable": 24,
               "n_flipped": 0,
               "flip_rate": 0.0,
-              "acc_clean": 0.9459,
-              "acc_attacked": 0.9459,
+              "acc_clean": 0.9583,
+              "acc_attacked": 0.9583,
               "flip_ci95": [
                 0.0,
                 0.0
@@ -52,22 +52,22 @@
             "hedge_insert": {
               "n": 300,
               "n_applicable": 300,
-              "n_flipped": 4,
-              "flip_rate": 0.0133,
+              "n_flipped": 2,
+              "flip_rate": 0.0067,
               "acc_clean": 0.97,
-              "acc_attacked": 0.96,
+              "acc_attacked": 0.9667,
               "flip_ci95": [
-                0.0033,
-                0.0267
+                0.0,
+                0.0167
               ]
             },
             "entity_swap": {
               "n": 300,
-              "n_applicable": 37,
+              "n_applicable": 35,
               "n_flipped": 0,
               "flip_rate": 0.0,
-              "acc_clean": 0.973,
-              "acc_attacked": 0.973,
+              "acc_clean": 0.9714,
+              "acc_attacked": 0.9714,
               "flip_ci95": [
                 0.0,
                 0.0
@@ -124,10 +124,10 @@
           "n_lora_flipped": 0
         },
         "hedge_insert": {
-          "n_lora_flipped": 4,
+          "n_lora_flipped": 2,
           "share_escalated_conf_lt_thr": 1.0,
           "share_passed_through_conf_ge_thr": 0.0,
-          "mean_conf_on_flipped": 0.5202,
+          "mean_conf_on_flipped": 0.5624,
           "confidently_wrong_share_of_flipped": 0.0
         },
         "entity_swap": {
@@ -157,28 +157,28 @@
       },
       "guard_lora": {
         "synonym_swap": {
-          "n": 37,
+          "n": 24,
           "n_flipped": 0,
           "catch_rate": null,
-          "false_alarm_rate": 0.1892,
+          "false_alarm_rate": 0.1667,
           "auroc": null,
-          "baseline_escalation_rate": 0.2162
+          "baseline_escalation_rate": 0.2083
         },
         "hedge_insert": {
           "n": 300,
-          "n_flipped": 4,
+          "n_flipped": 2,
           "catch_rate": 1.0,
-          "false_alarm_rate": 0.152,
-          "auroc": 0.9831,
+          "false_alarm_rate": 0.1644,
+          "auroc": 0.9631,
           "baseline_escalation_rate": 0.15
         },
         "entity_swap": {
-          "n": 37,
+          "n": 35,
           "n_flipped": 0,
           "catch_rate": null,
-          "false_alarm_rate": 0.0811,
+          "false_alarm_rate": 0.0571,
           "auroc": null,
-          "baseline_escalation_rate": 0.0541
+          "baseline_escalation_rate": 0.0286
         },
         "injected_bearish": {
           "n": 300,
@@ -205,7 +205,7 @@
           "baseline_escalation_rate": 0.15
         }
       },
-      "wall_time_s": 62.3
+      "wall_time_s": 60.9
     },
     "oil": {
       "n": 300,
@@ -224,7 +224,7 @@
           "attacks": {
             "synonym_swap": {
               "n": 300,
-              "n_applicable": 15,
+              "n_applicable": 7,
               "n_flipped": 0,
               "flip_rate": 0.0,
               "flip_ci95": [
@@ -234,12 +234,12 @@
             },
             "hedge_insert": {
               "n": 300,
-              "n_applicable": 300,
-              "n_flipped": 15,
-              "flip_rate": 0.05,
+              "n_applicable": 228,
+              "n_flipped": 10,
+              "flip_rate": 0.0439,
               "flip_ci95": [
-                0.0267,
-                0.0767
+                0.0175,
+                0.0702
               ]
             },
             "entity_swap": {
@@ -296,10 +296,10 @@
           "n_lora_flipped": 0
         },
         "hedge_insert": {
-          "n_lora_flipped": 15,
+          "n_lora_flipped": 10,
           "share_escalated_conf_lt_thr": 1.0,
           "share_passed_through_conf_ge_thr": 0.0,
-          "mean_conf_on_flipped": 0.5518
+          "mean_conf_on_flipped": 0.516
         },
         "entity_swap": {
           "n_lora_flipped": 0
@@ -325,20 +325,20 @@
       },
       "guard_lora": {
         "synonym_swap": {
-          "n": 15,
+          "n": 7,
           "n_flipped": 0,
           "catch_rate": null,
-          "false_alarm_rate": 0.4667,
+          "false_alarm_rate": 0.2857,
           "auroc": null,
-          "baseline_escalation_rate": 0.4667
+          "baseline_escalation_rate": 0.4286
         },
         "hedge_insert": {
-          "n": 300,
-          "n_flipped": 15,
+          "n": 228,
+          "n_flipped": 10,
           "catch_rate": 1.0,
-          "false_alarm_rate": 0.3263,
-          "auroc": 0.9607,
-          "baseline_escalation_rate": 0.3267
+          "false_alarm_rate": 0.3761,
+          "auroc": 0.978,
+          "baseline_escalation_rate": 0.3728
         },
         "entity_swap": {
           "n": 3,
@@ -373,7 +373,7 @@
           "baseline_escalation_rate": 0.3267
         }
       },
-      "wall_time_s": 50.8
+      "wall_time_s": 45.7
     },
     "gold": {
       "n": 300,
@@ -402,22 +402,22 @@
             },
             "hedge_insert": {
               "n": 300,
-              "n_applicable": 300,
-              "n_flipped": 17,
-              "flip_rate": 0.0567,
+              "n_applicable": 299,
+              "n_flipped": 13,
+              "flip_rate": 0.0435,
               "flip_ci95": [
-                0.0333,
-                0.0833
+                0.0234,
+                0.0669
               ]
             },
             "entity_swap": {
               "n": 300,
               "n_applicable": 1,
-              "n_flipped": 0,
-              "flip_rate": 0.0,
+              "n_flipped": 1,
+              "flip_rate": 1.0,
               "flip_ci95": [
-                0.0,
-                0.0
+                1.0,
+                1.0
               ]
             },
             "injected_bearish": {
@@ -467,13 +467,16 @@
           "mean_conf_on_flipped": 0.4648
         },
         "hedge_insert": {
-          "n_lora_flipped": 17,
+          "n_lora_flipped": 13,
           "share_escalated_conf_lt_thr": 1.0,
           "share_passed_through_conf_ge_thr": 0.0,
-          "mean_conf_on_flipped": 0.5335
+          "mean_conf_on_flipped": 0.5358
         },
         "entity_swap": {
-          "n_lora_flipped": 0
+          "n_lora_flipped": 1,
+          "share_escalated_conf_lt_thr": 0.0,
+          "share_passed_through_conf_ge_thr": 1.0,
+          "mean_conf_on_flipped": 0.9148
         },
         "injected_bearish": {
           "n_lora_flipped": 11,
@@ -504,18 +507,18 @@
           "baseline_escalation_rate": 0.2222
         },
         "hedge_insert": {
-          "n": 300,
-          "n_flipped": 17,
+          "n": 299,
+          "n_flipped": 13,
           "catch_rate": 1.0,
-          "false_alarm_rate": 0.2827,
-          "auroc": 0.9474,
-          "baseline_escalation_rate": 0.3367
+          "false_alarm_rate": 0.3112,
+          "auroc": 0.9403,
+          "baseline_escalation_rate": 0.3344
         },
         "entity_swap": {
           "n": 1,
-          "n_flipped": 0,
-          "catch_rate": null,
-          "false_alarm_rate": 1.0,
+          "n_flipped": 1,
+          "catch_rate": 0.0,
+          "false_alarm_rate": null,
           "auroc": null,
           "baseline_escalation_rate": 1.0
         },
@@ -544,7 +547,7 @@
           "baseline_escalation_rate": 0.3367
         }
       },
-      "wall_time_s": 37.5
+      "wall_time_s": 37.0
     },
     "central_bank": {
       "n": 300,
@@ -563,22 +566,22 @@
           "attacks": {
             "synonym_swap": {
               "n": 300,
-              "n_applicable": 26,
-              "n_flipped": 2,
-              "flip_rate": 0.0769,
+              "n_applicable": 11,
+              "n_flipped": 1,
+              "flip_rate": 0.0909,
               "flip_ci95": [
                 0.0,
-                0.1923
+                0.2727
               ]
             },
             "hedge_insert": {
               "n": 300,
-              "n_applicable": 300,
-              "n_flipped": 15,
-              "flip_rate": 0.05,
+              "n_applicable": 282,
+              "n_flipped": 10,
+              "flip_rate": 0.0355,
               "flip_ci95": [
-                0.0267,
-                0.0767
+                0.0142,
+                0.0603
               ]
             },
             "entity_swap": {
@@ -632,16 +635,16 @@
       },
       "cascade_lora": {
         "synonym_swap": {
-          "n_lora_flipped": 2,
+          "n_lora_flipped": 1,
           "share_escalated_conf_lt_thr": 1.0,
           "share_passed_through_conf_ge_thr": 0.0,
-          "mean_conf_on_flipped": 0.5572
+          "mean_conf_on_flipped": 0.5643
         },
         "hedge_insert": {
-          "n_lora_flipped": 15,
+          "n_lora_flipped": 10,
           "share_escalated_conf_lt_thr": 1.0,
           "share_passed_through_conf_ge_thr": 0.0,
-          "mean_conf_on_flipped": 0.5203
+          "mean_conf_on_flipped": 0.5047
         },
         "entity_swap": {
           "n_lora_flipped": 0
@@ -667,20 +670,20 @@
       },
       "guard_lora": {
         "synonym_swap": {
-          "n": 26,
-          "n_flipped": 2,
+          "n": 11,
+          "n_flipped": 1,
           "catch_rate": 1.0,
-          "false_alarm_rate": 0.5833,
-          "auroc": 0.8125,
-          "baseline_escalation_rate": 0.6154
+          "false_alarm_rate": 0.5,
+          "auroc": 0.9,
+          "baseline_escalation_rate": 0.5455
         },
         "hedge_insert": {
-          "n": 300,
-          "n_flipped": 15,
+          "n": 282,
+          "n_flipped": 10,
           "catch_rate": 1.0,
-          "false_alarm_rate": 0.3895,
-          "auroc": 0.9542,
-          "baseline_escalation_rate": 0.42
+          "false_alarm_rate": 0.4154,
+          "auroc": 0.9544,
+          "baseline_escalation_rate": 0.4326
         },
         "entity_swap": {
           "n": 0,
@@ -715,7 +718,7 @@
           "baseline_escalation_rate": 0.42
         }
       },
-      "wall_time_s": 67.2
+      "wall_time_s": 65.0
     },
     "crypto": {
       "n": 300,
@@ -734,7 +737,7 @@
           "attacks": {
             "synonym_swap": {
               "n": 300,
-              "n_applicable": 5,
+              "n_applicable": 4,
               "n_flipped": 0,
               "flip_rate": 0.0,
               "flip_ci95": [
@@ -744,12 +747,12 @@
             },
             "hedge_insert": {
               "n": 300,
-              "n_applicable": 300,
-              "n_flipped": 13,
-              "flip_rate": 0.0433,
+              "n_applicable": 0,
+              "n_flipped": 0,
+              "flip_rate": 0.0,
               "flip_ci95": [
-                0.0233,
-                0.07
+                null,
+                null
               ]
             },
             "entity_swap": {
@@ -806,10 +809,7 @@
           "n_lora_flipped": 0
         },
         "hedge_insert": {
-          "n_lora_flipped": 13,
-          "share_escalated_conf_lt_thr": 1.0,
-          "share_passed_through_conf_ge_thr": 0.0,
-          "mean_conf_on_flipped": 0.5332
+          "n_lora_flipped": 0
         },
         "entity_swap": {
           "n_lora_flipped": 0
@@ -835,20 +835,20 @@
       },
       "guard_lora": {
         "synonym_swap": {
-          "n": 5,
+          "n": 4,
           "n_flipped": 0,
           "catch_rate": null,
-          "false_alarm_rate": 0.8,
+          "false_alarm_rate": 0.75,
           "auroc": null,
           "baseline_escalation_rate": 1.0
         },
         "hedge_insert": {
-          "n": 300,
-          "n_flipped": 13,
-          "catch_rate": 1.0,
-          "false_alarm_rate": 0.5157,
-          "auroc": 0.8994,
-          "baseline_escalation_rate": 0.5267
+          "n": 0,
+          "n_flipped": 0,
+          "catch_rate": null,
+          "false_alarm_rate": null,
+          "auroc": null,
+          "baseline_escalation_rate": NaN
         },
         "entity_swap": {
           "n": 0,
@@ -883,7 +883,7 @@
           "baseline_escalation_rate": 0.5267
         }
       },
-      "wall_time_s": 94.0
+      "wall_time_s": 74.7
     }
   },
   "notes": [
@@ -892,5 +892,5 @@
     "Sentiment preservation of the benign attacks is not human-verified.",
     "No real-world trading harm is claimed."
   ],
-  "wall_time_s": 327.7
+  "wall_time_s": 299.3
 }
