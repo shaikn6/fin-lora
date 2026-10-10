@@ -1,5 +1,6 @@
 """Offline tests for pure helpers in run_robustness_markets (no network, no models)."""
 import numpy as np
+import pytest
 
 from finlora.robustness import build_models, cascade_stats, clean_attack_result, pred_distribution
 from run_robustness_markets import parse_args, sample_items
@@ -41,6 +42,7 @@ def test_clean_attack_result_drops_private_arrays():
 
 
 def test_build_models_builds_only_named():
+    pytest.importorskip("torch")  # build_models imports the model stack; CI installs only the light deps
     texts = ["shares rose", "shares fell", "flat day", "profit up", "loss widens", "no change"]
     m = build_models(texts, [1, 0, 2, 1, 0, 2], names=("tfidf_logreg",))
     assert list(m) == ["tfidf_logreg"]
