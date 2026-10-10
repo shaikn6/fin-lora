@@ -1,0 +1,100 @@
+{
+  "timestamp_utc": "2026-10-10T03:27:51.029449+00:00",
+  "seed": 0,
+  "n_items": 267,
+  "cap": 400,
+  "dataset": "Jean-Baptiste/financial_news_sentiment test (via finlora.news.headlines)",
+  "labels": [
+    "Bearish",
+    "Bullish",
+    "Neutral"
+  ],
+  "cascade_threshold": 0.8,
+  "models": {
+    "lora_news_0.5b_adv": {
+      "clean_accuracy": 0.7565543071161048,
+      "attacks": {
+        "synonym_swap": {
+          "n": 267,
+          "n_applicable": 83,
+          "n_flipped": 4,
+          "flip_rate": 0.0482,
+          "acc_clean": 0.6988,
+          "acc_attacked": 0.7229,
+          "flip_ci95": [
+            0.012,
+            0.0964
+          ]
+        },
+        "hedge_insert": {
+          "n": 267,
+          "n_applicable": 267,
+          "n_flipped": 15,
+          "flip_rate": 0.0562,
+          "acc_clean": 0.7566,
+          "acc_attacked": 0.7528,
+          "flip_ci95": [
+            0.03,
+            0.0861
+          ]
+        },
+        "entity_swap": {
+          "n": 267,
+          "n_applicable": 69,
+          "n_flipped": 2,
+          "flip_rate": 0.029,
+          "acc_clean": 0.6957,
+          "acc_attacked": 0.6957,
+          "flip_ci95": [
+            0.0,
+            0.0725
+          ]
+        },
+        "injected_bearish": {
+          "n": 267,
+          "n_applicable": 267,
+          "n_flipped": 31,
+          "flip_rate": 0.1161,
+          "acc_clean": 0.7566,
+          "acc_attacked": 0.7416,
+          "forced_rate": 0.0,
+          "forced_rate_excl_already_target": 0.0,
+          "flip_ci95": [
+            0.0787,
+            0.1573
+          ]
+        },
+        "injected_bullish": {
+          "n": 267,
+          "n_applicable": 267,
+          "n_flipped": 30,
+          "flip_rate": 0.1124,
+          "acc_clean": 0.7566,
+          "acc_attacked": 0.7378,
+          "forced_rate": 0.2285,
+          "forced_rate_excl_already_target": 0.0,
+          "flip_ci95": [
+            0.0749,
+            0.1498
+          ]
+        },
+        "injected_neutral": {
+          "n": 267,
+          "n_applicable": 267,
+          "n_flipped": 33,
+          "flip_rate": 0.1236,
+          "acc_clean": 0.7566,
+          "acc_attacked": 0.7416,
+          "forced_rate": 0.7865,
+          "forced_rate_excl_already_target": 0.3667,
+          "flip_ci95": [
+            0.0861,
+            0.1648
+          ]
+        }
+      }
+    }
+  },
+  "cascade": {},
+  "wall_time_s": 56.4
+}

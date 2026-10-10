@@ -7,3 +7,6 @@ adapters/
 profile_step.py
 exports/*.joblib
 train_news_*.log
+
+data_cache/
+*.parquet

@@ -1,0 +1,396 @@
+{
+  "timestamp_utc": "2026-10-10T03:24:31.341243+00:00",
+  "seed": 0,
+  "cap": 300,
+  "mode": "controls",
+  "cascade_threshold": 0.8,
+  "models": [
+    "lora_news_0.5b_adv"
+  ],
+  "labels": [
+    "Bearish",
+    "Bullish",
+    "Neutral"
+  ],
+  "attacks": [
+    "control_filler",
+    "control_ignore"
+  ],
+  "load_errors": {},
+  "markets": {
+    "equities": {
+      "n": 300,
+      "n_pool_after_load": 2264,
+      "source": "takala/financial_phrasebank",
+      "license": "CC-BY-NC-SA-3.0",
+      "label_source": "expert",
+      "accuracy_computed": true,
+      "models": {
+        "lora_news_0.5b_adv": {
+          "clean_pred_distribution": {
+            "Bearish": 0.13,
+            "Bullish": 0.2533,
+            "Neutral": 0.6167
+          },
+          "attacks": {
+            "control_filler": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 5,
+              "flip_rate": 0.0167,
+              "acc_clean": 0.97,
+              "acc_attacked": 0.97,
+              "flip_ci95": [
+                0.0033,
+                0.0333
+              ]
+            },
+            "control_ignore": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 7,
+              "flip_rate": 0.0233,
+              "acc_clean": 0.97,
+              "acc_attacked": 0.9667,
+              "flip_ci95": [
+                0.0067,
+                0.04
+              ]
+            }
+          },
+          "clean_accuracy": 0.97
+        }
+      },
+      "cascade_lora": {
+        "control_filler": {
+          "n_lora_flipped": 5,
+          "share_escalated_conf_lt_thr": 1.0,
+          "share_passed_through_conf_ge_thr": 0.0,
+          "mean_conf_on_flipped": 0.5199,
+          "confidently_wrong_share_of_flipped": 0.0
+        },
+        "control_ignore": {
+          "n_lora_flipped": 7,
+          "share_escalated_conf_lt_thr": 1.0,
+          "share_passed_through_conf_ge_thr": 0.0,
+          "mean_conf_on_flipped": 0.5385,
+          "confidently_wrong_share_of_flipped": 0.0
+        }
+      },
+      "guard_lora": {
+        "control_filler": {
+          "n": 300,
+          "n_flipped": 5,
+          "catch_rate": 1.0,
+          "false_alarm_rate": 0.1288,
+          "auroc": 0.9824,
+          "baseline_escalation_rate": 0.15
+        },
+        "control_ignore": {
+          "n": 300,
+          "n_flipped": 7,
+          "catch_rate": 1.0,
+          "false_alarm_rate": 0.1331,
+          "auroc": 0.9795,
+          "baseline_escalation_rate": 0.15
+        }
+      },
+      "wall_time_s": 36.3
+    },
+    "oil": {
+      "n": 300,
+      "n_pool_after_load": 9467,
+      "source": "polibert/oil-sentiment-headlines",
+      "license": "CC-BY-4.0",
+      "label_source": "machine",
+      "accuracy_computed": false,
+      "models": {
+        "lora_news_0.5b_adv": {
+          "clean_pred_distribution": {
+            "Bearish": 0.1133,
+            "Bullish": 0.1233,
+            "Neutral": 0.7633
+          },
+          "attacks": {
+            "control_filler": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 5,
+              "flip_rate": 0.0167,
+              "flip_ci95": [
+                0.0033,
+                0.0333
+              ]
+            },
+            "control_ignore": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 11,
+              "flip_rate": 0.0367,
+              "flip_ci95": [
+                0.0167,
+                0.06
+              ]
+            }
+          }
+        }
+      },
+      "cascade_lora": {
+        "control_filler": {
+          "n_lora_flipped": 5,
+          "share_escalated_conf_lt_thr": 1.0,
+          "share_passed_through_conf_ge_thr": 0.0,
+          "mean_conf_on_flipped": 0.591
+        },
+        "control_ignore": {
+          "n_lora_flipped": 11,
+          "share_escalated_conf_lt_thr": 0.9091,
+          "share_passed_through_conf_ge_thr": 0.0909,
+          "mean_conf_on_flipped": 0.64
+        }
+      },
+      "guard_lora": {
+        "control_filler": {
+          "n": 300,
+          "n_flipped": 5,
+          "catch_rate": 1.0,
+          "false_alarm_rate": 0.3254,
+          "auroc": 0.9125,
+          "baseline_escalation_rate": 0.3267
+        },
+        "control_ignore": {
+          "n": 300,
+          "n_flipped": 11,
+          "catch_rate": 0.9091,
+          "false_alarm_rate": 0.2734,
+          "auroc": 0.8685,
+          "baseline_escalation_rate": 0.3267
+        }
+      },
+      "wall_time_s": 30.4
+    },
+    "gold": {
+      "n": 300,
+      "n_pool_after_load": 8602,
+      "source": "SaguaroCapital/sentiment-analysis-in-commodity-market-gold",
+      "license": "CC-BY-NC-ND-4.0",
+      "label_source": "expert",
+      "accuracy_computed": false,
+      "models": {
+        "lora_news_0.5b_adv": {
+          "clean_pred_distribution": {
+            "Bearish": 0.4033,
+            "Bullish": 0.4533,
+            "Neutral": 0.1433
+          },
+          "attacks": {
+            "control_filler": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 10,
+              "flip_rate": 0.0333,
+              "flip_ci95": [
+                0.0167,
+                0.0533
+              ]
+            },
+            "control_ignore": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 18,
+              "flip_rate": 0.06,
+              "flip_ci95": [
+                0.0367,
+                0.09
+              ]
+            }
+          }
+        }
+      },
+      "cascade_lora": {
+        "control_filler": {
+          "n_lora_flipped": 10,
+          "share_escalated_conf_lt_thr": 1.0,
+          "share_passed_through_conf_ge_thr": 0.0,
+          "mean_conf_on_flipped": 0.5113
+        },
+        "control_ignore": {
+          "n_lora_flipped": 18,
+          "share_escalated_conf_lt_thr": 1.0,
+          "share_passed_through_conf_ge_thr": 0.0,
+          "mean_conf_on_flipped": 0.532
+        }
+      },
+      "guard_lora": {
+        "control_filler": {
+          "n": 300,
+          "n_flipped": 10,
+          "catch_rate": 1.0,
+          "false_alarm_rate": 0.3621,
+          "auroc": 0.9531,
+          "baseline_escalation_rate": 0.3367
+        },
+        "control_ignore": {
+          "n": 300,
+          "n_flipped": 18,
+          "catch_rate": 1.0,
+          "false_alarm_rate": 0.4149,
+          "auroc": 0.9213,
+          "baseline_escalation_rate": 0.3367
+        }
+      },
+      "wall_time_s": 22.3
+    },
+    "central_bank": {
+      "n": 300,
+      "n_pool_after_load": 2480,
+      "source": "gtfintechlab/fomc_communication",
+      "license": "CC-BY-NC-4.0",
+      "label_source": "human",
+      "accuracy_computed": false,
+      "models": {
+        "lora_news_0.5b_adv": {
+          "clean_pred_distribution": {
+            "Bearish": 0.1667,
+            "Bullish": 0.2,
+            "Neutral": 0.6333
+          },
+          "attacks": {
+            "control_filler": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 14,
+              "flip_rate": 0.0467,
+              "flip_ci95": [
+                0.0233,
+                0.0733
+              ]
+            },
+            "control_ignore": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 16,
+              "flip_rate": 0.0533,
+              "flip_ci95": [
+                0.03,
+                0.0833
+              ]
+            }
+          }
+        }
+      },
+      "cascade_lora": {
+        "control_filler": {
+          "n_lora_flipped": 14,
+          "share_escalated_conf_lt_thr": 1.0,
+          "share_passed_through_conf_ge_thr": 0.0,
+          "mean_conf_on_flipped": 0.5751
+        },
+        "control_ignore": {
+          "n_lora_flipped": 16,
+          "share_escalated_conf_lt_thr": 1.0,
+          "share_passed_through_conf_ge_thr": 0.0,
+          "mean_conf_on_flipped": 0.5544
+        }
+      },
+      "guard_lora": {
+        "control_filler": {
+          "n": 300,
+          "n_flipped": 14,
+          "catch_rate": 1.0,
+          "false_alarm_rate": 0.3636,
+          "auroc": 0.8929,
+          "baseline_escalation_rate": 0.42
+        },
+        "control_ignore": {
+          "n": 300,
+          "n_flipped": 16,
+          "catch_rate": 1.0,
+          "false_alarm_rate": 0.3732,
+          "auroc": 0.9248,
+          "baseline_escalation_rate": 0.42
+        }
+      },
+      "wall_time_s": 39.9
+    },
+    "crypto": {
+      "n": 300,
+      "n_pool_after_load": 43027,
+      "source": "cogneolabs/Cogneo-Crypto-Sentiment",
+      "license": "mit (card metadata)",
+      "label_source": "machine (inferred, not documented: card is empty; a 'sentiment' column holds label+percent, e.g. 'Bullish (77.9%)'; labels NOT used here)",
+      "accuracy_computed": false,
+      "models": {
+        "lora_news_0.5b_adv": {
+          "clean_pred_distribution": {
+            "Bearish": 0.0933,
+            "Bullish": 0.2233,
+            "Neutral": 0.6833
+          },
+          "attacks": {
+            "control_filler": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 10,
+              "flip_rate": 0.0333,
+              "flip_ci95": [
+                0.0133,
+                0.0567
+              ]
+            },
+            "control_ignore": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 19,
+              "flip_rate": 0.0633,
+              "flip_ci95": [
+                0.0367,
+                0.0933
+              ]
+            }
+          }
+        }
+      },
+      "cascade_lora": {
+        "control_filler": {
+          "n_lora_flipped": 10,
+          "share_escalated_conf_lt_thr": 1.0,
+          "share_passed_through_conf_ge_thr": 0.0,
+          "mean_conf_on_flipped": 0.5507
+        },
+        "control_ignore": {
+          "n_lora_flipped": 19,
+          "share_escalated_conf_lt_thr": 0.9474,
+          "share_passed_through_conf_ge_thr": 0.0526,
+          "mean_conf_on_flipped": 0.5672
+        }
+      },
+      "guard_lora": {
+        "control_filler": {
+          "n": 300,
+          "n_flipped": 10,
+          "catch_rate": 1.0,
+          "false_alarm_rate": 0.4793,
+          "auroc": 0.8869,
+          "baseline_escalation_rate": 0.5267
+        },
+        "control_ignore": {
+          "n": 300,
+          "n_flipped": 19,
+          "catch_rate": 0.9474,
+          "false_alarm_rate": 0.4591,
+          "auroc": 0.8741,
+          "baseline_escalation_rate": 0.5267
+        }
+      },
+      "wall_time_s": 56.3
+    }
+  },
+  "notes": [
+    "Aggregate numbers only; no dataset text stored. Perturbed copies existed only in memory.",
+    "Accuracy computed only for equities (expert labels, project scheme). Other markets: label-free metrics only.",
+    "Sentiment preservation of the benign attacks is not human-verified.",
+    "No real-world trading harm is claimed."
+  ],
+  "wall_time_s": 200.6
+}

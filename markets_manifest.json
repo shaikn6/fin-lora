@@ -1,0 +1,98 @@
+{
+  "date_checked": "2026-10-08",
+  "datasets": [
+    {
+      "key": "phrasebank",
+      "dataset_id": "takala/financial_phrasebank",
+      "market": "equities",
+      "label_source": "expert",
+      "license": "CC-BY-NC-SA-3.0",
+      "card_url": "https://huggingface.co/datasets/takala/financial_phrasebank",
+      "notes": "sentences_allagree; only a 'train' split exists. Card: 16 annotators with finance background, 5-8 annotations/sentence; annotators all from same institution. Loaded via hf_hub_download zip because legacy loading script is unsupported by current datasets.",
+      "n_per_split": {
+        "train": 2264
+      },
+      "label_distribution": {
+        "0": 303,
+        "1": 570,
+        "2": 1391
+      },
+      "label_scheme": "project",
+      "load_status": "ok"
+    },
+    {
+      "key": "oil",
+      "dataset_id": "polibert/oil-sentiment-headlines",
+      "market": "oil",
+      "label_source": "machine",
+      "license": "CC-BY-4.0",
+      "card_url": "https://huggingface.co/datasets/polibert/oil-sentiment-headlines",
+      "notes": "Machine labels (card: FinBERT + Claude Haiku). Loaded 11068 rows vs 18,450 claimed on card (mismatch). score_source column has values phrase/finbert/sentimentwiki/phrase_lexicon, unexplained in card; no Haiku-labeled marker found. Non-English source_types (scraper_ar, rss_ar, rss_ru) dropped by default.",
+      "n_per_split": {
+        "train": 9467
+      },
+      "label_distribution": {
+        "0": 2676,
+        "1": 1630,
+        "2": 5161
+      },
+      "label_scheme": "project",
+      "load_status": "ok",
+      "n_before_english_filter": 11068,
+      "n_raw_per_split": {
+        "train": 11068
+      }
+    },
+    {
+      "key": "gold",
+      "dataset_id": "SaguaroCapital/sentiment-analysis-in-commodity-market-gold",
+      "market": "gold",
+      "label_source": "expert",
+      "license": "CC-BY-NC-ND-4.0",
+      "card_url": "https://huggingface.co/datasets/SaguaroCapital/sentiment-analysis-in-commodity-market-gold",
+      "notes": "Label column 'Price Sentiment'; 'none' rows dropped by default. Card: three human subject-expert annotators. ND license: no derived/perturbed publication.",
+      "n_per_split": {
+        "train": 6882,
+        "test": 1720
+      },
+      "label_distribution": {
+        "0": 3814,
+        "1": 4412,
+        "2": 376
+      },
+      "label_scheme": "project",
+      "load_status": "ok",
+      "n_none_label_dropped": 1968,
+      "n_raw_per_split": {
+        "train": 8456,
+        "test": 2114
+      },
+      "card_raw_price_sentiment_counts_train": {
+        "positive": 3531,
+        "negative": 3050,
+        "none": 1574,
+        "neutral": 301
+      }
+    },
+    {
+      "key": "fomc",
+      "dataset_id": "gtfintechlab/fomc_communication",
+      "market": "central_bank",
+      "label_source": "human",
+      "license": "CC-BY-NC-4.0",
+      "card_url": "https://huggingface.co/datasets/gtfintechlab/fomc_communication",
+      "notes": "Native scheme 0 dovish/1 hawkish/2 neutral, not mapped. HF card has no annotation info; annotators verified from ACL 2023 paper (arXiv 2305.07972): two independent human annotators.",
+      "n_per_split": {
+        "train": 1984,
+        "test": 496
+      },
+      "label_distribution": {
+        "0": 650,
+        "1": 606,
+        "2": 1224
+      },
+      "label_scheme": "fomc",
+      "load_status": "ok"
+    }
+  ]
+}
