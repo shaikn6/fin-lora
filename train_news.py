@@ -5,8 +5,8 @@ usage: python train_news.py <base model> <output tag> [n_news] [n_tweets] [max_l
 planted_frac > 0 appends a planted label sentence (instruction or polite phrasing, random label) to that share of the
 training texts while keeping their true labels (adversarial training; see finlora.attacks.augment_planted).
 """
+import argparse
 import json
-import sys
 import time
 
 import numpy as np
@@ -19,14 +19,23 @@ from finlora.common import (DEVICE, empty_cache, encode, label_logits, label_tok
                             text_prompt)
 from finlora.news import N_NEWS, N_TWEETS, train_mix
 
-base, tag = sys.argv[1], sys.argv[2]
-n_news, n_tweets = (int(sys.argv[i]) if len(sys.argv) > i else d for i, d in ((3, N_NEWS), (4, N_TWEETS)))
-MAX_LEN, BS, ACCUM = (int(sys.argv[i]) if len(sys.argv) > i else d for i, d in ((5, 256), (6, 16), (7, 1)))
+ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+ap.add_argument("base", help="base model, e.g. Qwen/Qwen2.5-0.5B-Instruct")
+ap.add_argument("tag", help="output tag: the adapter is written to adapters/<tag>, the run summary to train_<tag>.json")
+ap.add_argument("n_news", nargs="?", type=int, default=N_NEWS, help="news snippets (default %(default)s)")
+ap.add_argument("n_tweets", nargs="?", type=int, default=N_TWEETS, help="tweets (default %(default)s)")
+ap.add_argument("max_len", nargs="?", type=int, default=256, help="token window (default %(default)s)")
+ap.add_argument("batch", nargs="?", type=int, default=16, help="batch size (default %(default)s)")
+ap.add_argument("accum", nargs="?", type=int, default=1, help="gradient accumulation steps (default %(default)s)")
+ap.add_argument("planted_frac", nargs="?", type=float, default=0.0, help="share of training texts given a planted label sentence (default %(default)s)")
+args = ap.parse_args()
+base, tag, n_news, n_tweets = args.base, args.tag, args.n_news, args.n_tweets
+MAX_LEN, BS, ACCUM = args.max_len, args.batch, args.accum
 LR = 2e-4
 torch.manual_seed(0)
 
 texts, labels, news_dev = train_mix(n_news, n_tweets)
-PLANTED = float(sys.argv[8]) if len(sys.argv) > 8 else 0.0
+PLANTED = args.planted_frac
 if PLANTED:
     from finlora.attacks import augment_planted
     texts, _ = augment_planted(texts, PLANTED)
