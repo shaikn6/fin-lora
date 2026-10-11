@@ -8,6 +8,7 @@ from peft import PeftModel
 from sklearn.metrics import accuracy_score, f1_score, recall_score
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from finlora.pins import revision
 from finlora.common import DEVICE, predict, splits, text_prompt
 from finlora.news import headlines, nosible
 
@@ -27,8 +28,8 @@ def score(y, p):
 
 
 def run(base, adapter, max_len, tag, new_prompt=False):
-    tok = AutoTokenizer.from_pretrained(base)
-    model = AutoModelForCausalLM.from_pretrained(base, dtype=torch.bfloat16)
+    tok = AutoTokenizer.from_pretrained(base, revision=revision(base))
+    model = AutoModelForCausalLM.from_pretrained(base, revision=revision(base), dtype=torch.bfloat16)
     if adapter:
         model = PeftModel.from_pretrained(model, adapter)
     model = model.eval().to(DEVICE)

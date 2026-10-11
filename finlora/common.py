@@ -1,4 +1,5 @@
 """Shared data loading, prompt format, and label-token scoring for financial-tweet sentiment."""
+from finlora.pins import revision
 import torch
 from datasets import load_dataset
 
@@ -29,7 +30,7 @@ def lora_config():
 
 def splits(seed=0):
     """train / dev (10% of the original train, for model selection) / test (the official validation split)."""
-    d = load_dataset("zeroshot/twitter-financial-news-sentiment")
+    d = load_dataset("zeroshot/twitter-financial-news-sentiment", revision=revision("zeroshot/twitter-financial-news-sentiment"))
     tr = d["train"].train_test_split(test_size=0.1, seed=seed)
     return tr["train"], tr["test"], d["validation"]
 

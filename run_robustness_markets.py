@@ -13,6 +13,7 @@ from functools import partial
 
 import numpy as np
 
+from finlora.pins import revision
 from finlora.robustness import (CLASSES, DEFAULT_MODELS, Cached, bootstrap_ci, build_models, cascade_stats, clean_attack_result,
                                 guard_stats, pred_distribution)
 
@@ -55,7 +56,7 @@ def load_markets(seed=SEED, cap=CAP):
     try:
         import pandas as pd
         from huggingface_hub import hf_hub_download
-        d = pd.read_parquet(hf_hub_download(CRYPTO_ID, CRYPTO_FILE, repo_type="dataset"))
+        d = pd.read_parquet(hf_hub_download(CRYPTO_ID, CRYPTO_FILE, repo_type="dataset", revision=revision(CRYPTO_ID)))
         texts, _ = sample_items(d["description"].tolist(), cap=cap, seed=seed, min_chars=20)
         out["crypto"] = dict(texts=texts, labels=None, source=CRYPTO_ID, license="mit (card metadata)", n_pool=len(d),
                              label_source="machine (inferred, not documented: card is empty; a 'sentiment' column holds "

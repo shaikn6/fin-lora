@@ -4,17 +4,18 @@ import json
 import numpy as np
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
+from finlora.pins import revision
 from finlora.common import MODEL, adapter_dir, empty_cache, report, splits
 from finlora.arena import TfidfLR, FinBERT, CausalLabelLM, latency_ms
 from finlora.router import cascade_curve
 
 tr, _, te = splits()
 y, texts = np.array(te["label"]), te["text"]
-tok = AutoTokenizer.from_pretrained(MODEL)
+tok = AutoTokenizer.from_pretrained(MODEL, revision=revision(MODEL))
 
 
 def base():
-    return AutoModelForCausalLM.from_pretrained(MODEL, dtype=torch.bfloat16)
+    return AutoModelForCausalLM.from_pretrained(MODEL, revision=revision(MODEL), dtype=torch.bfloat16)
 
 
 # factories, so only one model is resident at a time (16 GB machine)
