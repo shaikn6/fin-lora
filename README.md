@@ -4,6 +4,33 @@ Which model should classify financial sentiment (Bearish / Bullish / Neutral), a
 Model families are compared on held-out tweets (version 1) and then on news headlines and articles (version 2), with a
 confidence **cascade** that sends only the uncertain items to the expensive model.
 
+## Version 4: can the cascade itself be attacked?
+
+The cascade keeps the cheap model's answer when its top probability is at least 0.8 and otherwise asks the LLM, so the
+cheap model also decides who else gets to answer. Version 4 attacks that gate by appending words, on eight test sets
+(three held out from the training sources, five markets), with the model file and adapter that `../finarena` ships.
+
+- **Two goals:** *suppress* (the cheap model gives a chosen label at 0.8 or more, so the LLM is never asked) and *force*
+  (its confidence drops below 0.8, so the item is escalated).
+- **Four vocabularies:** all words; no word from three sentiment lexicons; 59 "inert" words (names, places, dates,
+  generic nouns that FinBERT and the LLM do not react to); English function words. The restriction separates edits that
+  change what the text says from edits that change only what the gate sees.
+- **Findings (mean of eight sets):** on unedited text 70% of items are escalated. A chosen label is kept within five
+  words for 82% of item-label pairs with any words and 42% with inert words (83% within ten); one word forces
+  escalation for 76% of kept items. On the four labeled sets, five inert words raise the cascade's error from 13% to 58%,
+  while the LLM given the same edited text is at 18%. An attacker with only the returned probabilities does as well as
+  one with the weights (81% within five words).
+- **Bound:** `finlora.cascade.min_words_lower_bound` gives, per item, a number of appended words below which no
+  suppression attack exists for a TF-IDF + logistic regression gate. It is tested against exhaustive search and is loose.
+- **Defences, each re-attacked:** higher threshold, leave-top-features-out gate, agreement with FinBERT, stronger
+  regularisation of the cheap model, and an escalation budget. None closes both exposures; the numbers are in
+  `cascade_study.json`.
+- **Not shown:** only appended or prepended words; one cascade design; greedy search (an upper bound on words needed); no
+  human rating of the edited texts; cost is latency, not energy.
+- **Reproduce:** put `vader_lexicon.txt`, `huliu_pos.txt`, `huliu_neg.txt` and the Loughran-McDonald master dictionary
+  (`lm_master.csv`) in `lexicons/` (not redistributed here), then `python run_cascade_study.py` (about two hours on a
+  laptop; stages are cached, `--quick` runs a small version). Aggregate numbers only are written; no dataset text is stored.
+
 ## Version 3: how easily can these classifiers be fooled?
 
 A flipped label only matters if something acts on it, but a signal that can move money is worth manipulating. Version 3
