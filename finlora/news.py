@@ -3,6 +3,7 @@
 NOSIBLE/financial-sentiment: 100k news snippets (ODC-By), labels from an LLM-ensemble pipeline (machine-made).
 Jean-Baptiste/financial_news_sentiment: ~1.8k manually validated press-release headlines (MIT); the clean test set.
 """
+from finlora.pins import revision
 import re
 from functools import lru_cache
 
@@ -20,14 +21,14 @@ def _norm(s):
 
 def headlines(split="test"):
     """Manually validated headlines as (texts, labels)."""
-    d = load_dataset("Jean-Baptiste/financial_news_sentiment")[split]
+    d = load_dataset("Jean-Baptiste/financial_news_sentiment", revision=revision("Jean-Baptiste/financial_news_sentiment"))[split]
     return list(d["title"]), [JB_LABELS[int(x)] for x in d["labels"]]
 
 
 @lru_cache(maxsize=None)
 def nosible(seed=0, n_test=2000, n_dev=1000, n_train=None):
     """Deduplicated NOSIBLE news as train/dev/test, with anything that mentions a headline from the manual set removed."""
-    d = load_dataset("NOSIBLE/financial-sentiment")["train"]
+    d = load_dataset("NOSIBLE/financial-sentiment", revision=revision("NOSIBLE/financial-sentiment"))["train"]
     norm = [_norm(t) for t in d["text"]]  # normalised once, used for both the dedupe and the leakage scan
     seen, keep = set(), []
     for i, k in enumerate(n[:200] for n in norm):

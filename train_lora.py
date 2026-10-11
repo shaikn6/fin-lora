@@ -5,6 +5,7 @@ import torch
 import torch.nn.functional as F
 from peft import get_peft_model
 from transformers import AutoModelForCausalLM, AutoTokenizer
+from finlora.pins import revision
 from finlora.common import (DEVICE, adapter_dir, empty_cache, encode, label_logits, label_token_ids, lora_config, predict,
                             report, splits)
 
@@ -13,8 +14,8 @@ out_dir = adapter_dir(name)
 EPOCHS, BS, LR = 1, 16, 2e-4
 torch.manual_seed(0)
 tr, dev, _ = splits()
-tok = AutoTokenizer.from_pretrained(name)
-model = AutoModelForCausalLM.from_pretrained(name, dtype=torch.bfloat16).to(DEVICE)
+tok = AutoTokenizer.from_pretrained(name, revision=revision(name))
+model = AutoModelForCausalLM.from_pretrained(name, revision=revision(name), dtype=torch.bfloat16).to(DEVICE)
 model = get_peft_model(model, lora_config())
 model.print_trainable_parameters()
 ids = label_token_ids(tok)

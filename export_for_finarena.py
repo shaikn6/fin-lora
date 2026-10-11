@@ -9,6 +9,7 @@ import numpy as np
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from finlora.pins import revision
 from finlora.arena import CausalLabelLM, FinBERT, TfidfLR
 from finlora.common import prompt_config, text_prompt
 from finlora.news import train_mix
@@ -33,8 +34,8 @@ def latency_ms(fn, texts, n=100):
 
 
 sample = list(news_dev["text"])
-tok = AutoTokenizer.from_pretrained(BASE)
-llm = CausalLabelLM("news-lora", AutoModelForCausalLM.from_pretrained(BASE, dtype=torch.bfloat16), tok, ADAPTER,
+tok = AutoTokenizer.from_pretrained(BASE, revision=revision(BASE))
+llm = CausalLabelLM("news-lora", AutoModelForCausalLM.from_pretrained(BASE, revision=revision(BASE), dtype=torch.bfloat16), tok, ADAPTER,
                     max_len=MAX_LEN, prompt_fn=text_prompt, pad_to_max=False)
 lat = {"tfidf": latency_ms(pipe.predict_proba, sample), "llm": latency_ms(llm.proba, sample), "finbert": latency_ms(FinBERT(max_len=256).proba, sample)}
 print("measured p50 latency per request (ms):", lat)

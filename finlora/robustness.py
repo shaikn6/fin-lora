@@ -2,6 +2,7 @@
 
 Model-agnostic where possible: predict_fn maps list[str] -> label ids. Heavy imports (torch, transformers) are lazy.
 """
+from finlora.pins import revision
 from functools import partial
 
 import numpy as np
@@ -133,8 +134,8 @@ def build_models(train_texts, train_labels, names=DEFAULT_MODELS, max_len=256):
 
     def lora(name):
         base, adapter = LORA_MODELS[name]
-        return CausalLabelLM(name.replace("lora_news_", "news-lora-"), AutoModelForCausalLM.from_pretrained(base, dtype=torch.bfloat16),
-                             AutoTokenizer.from_pretrained(base), adapter, max_len=max_len, prompt_fn=text_prompt, pad_to_max=False)
+        return CausalLabelLM(name.replace("lora_news_", "news-lora-"), AutoModelForCausalLM.from_pretrained(base, revision=revision(base), dtype=torch.bfloat16),
+                             AutoTokenizer.from_pretrained(base, revision=revision(base)), adapter, max_len=max_len, prompt_fn=text_prompt, pad_to_max=False)
 
     make = {**{n: partial(lora, n) for n in LORA_MODELS},
             "tfidf_logreg": lambda: TfidfLR(train_texts, train_labels),
