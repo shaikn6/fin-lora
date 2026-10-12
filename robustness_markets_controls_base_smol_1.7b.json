@@ -1,0 +1,244 @@
+{
+  "timestamp_utc": "2026-10-12T09:37:59.726020+00:00",
+  "seed": 0,
+  "cap": 300,
+  "mode": "controls",
+  "cascade_threshold": 0.8,
+  "models": [
+    "base_smol_1.7b"
+  ],
+  "labels": [
+    "Bearish",
+    "Bullish",
+    "Neutral"
+  ],
+  "attacks": [
+    "control_filler",
+    "control_ignore"
+  ],
+  "load_errors": {},
+  "markets": {
+    "equities": {
+      "n": 300,
+      "n_pool_after_load": 2264,
+      "source": "takala/financial_phrasebank",
+      "license": "CC-BY-NC-SA-3.0",
+      "label_source": "expert",
+      "accuracy_computed": true,
+      "models": {
+        "base_smol_1.7b": {
+          "clean_pred_distribution": {
+            "Bearish": 0.2033,
+            "Bullish": 0.1867,
+            "Neutral": 0.61
+          },
+          "attacks": {
+            "control_filler": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 79,
+              "flip_rate": 0.2633,
+              "acc_clean": 0.65,
+              "acc_attacked": 0.5767,
+              "flip_ci95": [
+                0.2133,
+                0.3133
+              ]
+            },
+            "control_ignore": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 125,
+              "flip_rate": 0.4167,
+              "acc_clean": 0.65,
+              "acc_attacked": 0.5333,
+              "flip_ci95": [
+                0.3633,
+                0.4733
+              ]
+            }
+          },
+          "clean_accuracy": 0.65
+        }
+      },
+      "cascade_lora": {},
+      "guard_lora": {},
+      "wall_time_s": 119.1
+    },
+    "oil": {
+      "n": 300,
+      "n_pool_after_load": 9467,
+      "source": "polibert/oil-sentiment-headlines",
+      "license": "CC-BY-4.0",
+      "label_source": "machine",
+      "accuracy_computed": false,
+      "models": {
+        "base_smol_1.7b": {
+          "clean_pred_distribution": {
+            "Bearish": 0.4933,
+            "Bullish": 0.2433,
+            "Neutral": 0.2633
+          },
+          "attacks": {
+            "control_filler": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 111,
+              "flip_rate": 0.37,
+              "flip_ci95": [
+                0.3166,
+                0.4233
+              ]
+            },
+            "control_ignore": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 172,
+              "flip_rate": 0.5733,
+              "flip_ci95": [
+                0.5167,
+                0.63
+              ]
+            }
+          }
+        }
+      },
+      "cascade_lora": {},
+      "guard_lora": {},
+      "wall_time_s": 108.8
+    },
+    "gold": {
+      "n": 300,
+      "n_pool_after_load": 8602,
+      "source": "SaguaroCapital/sentiment-analysis-in-commodity-market-gold",
+      "license": "CC-BY-NC-ND-4.0",
+      "label_source": "expert",
+      "accuracy_computed": false,
+      "models": {
+        "base_smol_1.7b": {
+          "clean_pred_distribution": {
+            "Bearish": 0.2767,
+            "Bullish": 0.65,
+            "Neutral": 0.0733
+          },
+          "attacks": {
+            "control_filler": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 87,
+              "flip_rate": 0.29,
+              "flip_ci95": [
+                0.2367,
+                0.3433
+              ]
+            },
+            "control_ignore": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 108,
+              "flip_rate": 0.36,
+              "flip_ci95": [
+                0.3067,
+                0.4133
+              ]
+            }
+          }
+        }
+      },
+      "cascade_lora": {},
+      "guard_lora": {},
+      "wall_time_s": 70.4
+    },
+    "central_bank": {
+      "n": 300,
+      "n_pool_after_load": 2480,
+      "source": "gtfintechlab/fomc_communication",
+      "license": "CC-BY-NC-4.0",
+      "label_source": "human",
+      "accuracy_computed": false,
+      "models": {
+        "base_smol_1.7b": {
+          "clean_pred_distribution": {
+            "Bearish": 0.0867,
+            "Bullish": 0.3533,
+            "Neutral": 0.56
+          },
+          "attacks": {
+            "control_filler": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 98,
+              "flip_rate": 0.3267,
+              "flip_ci95": [
+                0.2733,
+                0.38
+              ]
+            },
+            "control_ignore": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 119,
+              "flip_rate": 0.3967,
+              "flip_ci95": [
+                0.3433,
+                0.45
+              ]
+            }
+          }
+        }
+      },
+      "cascade_lora": {},
+      "guard_lora": {},
+      "wall_time_s": 132.6
+    },
+    "crypto": {
+      "n": 300,
+      "n_pool_after_load": 43027,
+      "source": "cogneolabs/Cogneo-Crypto-Sentiment",
+      "license": "mit (card metadata)",
+      "label_source": "machine (inferred, not documented: card is empty; a 'sentiment' column holds label+percent, e.g. 'Bullish (77.9%)'; labels NOT used here)",
+      "accuracy_computed": false,
+      "models": {
+        "base_smol_1.7b": {
+          "clean_pred_distribution": {
+            "Bearish": 0.1867,
+            "Bullish": 0.3233,
+            "Neutral": 0.49
+          },
+          "attacks": {
+            "control_filler": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 89,
+              "flip_rate": 0.2967,
+              "flip_ci95": [
+                0.2467,
+                0.3467
+              ]
+            },
+            "control_ignore": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 103,
+              "flip_rate": 0.3433,
+              "flip_ci95": [
+                0.2899,
+                0.3967
+              ]
+            }
+          }
+        }
+      },
+      "cascade_lora": {},
+      "guard_lora": {},
+      "wall_time_s": 205.6
+    }
+  },
+  "notes": [
+    "Aggregate numbers only; no dataset text stored. Perturbed copies existed only in memory.",
+    "Accuracy computed only for equities (expert labels, project scheme). Other markets: label-free metrics only.",
+    "Sentiment preservation of the benign attacks is not human-verified.",
+    "No real-world trading harm is claimed."
+  ],
+  "wall_time_s": 654.1
+}

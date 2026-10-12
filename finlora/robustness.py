@@ -123,8 +123,14 @@ LORA_MODELS = {"lora_news_0.5b": ("Qwen/Qwen2.5-0.5B-Instruct", "adapters/news-0
                "lora_news_0.5b_adv": ("Qwen/Qwen2.5-0.5B-Instruct", "adapters/news-0.5b-adv")}  # + planted-text augmentation
 
 
+# Untuned models, to separate the effect of fine-tuning (same Qwen models without the adapter) from the effect of size and family.
+BASE_MODELS = {"base_0.5b": "Qwen/Qwen2.5-0.5B-Instruct", "base_1.5b": "Qwen/Qwen2.5-1.5B-Instruct", "base_3b": "Qwen/Qwen2.5-3B-Instruct",
+               "base_smol_1.7b": "HuggingFaceTB/SmolLM2-1.7B-Instruct"}  # a second model family
+
+
 def build_models(train_texts, train_labels, names=DEFAULT_MODELS, max_len=256):
-    """The compared models, built only if named: LoRA-tuned Qwen (0.5B, 1.5B), TF-IDF+logreg (same training mix), zero-shot FinBERT."""
+    """The compared models, built only if named: LoRA-tuned Qwen (0.5B, 1.5B), TF-IDF+logreg (same training mix), zero-shot
+    FinBERT, and untuned instruction models scored on the same prompt and label tokens (BASE_MODELS)."""
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
@@ -136,7 +142,12 @@ def build_models(train_texts, train_labels, names=DEFAULT_MODELS, max_len=256):
         return CausalLabelLM(name.replace("lora_news_", "news-lora-"), AutoModelForCausalLM.from_pretrained(base, dtype=torch.bfloat16),
                              AutoTokenizer.from_pretrained(base), adapter, max_len=max_len, prompt_fn=text_prompt, pad_to_max=False)
 
-    make = {**{n: partial(lora, n) for n in LORA_MODELS},
+    def base(name):
+        repo = BASE_MODELS[name]
+        return CausalLabelLM(name, AutoModelForCausalLM.from_pretrained(repo, dtype=torch.bfloat16), AutoTokenizer.from_pretrained(repo),
+                             None, max_len=max_len, prompt_fn=text_prompt, pad_to_max=False)
+
+    make = {**{n: partial(lora, n) for n in LORA_MODELS}, **{n: partial(base, n) for n in BASE_MODELS},
             "tfidf_logreg": lambda: TfidfLR(train_texts, train_labels),
             "finbert_zeroshot": lambda: FinBERT(max_len=max_len)}
     return {n: make[n]() for n in names}

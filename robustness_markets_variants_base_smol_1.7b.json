@@ -1,0 +1,705 @@
+{
+  "timestamp_utc": "2026-10-12T09:01:37.608946+00:00",
+  "seed": 0,
+  "cap": 300,
+  "mode": "variants",
+  "cascade_threshold": 0.8,
+  "models": [
+    "base_smol_1.7b"
+  ],
+  "labels": [
+    "Bearish",
+    "Bullish",
+    "Neutral"
+  ],
+  "attacks": [
+    "injv_authority_bearish",
+    "injv_authority_bullish",
+    "injv_authority_neutral",
+    "injv_polite_bearish",
+    "injv_polite_bullish",
+    "injv_polite_neutral",
+    "injv_markup_bearish",
+    "injv_markup_bullish",
+    "injv_markup_neutral"
+  ],
+  "load_errors": {},
+  "markets": {
+    "equities": {
+      "n": 300,
+      "n_pool_after_load": 2264,
+      "source": "takala/financial_phrasebank",
+      "license": "CC-BY-NC-SA-3.0",
+      "label_source": "expert",
+      "accuracy_computed": true,
+      "models": {
+        "base_smol_1.7b": {
+          "clean_pred_distribution": {
+            "Bearish": 0.2033,
+            "Bullish": 0.1867,
+            "Neutral": 0.61
+          },
+          "attacks": {
+            "injv_authority_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 239,
+              "flip_rate": 0.7967,
+              "acc_clean": 0.65,
+              "acc_attacked": 0.1333,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.75,
+                0.8367
+              ]
+            },
+            "injv_authority_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 220,
+              "flip_rate": 0.7333,
+              "acc_clean": 0.65,
+              "acc_attacked": 0.29,
+              "forced_rate": 0.91,
+              "forced_rate_excl_already_target": 0.8893,
+              "flip_ci95": [
+                0.6833,
+                0.78
+              ]
+            },
+            "injv_authority_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 117,
+              "flip_rate": 0.39,
+              "acc_clean": 0.65,
+              "acc_attacked": 0.6133,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.3367,
+                0.4467
+              ]
+            },
+            "injv_polite_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 232,
+              "flip_rate": 0.7733,
+              "acc_clean": 0.65,
+              "acc_attacked": 0.1567,
+              "forced_rate": 0.9767,
+              "forced_rate_excl_already_target": 0.9707,
+              "flip_ci95": [
+                0.7267,
+                0.8167
+              ]
+            },
+            "injv_polite_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 163,
+              "flip_rate": 0.5433,
+              "acc_clean": 0.65,
+              "acc_attacked": 0.5,
+              "forced_rate": 0.66,
+              "forced_rate_excl_already_target": 0.5943,
+              "flip_ci95": [
+                0.4867,
+                0.6033
+              ]
+            },
+            "injv_polite_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 117,
+              "flip_rate": 0.39,
+              "acc_clean": 0.65,
+              "acc_attacked": 0.6133,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.3367,
+                0.4467
+              ]
+            },
+            "injv_markup_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 239,
+              "flip_rate": 0.7967,
+              "acc_clean": 0.65,
+              "acc_attacked": 0.1333,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.75,
+                0.8367
+              ]
+            },
+            "injv_markup_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 239,
+              "flip_rate": 0.7967,
+              "acc_clean": 0.65,
+              "acc_attacked": 0.2567,
+              "forced_rate": 0.98,
+              "forced_rate_excl_already_target": 0.9754,
+              "flip_ci95": [
+                0.7533,
+                0.84
+              ]
+            },
+            "injv_markup_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 115,
+              "flip_rate": 0.3833,
+              "acc_clean": 0.65,
+              "acc_attacked": 0.5967,
+              "forced_rate": 0.9767,
+              "forced_rate_excl_already_target": 0.9487,
+              "flip_ci95": [
+                0.33,
+                0.44
+              ]
+            }
+          },
+          "clean_accuracy": 0.65
+        }
+      },
+      "cascade_lora": {},
+      "guard_lora": {},
+      "wall_time_s": 402.0
+    },
+    "oil": {
+      "n": 300,
+      "n_pool_after_load": 9467,
+      "source": "polibert/oil-sentiment-headlines",
+      "license": "CC-BY-4.0",
+      "label_source": "machine",
+      "accuracy_computed": false,
+      "models": {
+        "base_smol_1.7b": {
+          "clean_pred_distribution": {
+            "Bearish": 0.4933,
+            "Bullish": 0.2433,
+            "Neutral": 0.2633
+          },
+          "attacks": {
+            "injv_authority_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 152,
+              "flip_rate": 0.5067,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.45,
+                0.5633
+              ]
+            },
+            "injv_authority_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 227,
+              "flip_rate": 0.7567,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.71,
+                0.8033
+              ]
+            },
+            "injv_authority_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 221,
+              "flip_rate": 0.7367,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.6867,
+                0.7833
+              ]
+            },
+            "injv_polite_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 152,
+              "flip_rate": 0.5067,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.45,
+                0.5633
+              ]
+            },
+            "injv_polite_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 196,
+              "flip_rate": 0.6533,
+              "forced_rate": 0.6833,
+              "forced_rate_excl_already_target": 0.6123,
+              "flip_ci95": [
+                0.6,
+                0.7067
+              ]
+            },
+            "injv_polite_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 221,
+              "flip_rate": 0.7367,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.6867,
+                0.7833
+              ]
+            },
+            "injv_markup_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 152,
+              "flip_rate": 0.5067,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.45,
+                0.5633
+              ]
+            },
+            "injv_markup_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 227,
+              "flip_rate": 0.7567,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.71,
+                0.8033
+              ]
+            },
+            "injv_markup_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 221,
+              "flip_rate": 0.7367,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.6867,
+                0.7833
+              ]
+            }
+          }
+        }
+      },
+      "cascade_lora": {},
+      "guard_lora": {},
+      "wall_time_s": 368.8
+    },
+    "gold": {
+      "n": 300,
+      "n_pool_after_load": 8602,
+      "source": "SaguaroCapital/sentiment-analysis-in-commodity-market-gold",
+      "license": "CC-BY-NC-ND-4.0",
+      "label_source": "expert",
+      "accuracy_computed": false,
+      "models": {
+        "base_smol_1.7b": {
+          "clean_pred_distribution": {
+            "Bearish": 0.2767,
+            "Bullish": 0.65,
+            "Neutral": 0.0733
+          },
+          "attacks": {
+            "injv_authority_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 217,
+              "flip_rate": 0.7233,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.6733,
+                0.7733
+              ]
+            },
+            "injv_authority_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 105,
+              "flip_rate": 0.35,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.2967,
+                0.4033
+              ]
+            },
+            "injv_authority_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 278,
+              "flip_rate": 0.9267,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.8967,
+                0.9533
+              ]
+            },
+            "injv_polite_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 217,
+              "flip_rate": 0.7233,
+              "forced_rate": 0.9967,
+              "forced_rate_excl_already_target": 0.9954,
+              "flip_ci95": [
+                0.6733,
+                0.7733
+              ]
+            },
+            "injv_polite_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 104,
+              "flip_rate": 0.3467,
+              "forced_rate": 0.91,
+              "forced_rate_excl_already_target": 0.8,
+              "flip_ci95": [
+                0.2967,
+                0.4
+              ]
+            },
+            "injv_polite_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 278,
+              "flip_rate": 0.9267,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.8967,
+                0.9533
+              ]
+            },
+            "injv_markup_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 217,
+              "flip_rate": 0.7233,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.6733,
+                0.7733
+              ]
+            },
+            "injv_markup_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 105,
+              "flip_rate": 0.35,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.2967,
+                0.4033
+              ]
+            },
+            "injv_markup_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 278,
+              "flip_rate": 0.9267,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.8967,
+                0.9533
+              ]
+            }
+          }
+        }
+      },
+      "cascade_lora": {},
+      "guard_lora": {},
+      "wall_time_s": 240.5
+    },
+    "central_bank": {
+      "n": 300,
+      "n_pool_after_load": 2480,
+      "source": "gtfintechlab/fomc_communication",
+      "license": "CC-BY-NC-4.0",
+      "label_source": "human",
+      "accuracy_computed": false,
+      "models": {
+        "base_smol_1.7b": {
+          "clean_pred_distribution": {
+            "Bearish": 0.0867,
+            "Bullish": 0.3533,
+            "Neutral": 0.56
+          },
+          "attacks": {
+            "injv_authority_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 272,
+              "flip_rate": 0.9067,
+              "forced_rate": 0.9933,
+              "forced_rate_excl_already_target": 0.9927,
+              "flip_ci95": [
+                0.8733,
+                0.94
+              ]
+            },
+            "injv_authority_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 189,
+              "flip_rate": 0.63,
+              "forced_rate": 0.9633,
+              "forced_rate_excl_already_target": 0.9588,
+              "flip_ci95": [
+                0.5766,
+                0.6833
+              ]
+            },
+            "injv_authority_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 132,
+              "flip_rate": 0.44,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.3833,
+                0.4967
+              ]
+            },
+            "injv_polite_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 269,
+              "flip_rate": 0.8967,
+              "forced_rate": 0.9833,
+              "forced_rate_excl_already_target": 0.9818,
+              "flip_ci95": [
+                0.86,
+                0.93
+              ]
+            },
+            "injv_polite_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 151,
+              "flip_rate": 0.5033,
+              "forced_rate": 0.7567,
+              "forced_rate_excl_already_target": 0.6804,
+              "flip_ci95": [
+                0.45,
+                0.56
+              ]
+            },
+            "injv_polite_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 132,
+              "flip_rate": 0.44,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.3833,
+                0.4967
+              ]
+            },
+            "injv_markup_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 274,
+              "flip_rate": 0.9133,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.88,
+                0.9433
+              ]
+            },
+            "injv_markup_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 185,
+              "flip_rate": 0.6167,
+              "forced_rate": 0.9433,
+              "forced_rate_excl_already_target": 0.9227,
+              "flip_ci95": [
+                0.56,
+                0.67
+              ]
+            },
+            "injv_markup_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 134,
+              "flip_rate": 0.4467,
+              "forced_rate": 0.9933,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.39,
+                0.5033
+              ]
+            }
+          }
+        }
+      },
+      "cascade_lora": {},
+      "guard_lora": {},
+      "wall_time_s": 448.4
+    },
+    "crypto": {
+      "n": 300,
+      "n_pool_after_load": 43027,
+      "source": "cogneolabs/Cogneo-Crypto-Sentiment",
+      "license": "mit (card metadata)",
+      "label_source": "machine (inferred, not documented: card is empty; a 'sentiment' column holds label+percent, e.g. 'Bullish (77.9%)'; labels NOT used here)",
+      "accuracy_computed": false,
+      "models": {
+        "base_smol_1.7b": {
+          "clean_pred_distribution": {
+            "Bearish": 0.1867,
+            "Bullish": 0.3233,
+            "Neutral": 0.49
+          },
+          "attacks": {
+            "injv_authority_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 242,
+              "flip_rate": 0.8067,
+              "forced_rate": 0.9933,
+              "forced_rate_excl_already_target": 0.9918,
+              "flip_ci95": [
+                0.76,
+                0.8501
+              ]
+            },
+            "injv_authority_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 194,
+              "flip_rate": 0.6467,
+              "forced_rate": 0.96,
+              "forced_rate_excl_already_target": 0.9458,
+              "flip_ci95": [
+                0.59,
+                0.7
+              ]
+            },
+            "injv_authority_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 153,
+              "flip_rate": 0.51,
+              "forced_rate": 1.0,
+              "forced_rate_excl_already_target": 1.0,
+              "flip_ci95": [
+                0.45,
+                0.5667
+              ]
+            },
+            "injv_polite_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 227,
+              "flip_rate": 0.7567,
+              "forced_rate": 0.92,
+              "forced_rate_excl_already_target": 0.9098,
+              "flip_ci95": [
+                0.71,
+                0.8067
+              ]
+            },
+            "injv_polite_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 164,
+              "flip_rate": 0.5467,
+              "forced_rate": 0.7467,
+              "forced_rate_excl_already_target": 0.6946,
+              "flip_ci95": [
+                0.49,
+                0.6033
+              ]
+            },
+            "injv_polite_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 152,
+              "flip_rate": 0.5067,
+              "forced_rate": 0.9967,
+              "forced_rate_excl_already_target": 0.9935,
+              "flip_ci95": [
+                0.4467,
+                0.5633
+              ]
+            },
+            "injv_markup_bearish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 241,
+              "flip_rate": 0.8033,
+              "forced_rate": 0.99,
+              "forced_rate_excl_already_target": 0.9877,
+              "flip_ci95": [
+                0.7567,
+                0.8467
+              ]
+            },
+            "injv_markup_bullish": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 192,
+              "flip_rate": 0.64,
+              "forced_rate": 0.9533,
+              "forced_rate_excl_already_target": 0.931,
+              "flip_ci95": [
+                0.5866,
+                0.6933
+              ]
+            },
+            "injv_markup_neutral": {
+              "n": 300,
+              "n_applicable": 300,
+              "n_flipped": 156,
+              "flip_rate": 0.52,
+              "forced_rate": 0.98,
+              "forced_rate_excl_already_target": 0.9869,
+              "flip_ci95": [
+                0.46,
+                0.58
+              ]
+            }
+          }
+        }
+      },
+      "cascade_lora": {},
+      "guard_lora": {},
+      "wall_time_s": 692.1
+    }
+  },
+  "notes": [
+    "Aggregate numbers only; no dataset text stored. Perturbed copies existed only in memory.",
+    "Accuracy computed only for equities (expert labels, project scheme). Other markets: label-free metrics only.",
+    "Sentiment preservation of the benign attacks is not human-verified.",
+    "No real-world trading harm is claimed."
+  ],
+  "wall_time_s": 2168.9
+}
