@@ -11,6 +11,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install numpy pandas scikit-learn pytest ruff
+      - run: pip install -r requirements-dev.txt
       - run: ruff check --select E9,F .
       - run: python -m pytest -q

@@ -1,0 +1,7 @@
+# Core, CPU-only: data loading, the TF-IDF baseline and the test suite.
+numpy==2.5.3
+pandas==3.0.6
+scikit-learn==1.9.1
+datasets==5.0.1
+huggingface_hub==1.33.0
+pyarrow==25.0.1

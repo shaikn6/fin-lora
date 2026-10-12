@@ -12,3 +12,4 @@ data_cache/
 *.parquet
 lexicons/
 *.pkl
+robustness_markets_tfidf_logreg.json
