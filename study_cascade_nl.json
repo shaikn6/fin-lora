@@ -1,0 +1,27 @@
+{
+ "note": "Suppress = append words until the cheap gate gives the target label at >= tau (item never escalates). Force = append until confidence < tau (always escalates). Same TF-IDF features and training data; only the gate head differs. The certified min-words bound (paper Section 4) exists only for the linear gate.",
+ "tau": 0.8,
+ "k_suppress": 10,
+ "k_force": 5,
+ "n_eval": 200,
+ "train_acc": {
+  "linear (logreg)": 0.9167,
+  "nonlinear (MLP)": 0.9226
+ },
+ "gates": {
+  "linear (logreg)": {
+   "clean_kept_rate": 0.2,
+   "suppress_success_le5w": 0.4221,
+   "suppress_median_words": 4.5,
+   "force_success_1w": 0.65,
+   "force_success_le5w": 0.925
+  },
+  "nonlinear (MLP)": {
+   "clean_kept_rate": 0.365,
+   "suppress_success_le5w": 0.4205,
+   "suppress_median_words": 3.5,
+   "force_success_1w": 0.274,
+   "force_success_le5w": 0.8219
+  }
+ }
+}
