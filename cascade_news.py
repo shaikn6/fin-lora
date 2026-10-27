@@ -9,6 +9,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from eval_news import eval_sets
+from finlora.pins import revision
 from finlora.arena import CausalLabelLM, TfidfLR
 from finlora.common import splits, text_prompt
 from finlora.news import train_mix
@@ -21,7 +22,7 @@ texts, labels, news_dev = train_mix()
 tfidf = TfidfLR(texts, labels)
 _, tw_dev, _ = splits()
 dev_sets = {"news dev": (list(news_dev["text"]), list(news_dev["label"])), "tweet dev": (list(tw_dev["text"]), list(tw_dev["label"]))}
-llm = CausalLabelLM("news-lora-0.5b", AutoModelForCausalLM.from_pretrained(BASE, dtype=torch.bfloat16), AutoTokenizer.from_pretrained(BASE),
+llm = CausalLabelLM("news-lora-0.5b", AutoModelForCausalLM.from_pretrained(BASE, revision=revision(BASE), dtype=torch.bfloat16), AutoTokenizer.from_pretrained(BASE, revision=revision(BASE)),
                     ADAPTER, max_len=256, prompt_fn=text_prompt, pad_to_max=False)
 
 

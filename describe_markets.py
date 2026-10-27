@@ -4,6 +4,7 @@ import json
 
 import numpy as np
 
+from finlora.pins import revision
 from finlora.attacks import entity_swap, hedge_insert, synonym_swap
 from finlora.common import text_prompt
 from run_robustness_markets import SEED, load_markets
@@ -15,7 +16,7 @@ def pct(v, q):
 
 if __name__ == "__main__":
     from transformers import AutoTokenizer
-    tok = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-0.5B-Instruct")
+    tok = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-0.5B-Instruct", revision=revision("Qwen/Qwen2.5-0.5B-Instruct"))
     mk, errs = load_markets(SEED)
     out = {"seed": SEED, "load_errors": errs, "markets": {}}
     for name, m in mk.items():

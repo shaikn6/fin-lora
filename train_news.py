@@ -15,6 +15,7 @@ import torch.nn.functional as F
 from peft import get_peft_model
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from finlora.pins import revision
 from finlora.common import (DEVICE, empty_cache, encode, label_logits, label_token_ids, lora_config, predict, prompt_config, report,
                             text_prompt)
 from finlora.news import N_NEWS, N_TWEETS, train_mix
@@ -43,8 +44,8 @@ labels = np.array(labels)
 order = np.random.default_rng(0).permutation(len(texts))
 print(f"training on {len(texts)} examples ({n_news} news snippets, {n_tweets} tweets, the rest manually labeled headlines)", flush=True)
 
-tok = AutoTokenizer.from_pretrained(base)
-model = AutoModelForCausalLM.from_pretrained(base, dtype=torch.bfloat16).to(DEVICE)
+tok = AutoTokenizer.from_pretrained(base, revision=revision(base))
+model = AutoModelForCausalLM.from_pretrained(base, revision=revision(base), dtype=torch.bfloat16).to(DEVICE)
 model.config.use_cache = False
 model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})  # trade ~30% speed for far less activation memory
 model.enable_input_require_grads()

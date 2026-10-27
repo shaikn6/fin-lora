@@ -17,6 +17,8 @@ only reads them and the manifest stores counts only. Check each license yourself
 """
 from __future__ import annotations
 
+from finlora.pins import revision
+
 import io
 import zipfile
 
@@ -104,7 +106,7 @@ def load_phrasebank(config: str = "sentences_allagree") -> pd.DataFrame:
               "sentences_75agree": "Sentences_75Agree.txt",
               "sentences_66agree": "Sentences_66Agree.txt",
               "sentences_50agree": "Sentences_50Agree.txt"}[config]
-    path = hf_hub_download(PHRASEBANK_ID, "data/FinancialPhraseBank-v1.0.zip", repo_type="dataset")
+    path = hf_hub_download(PHRASEBANK_ID, "data/FinancialPhraseBank-v1.0.zip", repo_type="dataset", revision=revision(PHRASEBANK_ID))
     with zipfile.ZipFile(path) as z:
         name = next(n for n in z.namelist() if n.endswith(member))
         raw = io.TextIOWrapper(io.BytesIO(z.read(name)), encoding="latin-1").read()
@@ -125,7 +127,7 @@ def load_oil(english_only: bool = True) -> pd.DataFrame:
         lab = _TEXT_TO_PROJECT.get(str(r["direction"]).strip().lower())
         return (r["headline"], lab) if lab is not None and r["headline"] else None
 
-    return _from_splits(load_dataset(OIL_ID), row, "oil", OIL_ID, OIL_LABEL_SOURCE, "project")
+    return _from_splits(load_dataset(OIL_ID, revision=revision(OIL_ID)), row, "oil", OIL_ID, OIL_LABEL_SOURCE, "project")
 
 
 def load_gold(none_policy: str = "drop") -> pd.DataFrame:
@@ -153,7 +155,7 @@ def load_gold(none_policy: str = "drop") -> pd.DataFrame:
         lab = _TEXT_TO_PROJECT.get(s)
         return (r["News"], lab) if lab is not None and r["News"] else None
 
-    return _from_splits(load_dataset(GOLD_ID), row, "gold", GOLD_ID, GOLD_LABEL_SOURCE, "project")
+    return _from_splits(load_dataset(GOLD_ID, revision=revision(GOLD_ID)), row, "gold", GOLD_ID, GOLD_LABEL_SOURCE, "project")
 
 
 def load_fomc(to_project=None) -> pd.DataFrame:
@@ -168,7 +170,7 @@ def load_fomc(to_project=None) -> pd.DataFrame:
         lab = int(r["label"])
         return (r["sentence"], lab if to_project is None else to_project[lab]) if lab in FOMC_LABELS else None
 
-    return _from_splits(load_dataset(FOMC_ID), row, "central_bank", FOMC_ID, FOMC_LABEL_SOURCE,
+    return _from_splits(load_dataset(FOMC_ID, revision=revision(FOMC_ID)), row, "central_bank", FOMC_ID, FOMC_LABEL_SOURCE,
                         "fomc" if to_project is None else "project")
 
 

@@ -2,6 +2,7 @@
 import time
 import numpy as np
 import torch
+from finlora.pins import revision
 from finlora.common import DEVICE, encode, label_logits, label_token_ids
 
 
@@ -53,8 +54,8 @@ class FinBERT:
     def __init__(self, max_len=96):
         from transformers import AutoModelForSequenceClassification, AutoTokenizer
         self.max_len = max_len
-        self.tok = AutoTokenizer.from_pretrained("ProsusAI/finbert")
-        self.model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert").eval().to(DEVICE)
+        self.tok = AutoTokenizer.from_pretrained("ProsusAI/finbert", revision=revision("ProsusAI/finbert"))
+        self.model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert", revision=revision("ProsusAI/finbert")).eval().to(DEVICE)
         l2i = {v.lower(): k for k, v in self.model.config.id2label.items()}
         self.order = [l2i["negative"], l2i["positive"], l2i["neutral"]]  # -> Bearish, Bullish, Neutral
 
