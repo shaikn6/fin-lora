@@ -145,8 +145,8 @@ def build_models(train_texts, train_labels, names=DEFAULT_MODELS, max_len=256):
 
     def base(name):
         repo = BASE_MODELS[name]
-        return CausalLabelLM(name, AutoModelForCausalLM.from_pretrained(repo, dtype=torch.bfloat16), AutoTokenizer.from_pretrained(repo),
-                             None, max_len=max_len, prompt_fn=text_prompt, pad_to_max=False)
+        return CausalLabelLM(name, AutoModelForCausalLM.from_pretrained(repo, revision=revision(repo), dtype=torch.bfloat16),
+                             AutoTokenizer.from_pretrained(repo, revision=revision(repo)), None, max_len=max_len, prompt_fn=text_prompt, pad_to_max=False)
 
     make = {**{n: partial(lora, n) for n in LORA_MODELS}, **{n: partial(base, n) for n in BASE_MODELS},
             "tfidf_logreg": lambda: TfidfLR(train_texts, train_labels),
