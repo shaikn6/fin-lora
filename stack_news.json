@@ -1,0 +1,42 @@
+{
+  "dev_cv_accuracy": {
+    "lora": 0.8339,
+    "weighted log-prob blend": 0.8396,
+    "LR stacker (3 models)": 0.8407,
+    "LR stacker (lora+finbert)": 0.8432,
+    "lora + class bias": 0.8298
+  },
+  "chosen_on_dev": "LR stacker (lora+finbert)",
+  "test": {
+    "tweets": {
+      "n": 2388,
+      "lora": 0.866,
+      "stacked": 0.874,
+      "diff": 0.008,
+      "diff_ci95": [
+        0.0008,
+        0.0151
+      ]
+    },
+    "headlines (manual labels)": {
+      "n": 267,
+      "lora": 0.7678,
+      "stacked": 0.7678,
+      "diff": 0.0,
+      "diff_ci95": [
+        -0.0262,
+        0.0225
+      ]
+    },
+    "news snippets (NOSIBLE)": {
+      "n": 2000,
+      "lora": 0.8465,
+      "stacked": 0.835,
+      "diff": -0.0115,
+      "diff_ci95": [
+        -0.02,
+        -0.0035
+      ]
+    }
+  }
+}

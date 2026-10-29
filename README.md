@@ -114,6 +114,13 @@ the adapter), then `eval_news.py` (three test sets), `compare_news.py` (baseline
 The fast TF-IDF baselines and the LoRA model train on the identical 11,512 examples (`finlora.news.train_mix`). Results: `eval_*.json`,
 `compare_news.json`, `cascade_news.json`, `exports/arena_sentiment.json`.
 
+- **Tried and not kept: blending the LoRA model with FinBERT and TF-IDF.** Five candidates (LoRA alone, a weighted
+  log-probability blend, a logistic-regression stacker on all three models or on LoRA + FinBERT, per-class bias on LoRA)
+  were compared by 5-fold cross-validation on the dev sets only. The LoRA + FinBERT stacker won on dev (83.4% to 84.3%)
+  and was then scored once on test: tweets +0.8 points (paired 95% interval +0.1 to +1.5), headlines +0.0 (-2.6 to
+  +2.3), news snippets **-1.2** (-2.0 to -0.4). The dev gain did not carry over, so the shipped model is unchanged.
+  Reproduce: `python stack_news.py` (writes `stack_news.json`, about 10 minutes on a laptop GPU).
+
 ## Version 1: tweets only
 
 ![results](results.png)
