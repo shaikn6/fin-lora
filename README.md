@@ -1,8 +1,26 @@
 # fin-lora
 
+[![CI](https://github.com/shaikn6/fin-lora/actions/workflows/ci.yml/badge.svg)](https://github.com/shaikn6/fin-lora/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](.github/workflows/ci.yml)
+[![Live demo](https://img.shields.io/badge/Live%20demo-Hugging%20Face-FF9E0F)](https://huggingface.co/spaces/9mark9/fin-lora-attack-demo)
+
 Which model should classify financial sentiment (Bearish / Bullish / Neutral), and when is an LLM worth its cost?
 Model families are compared on held-out tweets (version 1) and then on news headlines and articles (version 2), with a
 confidence **cascade** that sends only the uncertain items to the expensive model.
+
+**At a glance** (details and caveats in the sections below):
+
+- **News (version 2):** Qwen2.5-0.5B + LoRA scores 84.7% on LLM-labelled news snippets vs 73.6% for FinBERT zero-shot
+  and 71.7% for TF-IDF; on 267 human-labelled headlines it scores 76.8% vs 71.2% and 73.4%, a lead that is not
+  statistically proven at that size.
+- **Tweets (version 1):** 90.7% vs 82.8% for TF-IDF + logistic regression trained on the same data.
+- **Cascade:** at threshold 0.8 it gives up 0.4 points of accuracy for a 63% cut in average latency on tweets; on news
+  it sends 70% of requests to the LLM, so it saves less.
+- **Attack (version 4):** on the four labeled sets, five inert appended words raise the cascade's error from 13% to
+  58%, while the LLM given the same edited text is at 18%.
+- **Try it:** [live demo](https://huggingface.co/spaces/9mark9/fin-lora-attack-demo) (append a sentence, watch the
+  probabilities move) · [published adapters](https://huggingface.co/9mark9/fin-lora-news-qwen2.5-0.5b).
 
 ## Version 4: can the cascade itself be attacked?
 
