@@ -1,0 +1,140 @@
+[
+  {
+    "model": "0.5B",
+    "clean_items": 80,
+    "trained_phrasings": {
+      "Instruction": {
+        "n": 80,
+        "hit_rate": 0.0,
+        "held_acc": 0.688
+      },
+      "Authority": {
+        "n": 80,
+        "hit_rate": 0.0,
+        "held_acc": 0.762
+      },
+      "Polite request": {
+        "n": 80,
+        "hit_rate": 0.0,
+        "held_acc": 0.825
+      },
+      "Annotation": {
+        "n": 80,
+        "hit_rate": 0.4,
+        "held_acc": 0.525
+      }
+    },
+    "unseen_phrasings": {
+      "Emotional": {
+        "n": 80,
+        "hit_rate": 0.087,
+        "held_acc": 0.7
+      },
+      "FakeCitation": {
+        "n": 80,
+        "hit_rate": 0.9,
+        "held_acc": 0.1
+      },
+      "CodeMarkup": {
+        "n": 80,
+        "hit_rate": 0.175,
+        "held_acc": 0.675
+      },
+      "FewShotPoison": {
+        "n": 80,
+        "hit_rate": 0.05,
+        "held_acc": 0.762
+      },
+      "MajorityVote": {
+        "n": 80,
+        "hit_rate": 0.1,
+        "held_acc": 0.738
+      },
+      "RoleWrap": {
+        "n": 80,
+        "hit_rate": 0.075,
+        "held_acc": 0.675
+      },
+      "Negation": {
+        "n": 80,
+        "hit_rate": 0.7,
+        "held_acc": 0.3
+      }
+    },
+    "worst_trained": {
+      "Annotation": 0.4
+    },
+    "worst_unseen": {
+      "FakeCitation": 0.9
+    }
+  },
+  {
+    "model": "0.5B-adv",
+    "clean_items": 80,
+    "trained_phrasings": {
+      "Instruction": {
+        "n": 80,
+        "hit_rate": 0.0,
+        "held_acc": 1.0
+      },
+      "Authority": {
+        "n": 80,
+        "hit_rate": 0.0,
+        "held_acc": 1.0
+      },
+      "Polite request": {
+        "n": 80,
+        "hit_rate": 0.0,
+        "held_acc": 1.0
+      },
+      "Annotation": {
+        "n": 80,
+        "hit_rate": 0.0,
+        "held_acc": 1.0
+      }
+    },
+    "unseen_phrasings": {
+      "Emotional": {
+        "n": 80,
+        "hit_rate": 0.013,
+        "held_acc": 0.963
+      },
+      "FakeCitation": {
+        "n": 80,
+        "hit_rate": 0.0,
+        "held_acc": 1.0
+      },
+      "CodeMarkup": {
+        "n": 80,
+        "hit_rate": 0.0,
+        "held_acc": 1.0
+      },
+      "FewShotPoison": {
+        "n": 80,
+        "hit_rate": 0.0,
+        "held_acc": 1.0
+      },
+      "MajorityVote": {
+        "n": 80,
+        "hit_rate": 0.0,
+        "held_acc": 0.988
+      },
+      "RoleWrap": {
+        "n": 80,
+        "hit_rate": 0.0,
+        "held_acc": 1.0
+      },
+      "Negation": {
+        "n": 80,
+        "hit_rate": 0.0,
+        "held_acc": 1.0
+      }
+    },
+    "worst_trained": {
+      "Instruction": 0.0
+    },
+    "worst_unseen": {
+      "Emotional": 0.013
+    }
+  }
+]
