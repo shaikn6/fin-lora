@@ -2,6 +2,7 @@ import json, torch
 from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from datasets import load_dataset
+from finlora.pins import revision
 
 # ---- replicate the Space exactly (fin-lora-attack-demo/app.py) ----
 LABELS = ["Bearish", "Bullish", "Neutral"]
@@ -30,8 +31,8 @@ MODELS = {
 }
 
 def load(base, adapter):
-    tok = AutoTokenizer.from_pretrained(base); tok.padding_side = "left"
-    m = AutoModelForCausalLM.from_pretrained(base, dtype=torch.bfloat16)
+    tok = AutoTokenizer.from_pretrained(base, revision=revision(base)); tok.padding_side = "left"
+    m = AutoModelForCausalLM.from_pretrained(base, dtype=torch.bfloat16, revision=revision(base))
     m = PeftModel.from_pretrained(m, adapter).eval().to(DEV)
     ids = [tok(" " + l, add_special_tokens=False).input_ids[0] for l in LABELS]
     return tok, m, ids
@@ -51,7 +52,7 @@ def predict(tok, m, ids, text):
     return LABELS[int(logits.argmax(-1))]
 
 # ---- data: tweets with gold labels; keep items the clean model gets right ----
-ds = load_dataset("zeroshot/twitter-financial-news-sentiment", split="validation")
+ds = load_dataset("zeroshot/twitter-financial-news-sentiment", split="validation", revision=revision("zeroshot/twitter-financial-news-sentiment"))
 gmap = {0:"Bearish",1:"Bullish",2:"Neutral"}
 pool = [(t, gmap[l]) for t, l in zip(ds["text"], ds["label"])][:400]
 N = 80  # attack budget per phrasing
