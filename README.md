@@ -1,5 +1,7 @@
 # fin-lora
 
+> **A 0.5B LoRA model that reads financial sentiment, knows when it is unsure, and is tested against an adversarial attack.**
+
 [![CI](https://github.com/shaikn6/fin-lora/actions/workflows/ci.yml/badge.svg)](https://github.com/shaikn6/fin-lora/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](.github/workflows/ci.yml)
