@@ -265,3 +265,6 @@ Code: MIT. Models (not redistributed here, downloaded from Hugging Face at run t
   commercial use.
 
 Check each dataset card before commercial use.
+
+---
+<sub>Part of [Nagizaaz Shaik's open-source work](https://github.com/shaikn6) · [all repositories](https://github.com/shaikn6?tab=repositories)</sub>
