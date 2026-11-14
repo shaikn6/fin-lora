@@ -2,6 +2,7 @@ import json, torch
 from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from datasets import load_dataset
+from finlora.pins import revision
 
 # ---- replicate the Space exactly (fin-lora-attack-demo/app.py) ----
 LABELS = ["Bearish", "Bullish", "Neutral"]
@@ -30,8 +31,8 @@ MODELS = {
 }
 
 def load(base, adapter):
-    tok = AutoTokenizer.from_pretrained(base); tok.padding_side = "left"
-    m = AutoModelForCausalLM.from_pretrained(base, dtype=torch.bfloat16)
+    tok = AutoTokenizer.from_pretrained(base, revision=revision(base)); tok.padding_side = "left"
+    m = AutoModelForCausalLM.from_pretrained(base, dtype=torch.bfloat16, revision=revision(base))
     m = PeftModel.from_pretrained(m, adapter).eval().to(DEV)
     ids = [tok(" " + l, add_special_tokens=False).input_ids[0] for l in LABELS]
     return tok, m, ids
@@ -51,7 +52,7 @@ def predict(tok, m, ids, text):
     return LABELS[int(logits.argmax(-1))]
 
 # ---- data: tweets with gold labels; keep items the clean model gets right ----
-ds = load_dataset("zeroshot/twitter-financial-news-sentiment", split="validation")
+ds = load_dataset("zeroshot/twitter-financial-news-sentiment", split="validation", revision=revision("zeroshot/twitter-financial-news-sentiment"))
 gmap = {0:"Bearish",1:"Bullish",2:"Neutral"}
 pool = [(t, gmap[l]) for t, l in zip(ds["text"], ds["label"])][:400]
 N = 80  # attack budget per phrasing
@@ -60,7 +61,6 @@ def evaluate(name, base, adapter):
     tok, m, ids = load(base, adapter)
     # items the model classifies correctly clean (a flip is only meaningful on these)
     correct = [(t, g) for t, g in pool if predict(tok, m, ids, t) == g][:N]
-    clean_acc = len(correct) / min(N, len([1 for t,g in pool[:N]]))  # ~ clean acc proxy on first N
     def run_set(phrasings):
         rows = {}
         for pname, templ in phrasings.items():
@@ -81,7 +81,7 @@ def evaluate(name, base, adapter):
     res["worst_trained"] = {worst_t[0]: worst_t[1]["hit_rate"]}
     res["worst_unseen"] = {worst_u[0]: worst_u[1]["hit_rate"]}
     print(f"[{name}] items={len(correct)} worst_trained={res['worst_trained']} worst_unseen={res['worst_unseen']}")
-    del m
+    m = None  # release the model; run_set closes over m, so rebind it instead of del (del makes ruff flag the closure as F821)
     return res
 
 out = [evaluate(n, b, a) for n, (b, a) in MODELS.items()]
