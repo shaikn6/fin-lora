@@ -84,7 +84,8 @@ laptop GPU).
 - **Adversarial training** (`train_news.py ... 16 1 0.3`: 30% of training texts get a planted instruction or polite request,
   true label kept) cuts the Neutral instruction from 22-82% to 3-15% with no clear accuracy cost, but the unseen
   annotation phrasing still forces Bullish on 34-55%.
-- **Not shown:** nothing about trading losses; nothing larger than 1.5B; harmless rewordings not yet human-rated; FX, bonds
+- **Not shown:** nothing about trading losses; no fine-tuned model larger than 1.5B (zero-shot base runs, including
+  Qwen2.5-3B and SmolLM2-1.7B, are in the `robustness_markets_*base_*.json` files but are not summarised here); harmless rewordings not yet human-rated; FX, bonds
   and banks untested (no suitable labeled data found). Financial PhraseBank accuracy is not meaningful (FinBERT was trained
   on it), so equities accuracy comes from the separate 267-headline run.
 - **Reproduce:** `python run_robustness.py [--models ...]` (equities headlines), `python run_robustness_markets.py --mode
@@ -258,6 +259,21 @@ from the `train_*.json` files, on a laptop GPU):
 Both training scripts print their arguments with `--help`.
 
 Served behind an authenticated API, with this cascade, in [finarena](https://github.com/shaikn6/finarena).
+
+### Supplementary result files
+
+Committed alongside the results above, not summarised in this README:
+
+- `robustness_unseen.md` (`run_robustness_unseen.py`, `robustness_unseen_lora_news_0.5b.json`): the standard and
+  adversarial 0.5B adapters against nine planted-label phrasings the adversarial adapter did not train on, on 80 tweets.
+- `study_cascade_nl.json` (`study_cascade_nl.py`): the version 4 suppress and force attacks against a linear gate and a
+  multilayer-perceptron gate on the same TF-IDF features.
+- `worked_example.json` (`worked_example.py`): every model's class probabilities on three headlines written for this
+  repository, before and after each planted text.
+- `markets_describe.json` (`describe_markets.py`): sizes, lengths and edit coverage of the five sampled markets.
+- `robustness_markets*_seed1.json` / `_seed2.json`, `robustness_markets_probes*.json` and the `*_items.json` files: the
+  extra sampling seeds, the position and cue probes of the planted annotation, and per-item predictions behind the
+  aggregate files.
 
 ## License
 
