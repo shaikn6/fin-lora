@@ -8,23 +8,23 @@
         "hit_rate": 0.0,
         "held_acc": 0.688
       },
+      "Polite request": {
+        "n": 80,
+        "hit_rate": 0.0,
+        "held_acc": 0.825
+      }
+    },
+    "unseen_phrasings": {
       "Authority": {
         "n": 80,
         "hit_rate": 0.0,
         "held_acc": 0.762
       },
-      "Polite request": {
-        "n": 80,
-        "hit_rate": 0.0,
-        "held_acc": 0.825
-      },
       "Annotation": {
         "n": 80,
         "hit_rate": 0.4,
         "held_acc": 0.525
-      }
-    },
-    "unseen_phrasings": {
+      },
       "Emotional": {
         "n": 80,
         "hit_rate": 0.087,
@@ -62,7 +62,7 @@
       }
     },
     "worst_trained": {
-      "Annotation": 0.4
+      "Instruction": 0.0
     },
     "worst_unseen": {
       "FakeCitation": 0.9
@@ -77,12 +77,14 @@
         "hit_rate": 0.0,
         "held_acc": 1.0
       },
-      "Authority": {
+      "Polite request": {
         "n": 80,
         "hit_rate": 0.0,
         "held_acc": 1.0
-      },
-      "Polite request": {
+      }
+    },
+    "unseen_phrasings": {
+      "Authority": {
         "n": 80,
         "hit_rate": 0.0,
         "held_acc": 1.0
@@ -91,9 +93,7 @@
         "n": 80,
         "hit_rate": 0.0,
         "held_acc": 1.0
-      }
-    },
-    "unseen_phrasings": {
+      },
       "Emotional": {
         "n": 80,
         "hit_rate": 0.013,
